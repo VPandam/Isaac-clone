@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="233.74113mm"
+   height="140.92863mm"
+   viewBox="0 0 233.74113 140.92864"
+   version="1.1"
+   id="svg9132"
+   inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="habitacion.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview9134"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.0482005"
+     inkscape:cx="570.50154"
+     inkscape:cy="275.2336"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <defs
+     id="defs9129" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-43.409479,-41.624621)">
+    <rect
+       style="fill:#deaa87;stroke:#000000;stroke-width:0.282001"
+       id="rect9158"
+       width="233.45914"
+       height="140.64664"
+       x="43.55048"
+       y="41.765621"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.230234"
+       id="rect9462"
+       width="33.787666"
+       height="7.1394229"
+       x="140.62598"
+       y="41.854866"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.230234"
+       id="rect9462-9"
+       width="33.787666"
+       height="7.1394229"
+       x="-130.0537"
+       y="43.550484"
+       transform="rotate(-90)"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.230234"
+       id="rect9462-3"
+       width="33.787666"
+       height="7.1394229"
+       x="140.70264"
+       y="174.91586"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.230234"
+       id="rect9462-36"
+       width="33.787666"
+       height="7.1394229"
+       x="-129.99075"
+       y="269.87018"
+       transform="rotate(-90)"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#a05a2c;stroke:#000000;stroke-width:0.282001"
+       id="rect920"
+       width="97.075493"
+       height="7.2286682"
+       x="43.55048"
+       y="41.765621"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#a05a2c;stroke:#000000;stroke-width:0.282001"
+       id="rect922"
+       width="102.59597"
+       height="7.2286682"
+       x="174.41364"
+       y="41.765621"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#a05a2c;stroke:#000000;stroke-width:0.282001"
+       id="rect926"
+       width="7.1394272"
+       height="54.500408"
+       x="43.55048"
+       y="41.765621"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#a05a2c;stroke:#000000;stroke-width:0.282001"
+       id="rect928"
+       width="7.1394272"
+       height="52.358566"
+       x="43.55048"
+       y="130.0537"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#a05a2c;stroke:#000000;stroke-width:0.282001"
+       id="rect930"
+       width="97.152153"
+       height="7.4963984"
+       x="43.55048"
+       y="174.91586"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#a05a2c;stroke:#000000;stroke-width:0.282001"
+       id="rect932"
+       width="102.51932"
+       height="7.4963984"
+       x="174.4903"
+       y="174.91586"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#a05a2c;stroke:#000000;stroke-width:0.282001"
+       id="rect934"
+       width="7.1394348"
+       height="52.421509"
+       x="269.87018"
+       y="129.99075"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#a05a2c;stroke:#000000;stroke-width:0.282001"
+       id="rect936"
+       width="7.1394348"
+       height="54.437462"
+       x="269.87018"
+       y="41.765621"
+       inkscape:export-filename="D:\Developer\GameDev\Projects\Isaac\Assets\Sprites\Habitacion-abierta.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>

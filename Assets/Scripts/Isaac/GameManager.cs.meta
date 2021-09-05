@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 782fd616cfcdfb6439f05be3780407d5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - romOpen: {fileID: 1842145965882953608, guid: db2c68e17d4242949bdb3466e47c313f,
+      type: 3}
+  - player: {fileID: 6424720462592374397, guid: 93225f48b522a564498301f7b474794a,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
