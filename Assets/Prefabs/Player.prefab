@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 802630036}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,8 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7856334d4eb33ef438f45edcd9a86a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 4
   Arrow: {fileID: 5315961047368399508, guid: 47154ee1670a50f478cf8dbb430678e9, type: 3}
   ShotInit: {fileID: 0}
+  shotSpeed: 3.17
 --- !u!114 &2648098003724662357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Arrow: {fileID: 5315961047368399508, guid: 47154ee1670a50f478cf8dbb430678e9, type: 3}
   ShotInit: {fileID: 5196682691440778537}
-  shotDelay: 0.69
+  shotDelay: 0.47
 --- !u!50 &802630037
 Rigidbody2D:
   serializedVersion: 4
