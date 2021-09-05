@@ -6,6 +6,10 @@ public class Room : MonoBehaviour
 {
     public List<Enemy> enemies = new List<Enemy>();
     public GameObject []doors;
+    public GameObject StartUp;
+    public GameObject StartDown;
+    public GameObject StartRight;
+    public GameObject StartLeft;
     // Start is called before the first frame update
     void Start()
     {

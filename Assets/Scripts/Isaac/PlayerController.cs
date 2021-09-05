@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed = 3f;
     public GameObject Arrow;
     public GameObject ShotInit;
-    public float shotSpeed = 2f;
+    float movementSpeed;
 
-    PlayerController sharedInstance;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-       if (sharedInstance == null)
-        {
-            sharedInstance = this;
-        }
+        movementSpeed = PlayerStats.instance.MoveSpeed;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -112,9 +106,12 @@ public class PlayerController : MonoBehaviour
 
         
     }
-    public float getShotSpeed()
+    private void OnTriggerExit2D (Collider2D collision)
     {
-        return shotSpeed;
+        if (collision.tag.Equals("ExitRight"))
+        {
+            RoomsController.instance.NewRoom("right");
+        }
     }
-
+ 
 }

@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
         if (IsPlayerInAttackRange() && currentState != enemyState.dead)
         {
             currentState = enemyState.follow;
-            Debug.Log("Player in range");
+
         }
     }
     IEnumerator ChooseDirection()

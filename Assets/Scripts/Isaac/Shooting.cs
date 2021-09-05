@@ -14,7 +14,7 @@ public class Shooting : MonoBehaviour
     public GameObject Arrow;
     public GameObject ShotInit;
 
-    public float shotDelay;
+    private float shotDelay;
     float nextShotTime;
 
     Animator animator;
@@ -26,6 +26,7 @@ public class Shooting : MonoBehaviour
         {
             shotDelay = 1f;
         }
+        shotDelay = PlayerStats.instance.FireRate;
     }
 
     // Update is called once per frame

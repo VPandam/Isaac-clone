@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6424720462592374396}
   - component: {fileID: 6424720462592374369}
   - component: {fileID: 2648098003724662357}
+  - component: {fileID: 8424231289732146327}
   - component: {fileID: 802630037}
   - component: {fileID: 802630036}
   m_Layer: 10
@@ -118,10 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7856334d4eb33ef438f45edcd9a86a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
   Arrow: {fileID: 5315961047368399508, guid: 47154ee1670a50f478cf8dbb430678e9, type: 3}
   ShotInit: {fileID: 0}
-  shotSpeed: 3.17
 --- !u!114 &2648098003724662357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +135,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Arrow: {fileID: 5315961047368399508, guid: 47154ee1670a50f478cf8dbb430678e9, type: 3}
   ShotInit: {fileID: 5196682691440778537}
-  shotDelay: 0.47
+--- !u!114 &8424231289732146327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6424720462592374397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f924ea40549a56346bc49700b539f7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10
+  moveSpeed: 4
+  fireRate: 0.5
+  shotSpeed: 5.21
 --- !u!50 &802630037
 Rigidbody2D:
   serializedVersion: 4
