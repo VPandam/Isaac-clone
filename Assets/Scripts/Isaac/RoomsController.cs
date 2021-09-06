@@ -52,8 +52,7 @@ public class RoomsController : MonoBehaviour {
     public void NewRoom()
     {
         Debug.Log("NewRoom");
-        newRoom = allRooms[1];
-        Instantiate(newRoom);
+        newRoom = Instantiate(allRooms[1]);
         newRoom.transform.SetParent(this.transform, false);
 
         //0 = up, 1 = down, 2 = right, 3 = left
