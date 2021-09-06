@@ -82,7 +82,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1294597685
-  m_SortingLayer: -3
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 85fb6b9b15bdeb14586b4bf4a6e737f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -109,10 +109,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   doors: []
+  exitZones: {fileID: 5969862965765338852}
   StartUp: {fileID: 5311915140795196643}
   StartDown: {fileID: 149928769261335143}
   StartRight: {fileID: 5895065806361450247}
   StartLeft: {fileID: 4894688953502960018}
+  x: 0
+  y: 0
 --- !u!1001 &1494754336145843049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,10 +123,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3321003733519010682}
     m_Modifications:
+    - target: {fileID: 4703200413488720910, guid: bea19a31ab28cff49986c694fcabb2dd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ExitUp
+      objectReference: {fileID: 0}
     - target: {fileID: 5073122027112584589, guid: bea19a31ab28cff49986c694fcabb2dd,
         type: 3}
       propertyPath: m_Name
       value: ExitZones
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073122027112584589, guid: bea19a31ab28cff49986c694fcabb2dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7165734935625154553, guid: bea19a31ab28cff49986c694fcabb2dd,
         type: 3}
@@ -180,8 +193,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9109554718729013202, guid: bea19a31ab28cff49986c694fcabb2dd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ExitLeft
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea19a31ab28cff49986c694fcabb2dd, type: 3}
+--- !u!1 &5969862965765338852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5073122027112584589, guid: bea19a31ab28cff49986c694fcabb2dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1494754336145843049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8633298039441300624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7165734935625154553, guid: bea19a31ab28cff49986c694fcabb2dd,
@@ -535,7 +559,7 @@ PrefabInstance:
     - target: {fileID: 8680551261366475336, guid: b884f4e46c46cf54b8f0a320c403cd01,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b884f4e46c46cf54b8f0a320c403cd01, type: 3}

@@ -149,10 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7aecaa198fb544e806a5bf691d51ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialRoom: {fileID: 3321003733519010663, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+  initialRoom: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
     type: 3}
   allRooms:
   - {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56, type: 3}
+  - {fileID: 7636642262742434048, guid: a1f08d0a1d575a74586b976be435b468, type: 3}
+  floorRooms: []
   player: {fileID: 6424720462592374397, guid: 93225f48b522a564498301f7b474794a, type: 3}
 --- !u!4 &717232940
 Transform:
@@ -179,6 +181,7 @@ GameObject:
   - component: {fileID: 1555808716}
   - component: {fileID: 1555808715}
   - component: {fileID: 1555808714}
+  - component: {fileID: 1555808717}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -251,6 +254,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1555808717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555808713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c32f4d7212c524a9820e2edd59382f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2032543910
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,10 @@ TagManager:
   - Enemy
   - Door
   - Room
+  - ExitDown
+  - ExitRight
+  - ExitLeft
+  - ExitUp
   layers:
   - Default
   - TransparentFX

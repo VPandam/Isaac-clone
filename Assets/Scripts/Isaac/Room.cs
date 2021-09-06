@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Room : MonoBehaviour
 {
     public List<Enemy> enemies = new List<Enemy>();
     public GameObject []doors;
+    public GameObject exitZones;
     public GameObject StartUp;
     public GameObject StartDown;
     public GameObject StartRight;
     public GameObject StartLeft;
+
+    public int x;
+    public int y;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +30,11 @@ public class Room : MonoBehaviour
             }
             Invoke("StartRoom" , 1f);
         };
+        Debug.Log(enemies.Count);
+        if (enemies.Count == 0)
+        {
+            Invoke("SetExitZonesActive", 1f);
+        }
     }
 
     // Update is called once per frame
@@ -60,5 +71,27 @@ public class Room : MonoBehaviour
             Destroy(door, 1f);
         }
     }
+    
+    //Exit zones are triggers in the doors, when activated generate a new room next to the exit zone.
+    public void SetExitZonesActive()
+    {
+        exitZones.SetActive(true);
+    }
 
+    public int getX()
+    {
+        return x;
+    }
+    public int getY()
+    {
+        return y;
+    }
+    public void SetX(int value)
+    {
+        x = value;
+    }
+    public void setY(int value)
+    {
+        y = value;
+    }
 }

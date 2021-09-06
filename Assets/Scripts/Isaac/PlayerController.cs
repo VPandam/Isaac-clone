@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public GameObject ShotInit;
     float movementSpeed;
 
+    Vector3 moveTo;
+
 
 
     private void Start()
@@ -80,38 +82,35 @@ public class PlayerController : MonoBehaviour
         }
 
         
-
-        //if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
-        //{
-        //    if (lastMoving == 2)
-        //    {
-        //        Instantiate(Arrow, ShotInit.transform.position, Quaternion.AngleAxis(-90, Vector3.forward));
-        //    }
-            
-        //    if (lastMoving == 4)
-        //    {
-        //        Instantiate(Arrow, ShotInit.transform.position, Quaternion.AngleAxis(180, Vector3.forward));
-        //    }
-        //    if (lastMoving == 3)
-        //    {
-        //        Instantiate(Arrow, ShotInit.transform.position, Quaternion.AngleAxis(0, Vector3.forward));
-        //    }
-        //    if (lastMoving == 1)
-        //    {
-        //        Instantiate(Arrow, ShotInit.transform.position, Quaternion.AngleAxis(90, Vector3.forward));
-        //    }
-
-        //}
-
-
-        
     }
     private void OnTriggerExit2D (Collider2D collision)
     {
-        if (collision.tag.Equals("ExitRight"))
-        {
-            RoomsController.instance.NewRoom("right");
-        }
+        
+        //if (collision.tag.Equals("ExitRight"))
+        //{
+        //    RoomsController.instance.NewRoom("right");
+        //}
+
+        //if (collision.tag.Equals("ExitLeft"))
+        //{
+        //    RoomsController.instance.NewRoom("left");
+        //}
+
+        //if (collision.tag.Equals("ExitUp"))
+        //{
+        //    RoomsController.instance.NewRoom("up");
+        //}
+
+        //if (collision.tag.Equals("ExitDown"))
+        //{
+        //    RoomsController.instance.NewRoom("down");
+        //}
+
     }
- 
+
+    public void MoveTo(Vector3 to)
+    {
+
+    }
+
 }
