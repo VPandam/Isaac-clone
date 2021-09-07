@@ -24,7 +24,8 @@ public class BulletPlayer : MonoBehaviour
     {
         if (collision.tag.Equals("Enemy"))
         {
-            collision.GetComponent<Enemy>().CollectHp(-1);
+            Enemy enemy = collision.GetComponent<Enemy>();
+            enemy.CollectHp(enemy);
             Destroy(gameObject);
         }
     }

@@ -14,7 +14,10 @@ public class Enemy : MonoBehaviour
     enemyState currentState;
     Transform enemyTransform;
 
-    public int currentHp;
+
+    float maxHp = 3f;
+    float currentHp = 3f;
+    float attackDamage = 1f;
 
     public float rangeAttack = 1f;
     public float speed = 1f;
@@ -144,18 +147,20 @@ public class Enemy : MonoBehaviour
         
     }
     
-    public void CollectHp (int hp)
+    public void CollectHp ( Enemy enemy)
     {
-        currentHp += hp;
+        currentHp -= PlayerStats.instance.AttackDamage;
         if (currentHp <= 0)
         {
-            var enemies = GameObject.FindGameObjectWithTag("Room").GetComponent<Room>().enemies;
-            enemies.Remove(this);
+            Room currentRoom = enemy.GetComponentInParent<Room>();
+            var enemies = currentRoom.enemies; 
+            
+            currentState = enemyState.dead;
+            enemies.Remove(enemy);
             if (enemies.Count == 0)
             {
-                GameObject.FindGameObjectWithTag("Room").GetComponent<Room>().OpenRoom();
+                currentRoom.OpenRoom();
             }
-            currentState = enemyState.dead;
         }
     }
     void OpenRoom()

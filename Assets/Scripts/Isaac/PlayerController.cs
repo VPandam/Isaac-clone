@@ -9,12 +9,13 @@ public class PlayerController : MonoBehaviour
     float movementSpeed;
 
     Vector3 moveTo;
-
+    CameraController camera;
 
 
     private void Start()
     {
         movementSpeed = PlayerStats.instance.MoveSpeed;
+        camera = Camera.main.GetComponent<CameraController>();
     }
     // Update is called once per frame
     void Update()
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit2D (Collider2D collision)
     {
-        
+
         //if (collision.tag.Equals("ExitRight"))
         //{
         //    RoomsController.instance.NewRoom("right");
@@ -105,12 +106,17 @@ public class PlayerController : MonoBehaviour
         //{
         //    RoomsController.instance.NewRoom("down");
         //}
+        Room room = collision.GetComponentInParent<Room>();
+        if (room)
+        {
+            camera.MoveCameraTo(room.transform.position);
+            room.Invoke("StartRoom", 1f);
+        }
+        
+        
 
     }
 
-    public void MoveTo(Vector3 to)
-    {
-
-    }
+    
 
 }

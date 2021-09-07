@@ -6,7 +6,7 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public List<Enemy> enemies = new List<Enemy>();
-    public GameObject []doors;
+    public List<GameObject> doors = new List<GameObject>();
     public GameObject exitZones;
     public GameObject StartUp;
     public GameObject StartDown;
@@ -20,17 +20,7 @@ public class Room : MonoBehaviour
     void Start()
     {
        
-        
 
-        if (enemies.Count > 0)
-        {
-            foreach (GameObject door in doors)
-            {
-                door.GetComponent<Animator>().SetBool("EnemiesAlive", true);
-            }
-            Invoke("StartRoom" , 1f);
-        };
-        Debug.Log(enemies.Count);
         if (enemies.Count == 0)
         {
             Invoke("SetExitZonesActive", 1f);
@@ -43,19 +33,25 @@ public class Room : MonoBehaviour
        
     }
 
-    void StartRoom()
+     public void StartRoom()
     {
+        
+
         CloseRoom();
         SpawnEnemies();
     }
     void CloseRoom()
     {
-        Debug.Log(doors.Length);
-        Debug.Log(enemies.Count);
-        foreach (GameObject door in doors)
+;
+        if(doors.Count != 0)
         {
-            door.SetActive(true);
+            foreach (GameObject door in doors)
+            {
+                door.SetActive(true);
+                door.GetComponent<Animator>().SetBool("EnemiesAlive", true);
+            }
         }
+
     }
     void SpawnEnemies()
     {
@@ -64,12 +60,16 @@ public class Room : MonoBehaviour
     }
     public void OpenRoom()
     {
-        
-        foreach (GameObject door in doors)
+        if (doors.Count != 0)
         {
-            door.GetComponent<Animator>().SetBool("EnemiesAlive", false);
-            Destroy(door, 1f);
+            foreach (GameObject door in doors)
+            {
+                door.GetComponent<Animator>().SetBool("EnemiesAlive", false);
+                Destroy(door, 1f);
+            }
+            doors.Clear();
         }
+
     }
     
     //Exit zones are triggers in the doors, when activated generate a new room next to the exit zone.

@@ -154,7 +154,10 @@ MonoBehaviour:
   allRooms:
   - {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56, type: 3}
   - {fileID: 7636642262742434048, guid: a1f08d0a1d575a74586b976be435b468, type: 3}
-  floorRooms: []
+  floorRooms:
+  - {fileID: 0}
+  - {fileID: 0}
+  currentRoom: {fileID: 0}
   player: {fileID: 6424720462592374397, guid: 93225f48b522a564498301f7b474794a, type: 3}
 --- !u!4 &717232940
 Transform:

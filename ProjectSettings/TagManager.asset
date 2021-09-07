@@ -11,6 +11,8 @@ TagManager:
   - ExitRight
   - ExitLeft
   - ExitUp
+  - ExitLEft
+  - RoomsController
   layers:
   - Default
   - TransparentFX
