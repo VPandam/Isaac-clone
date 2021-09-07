@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 717232939}
   m_Layer: 0
   m_Name: RoomsController
-  m_TagString: Untagged
+  m_TagString: RoomsController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,12 @@ MonoBehaviour:
   floorRooms:
   - {fileID: 0}
   - {fileID: 0}
-  currentRoom: {fileID: 0}
+  doorPrefab: {fileID: 8769796165222838934, guid: b884f4e46c46cf54b8f0a320c403cd01,
+    type: 3}
+  upDoorPrefab: {fileID: 8598442900924710974, guid: 6942642f84badca408b2cd3334977bbf,
+    type: 3}
+  doorSidePrefab: {fileID: 2842253072186422515, guid: 8893ca91eac94ea489d815ce5f2fc809,
+    type: 3}
   player: {fileID: 6424720462592374397, guid: 93225f48b522a564498301f7b474794a, type: 3}
 --- !u!4 &717232940
 Transform:

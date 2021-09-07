@@ -6,49 +6,56 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public List<Enemy> enemies = new List<Enemy>();
-    public List<GameObject> doors = new List<GameObject>();
+    public List<Door> doors = new List<Door>();
     public GameObject exitZones;
     public GameObject StartUp;
     public GameObject StartDown;
     public GameObject StartRight;
     public GameObject StartLeft;
 
+    public GameObject doorUpPos;
+    public GameObject doorRightPos;
+    public GameObject doorLeftPos;
+    public GameObject doorDownPos;
+
     public int x;
     public int y;
+    public int ID;
 
+
+    private void Awake()
+    {
+  
+    }
     // Start is called before the first frame update
     void Start()
     {
-       
 
         if (enemies.Count == 0)
         {
             Invoke("SetExitZonesActive", 1f);
         }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
 
      public void StartRoom()
     {
+        if (enemies.Count != 0)
+        {
+            CloseRoom();
+            SpawnEnemies();
+        }
         
-
-        CloseRoom();
-        SpawnEnemies();
     }
     void CloseRoom()
     {
-;
-        if(doors.Count != 0)
+
+        if (doors.Count != 0)
         {
-            foreach (GameObject door in doors)
+            foreach (Door door in doors)
             {
-                door.SetActive(true);
-                door.GetComponent<Animator>().SetBool("EnemiesAlive", true);
+                door.SetCurrentState(DoorState.open);
             }
         }
 
@@ -62,10 +69,10 @@ public class Room : MonoBehaviour
     {
         if (doors.Count != 0)
         {
-            foreach (GameObject door in doors)
+            foreach (Door door in doors)
             {
-                door.GetComponent<Animator>().SetBool("EnemiesAlive", false);
-                Destroy(door, 1f);
+                door.SetCurrentState(DoorState.open);
+                
             }
             doors.Clear();
         }
@@ -94,4 +101,14 @@ public class Room : MonoBehaviour
     {
         y = value;
     }
+
+    public void SetID(int value)
+    {
+        ID = value;
+    }
+    public void GetID(int value)
+    {
+        ID = value;
+    }
+
 }

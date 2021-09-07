@@ -15,13 +15,18 @@ public class RoomsController : MonoBehaviour {
     public List<Room> allRooms = new List<Room>();
     public List<Room> floorRooms = new List<Room>();
     private List<Room> floorLoaded = new List<Room>();
-    Room currentRoom;
-    
+    private Room currentRoom;
+    public Door doorPrefab;
+    public Door upDoorPrefab;
+    public Door doorSidePrefab;
+
     public Room CurrentRoom { get => currentRoom; set => currentRoom = value; }
     Room newRoom;
 
     Vector3 startNewRoom;
     Vector3 correction;
+    int roomID = 0;
+
 
     CameraController camera;
     public GameObject player;
@@ -36,6 +41,7 @@ public class RoomsController : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+
         Instantiate(player, gameObject.transform);
         camera = Camera.main.GetComponent<CameraController>();
 
@@ -43,7 +49,13 @@ public class RoomsController : MonoBehaviour {
         floorLoaded.Add(currentRoom);
         currentRoom.SetX(0); currentRoom.setY(0);
 
-        StartCoroutine("InstantiateAllRooms");
+        InstantiateAllRooms();
+        foreach (Room room in floorLoaded)
+        {
+            room.SetID(roomID);
+            roomID++;
+            InstantiateDoors(room);
+        }
 
         
     }
@@ -68,6 +80,7 @@ public class RoomsController : MonoBehaviour {
             //0 = up, 1 = down, 2 = right, 3 = left
             int direction = Random.Range(0, 3);
 
+
             int newRoomX;
             int newRoomY;
             switch (direction)
@@ -80,13 +93,14 @@ public class RoomsController : MonoBehaviour {
                     {
                         coordinateTaken = false;
                         newRoom = Instantiate(allRooms[Random.Range(0, allRooms.Count)]);
-                        newRoom.transform.SetParent(this.transform, false);
+                        //newRoom.transform.SetParent(this.transform, false);
+                        setNewRoomXY(newRoom, newRoomX, newRoomY);
 
                         startNewRoom = currentRoom.StartUp.transform.position;
                         correction = new Vector3(
                         startNewRoom.x - newRoom.StartDown.transform.position.x,
                         startNewRoom.y - newRoom.StartDown.transform.position.y, 0);
-                        setNewRoomXY(newRoom, newRoomX, newRoomY);
+                        
                     }
                     else
                     {
@@ -95,14 +109,16 @@ public class RoomsController : MonoBehaviour {
 
                     break;
                 case 1:
+
                     newRoomX = currentRoom.getX();
                     newRoomY = currentRoom.getY() - 1;
 
+      
                     if (!CheckCoordinate(newRoomX, newRoomY))
                     {
                         coordinateTaken = false;
                         newRoom = Instantiate(allRooms[Random.Range(0, allRooms.Count)]);
-                        newRoom.transform.SetParent(this.transform, false);
+                        //newRoom.transform.SetParent(this.transform, false);
 
                         startNewRoom = currentRoom.StartDown.transform.position;
                         correction = new Vector3(
@@ -120,11 +136,13 @@ public class RoomsController : MonoBehaviour {
                     newRoomX = currentRoom.getX() + 1;
                     newRoomY = currentRoom.getY();
 
+
                     if (!CheckCoordinate(newRoomX, newRoomY))
                     {
+
                         coordinateTaken = false;
                         newRoom = Instantiate(allRooms[Random.Range(0, allRooms.Count)]);
-                        newRoom.transform.SetParent(this.transform, false);
+                        //newRoom.transform.SetParent(this.transform, false);
 
                         startNewRoom = currentRoom.StartRight.transform.position;
                         correction = new Vector3(
@@ -142,11 +160,12 @@ public class RoomsController : MonoBehaviour {
                     newRoomX = currentRoom.getX() - 1;
                     newRoomY = currentRoom.getY();
 
+
                     if (!CheckCoordinate(newRoomX, newRoomY))
                     {
                         coordinateTaken = false;
                         newRoom = Instantiate(allRooms[Random.Range(0, allRooms.Count)]);
-                        newRoom.transform.SetParent(this.transform, false);
+                        //newRoom.transform.SetParent(this.transform, false);
 
                         startNewRoom = currentRoom.StartLeft.transform.position;
                         correction = new Vector3(
@@ -161,10 +180,12 @@ public class RoomsController : MonoBehaviour {
                     break;
             }
 
+
             if (!coordinateTaken)
             {
                 newRoom.transform.position = correction;
                 currentRoom = newRoom;
+                
                 floorLoaded.Add(currentRoom);
                 roomCreated = true;
                 Debug.Log(currentRoom.transform.position + " currentRoomTransformPos");
@@ -190,13 +211,40 @@ public class RoomsController : MonoBehaviour {
         }
         return coordinateTaken;
     }
-    IEnumerator InstantiateAllRooms()
+
+    //Check if there are rooms around the current room and instance door per room.
+    void InstantiateDoors(Room room)
+    {
+ 
+        Debug.Log(newRoom.transform.position + " newRoom transform on instantiate doors");
+        if (CheckCoordinate(room.x + 1, room.y))
+        {
+            room.doors.Add(Instantiate(doorSidePrefab, room.doorRightPos.transform));
+            
+        }
+        if (CheckCoordinate(room.x - 1, room.y))
+        {
+            room.doors.Add(Instantiate(doorSidePrefab, room.doorLeftPos.transform));
+             
+        }
+        if (CheckCoordinate(room.x, room.y +1))
+        {
+            room.doors.Add(Instantiate(upDoorPrefab, room.doorUpPos.transform));
+           
+        }
+        if (CheckCoordinate(room.x, room.y-1))
+        {
+            room.doors.Add(Instantiate(doorPrefab, room.doorDownPos.transform));
+            
+        }
+    }
+    void InstantiateAllRooms()
     {
  
         for(int i = 0;  i < 5; i++)
         {
             NewRoom();
-            yield return new WaitForSeconds(.2f);
+            
         }
 
     }
