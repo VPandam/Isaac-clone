@@ -7,7 +7,9 @@ public class Room : MonoBehaviour
 {
     public List<Enemy> enemies = new List<Enemy>();
     public List<Door> doors = new List<Door>();
+
     public GameObject exitZones;
+
     public GameObject StartUp;
     public GameObject StartDown;
     public GameObject StartRight;
@@ -22,6 +24,11 @@ public class Room : MonoBehaviour
     public int y;
     public int ID;
 
+    Room newxtRoomUp;
+    Room nextRoomDown;
+    Room nextRoomLeft;
+    Room nextRoomRight;
+
 
     private void Awake()
     {
@@ -30,15 +37,24 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        FindDoors();
         if (enemies.Count == 0)
         {
             Invoke("SetExitZonesActive", 1f);
+            
         }
-
+       
     }
 
+    void FindDoors()
+    {
+        Door[] foundDoors = gameObject.GetComponentsInChildren<Door>();
 
+        foreach (Door door in foundDoors)
+        {
+            doors.Add(door);
+        }
+    }
      public void StartRoom()
     {
         if (enemies.Count != 0)
@@ -50,14 +66,14 @@ public class Room : MonoBehaviour
     }
     void CloseRoom()
     {
-
-        if (doors.Count != 0)
+        
+        
+        foreach (Door door in doors)
         {
-            foreach (Door door in doors)
-            {
-                door.SetCurrentState(DoorState.open);
-            }
+            
+            door.SetCurrentState(DoorState.close);
         }
+        
 
     }
     void SpawnEnemies()
@@ -67,14 +83,10 @@ public class Room : MonoBehaviour
     }
     public void OpenRoom()
     {
-        if (doors.Count != 0)
+
+        foreach (Door door in doors)
         {
-            foreach (Door door in doors)
-            {
-                door.SetCurrentState(DoorState.open);
-                
-            }
-            doors.Clear();
+            door.SetCurrentState(DoorState.open);
         }
 
     }
@@ -106,9 +118,9 @@ public class Room : MonoBehaviour
     {
         ID = value;
     }
-    public void GetID(int value)
+    public int GetID()
     {
-        ID = value;
+        return ID; ;
     }
 
 }

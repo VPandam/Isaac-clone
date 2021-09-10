@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
         //{
         //    RoomsController.instance.NewRoom("down");
         //}
+        Debug.Log(collision.tag);
         Room room = collision.GetComponentInParent<Room>();
         if (room)
         {

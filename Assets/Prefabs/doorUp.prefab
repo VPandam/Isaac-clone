@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 697504877657365573}
   - component: {fileID: 5215381054053492448}
   - component: {fileID: 8598442900924710974}
+  - component: {fileID: 9042939905050664058}
   m_Layer: 0
   m_Name: doorUp
   m_TagString: Untagged
@@ -29,8 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children:
-  - {fileID: 9206746941243647524}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -115,44 +115,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
---- !u!1 &8087885788706082192
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9206746941243647524}
-  - component: {fileID: 335409940408612323}
-  m_Layer: 0
-  m_Name: DoorCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &9206746941243647524
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8087885788706082192}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 6361376559129436979}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &335409940408612323
+--- !u!61 &9042939905050664058
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8087885788706082192}
+  m_GameObject: {fileID: 6981718891884937580}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

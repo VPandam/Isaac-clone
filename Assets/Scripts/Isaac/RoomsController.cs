@@ -20,7 +20,7 @@ public class RoomsController : MonoBehaviour {
     public Door upDoorPrefab;
     public Door doorSidePrefab;
 
-    public Room CurrentRoom { get => currentRoom; set => currentRoom = value; }
+    
     Room newRoom;
 
     Vector3 startNewRoom;
@@ -76,6 +76,7 @@ public class RoomsController : MonoBehaviour {
         while (!roomCreated)
         {
             bool coordinateTaken = true;
+            
 
             //0 = up, 1 = down, 2 = right, 3 = left
             int direction = Random.Range(0, 3);
@@ -201,12 +202,15 @@ public class RoomsController : MonoBehaviour {
     bool CheckCoordinate(int newRoomX, int newRoomY)
     {
         bool coordinateTaken = false;
+        int roomID;
         foreach (Room room in floorLoaded)
         {
 
             if (room.getX() == newRoomX && room.getY() == newRoomY)
             {
                 coordinateTaken = true;
+                roomID = room.GetID();
+
             }
         }
         return coordinateTaken;
@@ -215,27 +219,28 @@ public class RoomsController : MonoBehaviour {
     //Check if there are rooms around the current room and instance door per room.
     void InstantiateDoors(Room room)
     {
- 
-        Debug.Log(newRoom.transform.position + " newRoom transform on instantiate doors");
         if (CheckCoordinate(room.x + 1, room.y))
         {
-            room.doors.Add(Instantiate(doorSidePrefab, room.doorRightPos.transform));
-            
+            Instantiate(doorPrefab, room.doorRightPos.transform.position, Quaternion.AngleAxis(90f, Vector3.forward) , room.transform);
+
         }
         if (CheckCoordinate(room.x - 1, room.y))
         {
-            room.doors.Add(Instantiate(doorSidePrefab, room.doorLeftPos.transform));
-             
+            Instantiate(doorPrefab , room.doorLeftPos.transform.position, Quaternion.AngleAxis(90f, Vector3.forward), room.transform);
+
+
         }
         if (CheckCoordinate(room.x, room.y +1))
         {
-            room.doors.Add(Instantiate(upDoorPrefab, room.doorUpPos.transform));
-           
+           Instantiate(upDoorPrefab, room.doorUpPos.transform.position, Quaternion.identity, room.transform);
+
+
         }
         if (CheckCoordinate(room.x, room.y-1))
         {
-            room.doors.Add(Instantiate(doorPrefab, room.doorDownPos.transform));
-            
+           Instantiate(doorPrefab, room.doorDownPos.transform.position, Quaternion.identity, room.transform);
+
+
         }
     }
     void InstantiateAllRooms()
@@ -254,8 +259,5 @@ public class RoomsController : MonoBehaviour {
         room.SetX(valueX); room.setY(valueY);
     }
 
-    public Room GetCurrentRoom()
-    {
-        return currentRoom;
-    }
+
 }

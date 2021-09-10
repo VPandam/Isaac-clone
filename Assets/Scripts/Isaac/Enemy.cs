@@ -163,16 +163,15 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    void OpenRoom()
-    {
-        GameObject[] enemiesRest = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log("finGameObjectsWithTagEnemy" + enemiesRest.Length + enemiesRest.GetValue(0));
+    //void OpenRoom(Room room)
+    //{
+    //    GameObject[] enemiesRest = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if (enemiesRest.Length == 0)
-        {
+    //    if (enemiesRest.Length == 0)
+    //    {
             
-            GameObject.FindGameObjectWithTag("Room").GetComponent<Room>().OpenRoom();
-        }
-    }
+    //        room.OpenRoom();
+    //    }
+    //}
 
 }

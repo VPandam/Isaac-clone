@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    float desiredDuration = 0.5f;
+    float desiredDuration = 0.2f;
 
 
     Vector3 LookAt = Vector3.zero;
@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour {
 
     public void MoveCameraSmooth(Vector3 position)
     {
-        
+        position.z = -9;
         float elapsedTime = 0;
         elapsedTime = elapsedTime += Time.deltaTime;
 

@@ -8,24 +8,24 @@ public enum DoorState{
 public class Door : MonoBehaviour
 {
     public DoorState currentState;
-    GameObject collider;
+    BoxCollider2D doorCollider;
     Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-        collider = GameObject.Find("DoorCollider");
+        doorCollider = gameObject.GetComponent<BoxCollider2D>();
         currentState = DoorState.open;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentState.Equals(DoorState.open))
+        if (currentState == DoorState.open)
         {
             OpenDoor();
         }
-        if (currentState.Equals(DoorState.close))
+        if (currentState == DoorState.close)
         {
             CloseDoor();
         }
@@ -33,13 +33,13 @@ public class Door : MonoBehaviour
 
     void OpenDoor()
     {
-        collider.GetComponent<Collider2D>().enabled = false;
+        doorCollider.enabled = false;
         animator.SetBool("Open", true);
     }
 
     void CloseDoor()
     {
-        collider.GetComponent<Collider2D>().enabled = true;
+        doorCollider.enabled = true;
         animator.SetBool("Open", false);
     }
 
