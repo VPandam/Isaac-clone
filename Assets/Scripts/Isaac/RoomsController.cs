@@ -18,7 +18,10 @@ public class RoomsController : MonoBehaviour {
     private Room currentRoom;
     public Door doorPrefab;
     public Door upDoorPrefab;
-    public Door doorSidePrefab;
+    public Door goldDoorPrefab;
+    public Door upGoldDoorPrefab;
+
+    bool instantiatedGoldRoom = false;
 
     
     Room newRoom;
@@ -63,45 +66,46 @@ public class RoomsController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("z"))
-        {
-            NewRoom();
-        }        
+     
+    
+  
     }
-
-    public void NewRoom()
+    public void NewRoom(bool goldRoom)
     {
+
         Debug.Log("NewRoom");
         bool roomCreated = false;
         while (!roomCreated)
         {
             bool coordinateTaken = true;
-            
+
 
             //0 = up, 1 = down, 2 = right, 3 = left
             int direction = Random.Range(0, 3);
-
+            Room randomLoadedRoom = floorLoaded[Random.Range(0, floorLoaded.Count)];
 
             int newRoomX;
             int newRoomY;
             switch (direction)
             {
                 case 0:
-                    newRoomX = currentRoom.getX();
-                    newRoomY = currentRoom.getY() + 1;
+                    newRoomX = randomLoadedRoom.getX();
+                    newRoomY = randomLoadedRoom.getY() + 1;
 
-                    if (!CheckCoordinate(newRoomX, newRoomY))
+                    if (!CheckCoordinate(newRoomX, newRoomY)[0])
                     {
                         coordinateTaken = false;
-                        newRoom = Instantiate(allRooms[Random.Range(0, allRooms.Count)]);
+                        if (goldRoom){newRoom = InstantiateRoom(true);
+                        }else { newRoom = InstantiateRoom(false); }
+                        
                         //newRoom.transform.SetParent(this.transform, false);
                         setNewRoomXY(newRoom, newRoomX, newRoomY);
 
-                        startNewRoom = currentRoom.StartUp.transform.position;
+                        startNewRoom = randomLoadedRoom.StartUp.transform.position;
                         correction = new Vector3(
                         startNewRoom.x - newRoom.StartDown.transform.position.x,
                         startNewRoom.y - newRoom.StartDown.transform.position.y, 0);
-                        
+
                     }
                     else
                     {
@@ -111,17 +115,18 @@ public class RoomsController : MonoBehaviour {
                     break;
                 case 1:
 
-                    newRoomX = currentRoom.getX();
-                    newRoomY = currentRoom.getY() - 1;
+                    newRoomX = randomLoadedRoom.getX();
+                    newRoomY = randomLoadedRoom.getY() - 1;
 
-      
-                    if (!CheckCoordinate(newRoomX, newRoomY))
+
+                    if (!CheckCoordinate(newRoomX, newRoomY)[0])
                     {
                         coordinateTaken = false;
-                        newRoom = Instantiate(allRooms[Random.Range(0, allRooms.Count)]);
+                        if (goldRoom){newRoom = InstantiateRoom(true);
+                        }else { newRoom = InstantiateRoom(false); }
                         //newRoom.transform.SetParent(this.transform, false);
 
-                        startNewRoom = currentRoom.StartDown.transform.position;
+                        startNewRoom = randomLoadedRoom.StartDown.transform.position;
                         correction = new Vector3(
                         startNewRoom.x - newRoom.StartUp.transform.position.x,
                         startNewRoom.y - newRoom.StartUp.transform.position.y, 0);
@@ -134,18 +139,19 @@ public class RoomsController : MonoBehaviour {
 
                     break;
                 case 2:
-                    newRoomX = currentRoom.getX() + 1;
-                    newRoomY = currentRoom.getY();
+                    newRoomX = randomLoadedRoom.getX() + 1;
+                    newRoomY = randomLoadedRoom.getY();
 
 
-                    if (!CheckCoordinate(newRoomX, newRoomY))
+                    if (!CheckCoordinate(newRoomX, newRoomY)[0])
                     {
 
                         coordinateTaken = false;
-                        newRoom = Instantiate(allRooms[Random.Range(0, allRooms.Count)]);
+                        if (goldRoom){newRoom = InstantiateRoom(true);
+                        }else { newRoom = InstantiateRoom(false); }
                         //newRoom.transform.SetParent(this.transform, false);
 
-                        startNewRoom = currentRoom.StartRight.transform.position;
+                        startNewRoom = randomLoadedRoom.StartRight.transform.position;
                         correction = new Vector3(
                         startNewRoom.x - newRoom.StartLeft.transform.position.x,
                         startNewRoom.y - newRoom.StartLeft.transform.position.y, 0);
@@ -158,17 +164,18 @@ public class RoomsController : MonoBehaviour {
 
                     break;
                 case 3:
-                    newRoomX = currentRoom.getX() - 1;
-                    newRoomY = currentRoom.getY();
+                    newRoomX = randomLoadedRoom.getX() - 1;
+                    newRoomY = randomLoadedRoom.getY();
 
 
-                    if (!CheckCoordinate(newRoomX, newRoomY))
+                    if (!CheckCoordinate(newRoomX, newRoomY)[0])
                     {
                         coordinateTaken = false;
-                        newRoom = Instantiate(allRooms[Random.Range(0, allRooms.Count)]);
+                        if (goldRoom){newRoom = InstantiateRoom(true);
+                        }else { newRoom = InstantiateRoom(false); }
                         //newRoom.transform.SetParent(this.transform, false);
 
-                        startNewRoom = currentRoom.StartLeft.transform.position;
+                        startNewRoom = randomLoadedRoom.StartLeft.transform.position;
                         correction = new Vector3(
                         startNewRoom.x - newRoom.StartRight.transform.position.x,
                         startNewRoom.y - newRoom.StartRight.transform.position.y, 0);
@@ -186,72 +193,131 @@ public class RoomsController : MonoBehaviour {
             {
                 newRoom.transform.position = correction;
                 currentRoom = newRoom;
-                
+
                 floorLoaded.Add(currentRoom);
                 roomCreated = true;
                 Debug.Log(currentRoom.transform.position + " currentRoomTransformPos");
             }
         }
-        
-        
-        
 
 
+
+
+
+
+    }
+    Room InstantiateRoom(bool goldRoom)
+    {
+        bool instantiatedRoom = false;
+        
+        while (instantiatedRoom == false)
+        {
+            Room roomToInstantiate;
+
+            if (goldRoom)
+            { roomToInstantiate = allRooms[2];
+            } else {roomToInstantiate = allRooms[Random.Range(0, allRooms.Count)]; }          
+
+            if (roomToInstantiate.isGold == true)
+            {
+                if (instantiatedGoldRoom == false)
+                {
+                    instantiatedGoldRoom = true;
+                    instantiatedRoom = true;
+                    return Instantiate(roomToInstantiate);
+                }
+            }
+            else
+            {
+                instantiatedRoom = true;
+                return Instantiate(roomToInstantiate);
+            }
+ 
+        }
+        return null;
         
     }
-    bool CheckCoordinate(int newRoomX, int newRoomY)
+    bool[] CheckCoordinate(int newRoomX, int newRoomY)
     {
         bool coordinateTaken = false;
-        int roomID;
+        bool isGold = false;
         foreach (Room room in floorLoaded)
         {
 
             if (room.getX() == newRoomX && room.getY() == newRoomY)
             {
                 coordinateTaken = true;
-                roomID = room.GetID();
+                if (room.isGold){
+                    isGold = true; 
+                }
+
 
             }
         }
-        return coordinateTaken;
+        bool[] values = { coordinateTaken, isGold };
+        return values;
     }
 
     //Check if there are rooms around the current room and instance door per room.
     void InstantiateDoors(Room room)
     {
-        if (CheckCoordinate(room.x + 1, room.y))
-        {
-            Instantiate(doorPrefab, room.doorRightPos.transform.position, Quaternion.AngleAxis(90f, Vector3.forward) , room.transform);
+        bool[] values;
 
+        values = CheckCoordinate(room.x + 1, room.y);
+        if (values[0])
+        {
+            if (values[1]) { Instantiate(goldDoorPrefab, room.doorRightPos.transform.position, Quaternion.AngleAxis(90f, Vector3.forward), room.transform); }
+            else
+            {
+                Instantiate(doorPrefab, room.doorRightPos.transform.position, Quaternion.AngleAxis(90f, Vector3.forward), room.transform);
+            }
         }
-        if (CheckCoordinate(room.x - 1, room.y))
+
+        values = CheckCoordinate(room.x - 1, room.y);
+        if (values[0])
         {
-            Instantiate(doorPrefab , room.doorLeftPos.transform.position, Quaternion.AngleAxis(90f, Vector3.forward), room.transform);
-
-
+            if (values[1]) { Instantiate(goldDoorPrefab, room.doorLeftPos.transform.position, Quaternion.AngleAxis(90f, Vector3.forward), room.transform); }
+            else
+            {
+                Instantiate(doorPrefab, room.doorLeftPos.transform.position, Quaternion.AngleAxis(90f, Vector3.forward), room.transform);
+            }
         }
-        if (CheckCoordinate(room.x, room.y +1))
+
+        values = CheckCoordinate(room.x, room.y + 1);
+        if (values[0])
         {
-           Instantiate(upDoorPrefab, room.doorUpPos.transform.position, Quaternion.identity, room.transform);
-
-
+            if (values[1]) { Instantiate(upGoldDoorPrefab, room.doorUpPos.transform.position, Quaternion.identity, room.transform); }
+            else
+            {
+                Instantiate(upDoorPrefab, room.doorUpPos.transform.position, Quaternion.identity, room.transform);
+            }
         }
-        if (CheckCoordinate(room.x, room.y-1))
+
+
+        values = CheckCoordinate(room.x, room.y - 1);
+        if (values[0])
         {
-           Instantiate(doorPrefab, room.doorDownPos.transform.position, Quaternion.identity, room.transform);
-
-
+            if (values[1]) { Instantiate(goldDoorPrefab, room.doorDownPos.transform.position, Quaternion.identity, room.transform); }
+            else
+            {
+                Instantiate(doorPrefab, room.doorDownPos.transform.position, Quaternion.identity, room.transform);
+            }
         }
     }
     void InstantiateAllRooms()
     {
  
-        for(int i = 0;  i < 5; i++)
+        for(int i = 0;  i < 10; i++)
         {
-            NewRoom();
+            NewRoom(false);
             
         }
 
+        if (!instantiatedGoldRoom)
+        {
+            NewRoom(true);
+        }
+            
     }
     
     public void setNewRoomXY(Room room, int valueX, int valueY)

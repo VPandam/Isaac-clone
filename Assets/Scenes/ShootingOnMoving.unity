@@ -154,6 +154,7 @@ MonoBehaviour:
   allRooms:
   - {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56, type: 3}
   - {fileID: 7636642262742434048, guid: a1f08d0a1d575a74586b976be435b468, type: 3}
+  - {fileID: 3684405801340094423, guid: 775048b4b34d402499d76fed891f9693, type: 3}
   floorRooms:
   - {fileID: 0}
   - {fileID: 0}
@@ -161,7 +162,9 @@ MonoBehaviour:
     type: 3}
   upDoorPrefab: {fileID: 8598442900924710974, guid: 6942642f84badca408b2cd3334977bbf,
     type: 3}
-  doorSidePrefab: {fileID: 2842253072186422515, guid: 8893ca91eac94ea489d815ce5f2fc809,
+  goldDoorPrefab: {fileID: 6984882774560859607, guid: fbc39e7b26c2734408140ec03192ccfd,
+    type: 3}
+  upGoldDoorPrefab: {fileID: 5582444639909560675, guid: cdaf4760c2e93ae4290ae5cd26e99c60,
     type: 3}
   player: {fileID: 6424720462592374397, guid: 93225f48b522a564498301f7b474794a, type: 3}
 --- !u!4 &717232940

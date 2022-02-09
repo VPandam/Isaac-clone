@@ -23,6 +23,7 @@ public class Room : MonoBehaviour
     public int x;
     public int y;
     public int ID;
+    public bool isGold;
 
     Room newxtRoomUp;
     Room nextRoomDown;
@@ -122,5 +123,7 @@ public class Room : MonoBehaviour
     {
         return ID; ;
     }
+
+    
 
 }
