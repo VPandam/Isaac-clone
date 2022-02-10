@@ -8,12 +8,20 @@ public class Room : MonoBehaviour
     public List<Enemy> enemies = new List<Enemy>();
     public List<Door> doors = new List<Door>();
 
+    //Sets the door state
+    public bool roomOpen;
+
+    //True if the player is been already in the room.
+    public bool playerEntered = false;
+
+    //Exit zones are the door triggers
     public GameObject exitZones;
 
-    public GameObject StartUp;
-    public GameObject StartDown;
-    public GameObject StartRight;
-    public GameObject StartLeft;
+
+    public GameObject roomSpawnTop;
+    public GameObject roomSpawnDown;
+    public GameObject roomSpawnRight;
+    public GameObject roomSpawnLeft;
 
     public GameObject doorUpPos;
     public GameObject doorRightPos;
@@ -33,7 +41,7 @@ public class Room : MonoBehaviour
 
     private void Awake()
     {
-  
+
     }
     // Start is called before the first frame update
     void Start()
@@ -42,9 +50,9 @@ public class Room : MonoBehaviour
         if (enemies.Count == 0)
         {
             Invoke("SetExitZonesActive", 1f);
-            
+
         }
-       
+
     }
 
     void FindDoors()
@@ -56,25 +64,25 @@ public class Room : MonoBehaviour
             doors.Add(door);
         }
     }
-     public void StartRoom()
+    public void StartRoom()
     {
         if (enemies.Count != 0)
         {
             CloseRoom();
             SpawnEnemies();
         }
-        
+
     }
     void CloseRoom()
     {
-        
-        
+
+        roomOpen = false;
         foreach (Door door in doors)
         {
-            
-            door.SetCurrentState(DoorState.close);
+
+            door.SetOpen(false);
         }
-        
+
 
     }
     void SpawnEnemies()
@@ -84,15 +92,15 @@ public class Room : MonoBehaviour
     }
     public void OpenRoom()
     {
-
+        roomOpen = true;
         foreach (Door door in doors)
         {
-            door.SetCurrentState(DoorState.open);
+            door.SetOpen(true);
         }
 
     }
-    
-    //Exit zones are triggers in the doors, when activated generate a new room next to the exit zone.
+
+    //Exit zones are triggers in the doors.
     public void SetExitZonesActive()
     {
         exitZones.SetActive(true);
@@ -124,6 +132,6 @@ public class Room : MonoBehaviour
         return ID; ;
     }
 
-    
+
 
 }

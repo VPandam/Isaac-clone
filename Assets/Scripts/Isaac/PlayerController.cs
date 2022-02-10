@@ -20,20 +20,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+
         if (Input.GetKey("a"))
         {
             gameObject.transform.Translate(-movementSpeed * Time.deltaTime, 0, 0);
             gameObject.GetComponent<Animator>().SetBool("movingLeft", true);
             gameObject.GetComponent<Animator>().SetBool("moving", true);
-            
+
         }
 
         if (Input.GetKeyUp("a"))
         {
             gameObject.GetComponent<Animator>().SetBool("movingLeft", false);
             gameObject.GetComponent<Animator>().SetBool("moving", false);
-            
+
         }
 
         if (Input.GetKey("d"))
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetBool("movingRight", false);
             gameObject.GetComponent<Animator>().SetBool("moving", false);
-            
+
         }
 
         if (Input.GetKey("w"))
@@ -56,14 +56,14 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.Translate(0, movementSpeed * Time.deltaTime, 0);
             gameObject.GetComponent<Animator>().SetBool("movingUp", true);
             gameObject.GetComponent<Animator>().SetBool("moving", true);
-            
+
 
         }
         if (Input.GetKeyUp("w"))
         {
             gameObject.GetComponent<Animator>().SetBool("movingUp", false);
             gameObject.GetComponent<Animator>().SetBool("moving", false);
-            
+
         }
 
         if (Input.GetKey("s"))
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.Translate(0, -movementSpeed * Time.deltaTime, 0);
             gameObject.GetComponent<Animator>().SetBool("movingDown", true);
             gameObject.GetComponent<Animator>().SetBool("moving", true);
-            
+
 
         }
 
@@ -79,12 +79,12 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetBool("movingDown", false);
             gameObject.GetComponent<Animator>().SetBool("moving", false);
-            
+
         }
 
-        
+
     }
-    private void OnTriggerExit2D (Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
 
         //if (collision.tag.Equals("ExitRight"))
@@ -111,13 +111,17 @@ public class PlayerController : MonoBehaviour
         if (room)
         {
             camera.MoveCameraTo(room.transform.position);
-            room.Invoke("StartRoom", 1f);
+            if (!room.playerEntered)
+            {
+                room.playerEntered = true;
+                room.Invoke("StartRoom", 1f);
+            }
         }
-        
-        
+
+
 
     }
 
-    
+
 
 }

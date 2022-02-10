@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DoorState{
-    open,close
-}
+
 public class Door : MonoBehaviour
 {
-    public DoorState currentState;
+    public bool open;
     BoxCollider2D doorCollider;
     Animator animator;
     // Start is called before the first frame update
@@ -15,17 +13,17 @@ public class Door : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         doorCollider = gameObject.GetComponent<BoxCollider2D>();
-        currentState = DoorState.open;
+        open = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentState == DoorState.open)
+        if (open)
         {
             OpenDoor();
         }
-        if (currentState == DoorState.close)
+        else
         {
             CloseDoor();
         }
@@ -43,8 +41,8 @@ public class Door : MonoBehaviour
         animator.SetBool("Open", false);
     }
 
-    public void SetCurrentState (DoorState value)
+    public void SetOpen(bool value)
     {
-        this.currentState = value;
+        open = value;
     }
 }
