@@ -5,13 +5,14 @@ using UnityEngine;
 enum shootDirection
 {
     up,
-    down, 
+    down,
     right,
-    left 
+    left
 }
 public class Shooting : MonoBehaviour
 {
-    public GameObject Arrow;
+
+    public GameObject currentTear;
     public GameObject ShotInit;
 
     private float shotDelay;
@@ -27,6 +28,8 @@ public class Shooting : MonoBehaviour
             shotDelay = 1f;
         }
         shotDelay = PlayerStats.instance.FireRate;
+        currentTear = PlayerStats.instance.CurrentTear;
+
     }
 
     // Update is called once per frame
@@ -34,9 +37,9 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetKey("right"))
         {
-            if( Time.time >= nextShotTime)
+            if (Time.time >= nextShotTime)
             {
-                Instantiate(Arrow, ShotInit.transform.position, Quaternion.AngleAxis(0, Vector3.forward));
+                Instantiate(currentTear, ShotInit.transform.position, Quaternion.AngleAxis(0, Vector3.forward));
                 nextShotTime = Time.time + shotDelay;
             }
 
@@ -55,11 +58,11 @@ public class Shooting : MonoBehaviour
         {
             if (Time.time >= nextShotTime)
             {
-                Instantiate(Arrow, ShotInit.transform.position, Quaternion.AngleAxis(180, Vector3.forward));
+                Instantiate(currentTear, ShotInit.transform.position, Quaternion.AngleAxis(180, Vector3.forward));
                 nextShotTime = Time.time + shotDelay;
-            
+
             }
-            
+
             setBoolFalse(shootDirection.left);
             gameObject.GetComponent<Animator>().SetBool("shooting", true);
             animator.SetBool("movingLeft", true);
@@ -76,11 +79,11 @@ public class Shooting : MonoBehaviour
         {
             if (Time.time >= nextShotTime)
             {
-                Instantiate(Arrow, ShotInit.transform.position, Quaternion.AngleAxis(90, Vector3.forward));
+                Instantiate(currentTear, ShotInit.transform.position, Quaternion.AngleAxis(90, Vector3.forward));
                 nextShotTime = Time.time + shotDelay;
 
             }
-            
+
             setBoolFalse(shootDirection.up);
             gameObject.GetComponent<Animator>().SetBool("shooting", true);
             animator.SetBool("movingUp", true);
@@ -97,11 +100,11 @@ public class Shooting : MonoBehaviour
         {
             if (Time.time >= nextShotTime)
             {
-                Instantiate(Arrow, ShotInit.transform.position, Quaternion.AngleAxis(-90, Vector3.forward)); ;
+                Instantiate(currentTear, ShotInit.transform.position, Quaternion.AngleAxis(-90, Vector3.forward)); ;
                 nextShotTime = Time.time + shotDelay;
 
             }
-            
+
             setBoolFalse(shootDirection.down);
             gameObject.GetComponent<Animator>().SetBool("shooting", true);
             animator.SetBool("movingDown", true);

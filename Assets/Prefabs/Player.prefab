@@ -52,6 +52,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cad1456ec6a3c4cb704019fdb39f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Arrow: {fileID: 5315961047368399508, guid: 47154ee1670a50f478cf8dbb430678e9, type: 3}
+  currentTear: {fileID: 0}
   ShotInit: {fileID: 5196682691440778537}
 --- !u!114 &8424231289732146327
 MonoBehaviour:
@@ -147,11 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f924ea40549a56346bc49700b539f7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
-  moveSpeed: 4
-  fireRate: 0.5
-  shotSpeed: 5.21
+  baseTear: {fileID: 5315961047368399508, guid: 47154ee1670a50f478cf8dbb430678e9,
+    type: 3}
 --- !u!50 &802630037
 Rigidbody2D:
   serializedVersion: 4
@@ -198,6 +197,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5552694766954946488, guid: b10910660d8ad974aa3977e52097fff8,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552694766954946488, guid: b10910660d8ad974aa3977e52097fff8,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.01
       objectReference: {fileID: 0}
@@ -213,6 +217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5552694766954946488, guid: b10910660d8ad974aa3977e52097fff8,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552694766954946488, guid: b10910660d8ad974aa3977e52097fff8,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -225,16 +234,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5552694766954946488, guid: b10910660d8ad974aa3977e52097fff8,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5552694766954946488, guid: b10910660d8ad974aa3977e52097fff8,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5552694766954946488, guid: b10910660d8ad974aa3977e52097fff8,
         type: 3}

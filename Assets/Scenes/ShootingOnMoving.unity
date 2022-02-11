@@ -213,15 +213,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7aecaa198fb544e806a5bf691d51ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammountOfInitialRooms: 10
   initialRoom: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
     type: 3}
   allRooms:
   - {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56, type: 3}
   - {fileID: 6294191939760740841, guid: 53f6b9898d3fe8e45a6c47a464f45154, type: 3}
   - {fileID: 6326599870842407012, guid: 3b5cd806ac6d5a94fb39a7ca9687d816, type: 3}
-  floorRooms:
-  - {fileID: 0}
-  - {fileID: 0}
+  goldRoomPrefab: {fileID: 0}
   doorPrefab: {fileID: 8769796165222838934, guid: b884f4e46c46cf54b8f0a320c403cd01,
     type: 3}
   upDoorPrefab: {fileID: 8598442900924710974, guid: 6942642f84badca408b2cd3334977bbf,

@@ -9,14 +9,17 @@ enum ExitSite
 
 public class RoomsController : MonoBehaviour
 {
-
+    //Singleton
     static public RoomsController instance;
-
+    //The ammount of rooms created per level
     public int ammountOfInitialRooms = 10;
+    //Prefab of the first room
     public Room initialRoom;
+    //List of all the room prefabs
     public List<Room> allRooms = new List<Room>();
-    public List<Room> floorRooms = new List<Room>();
-    private List<Room> floorLoaded = new List<Room>();
+    //Rooms already loaded
+    private List<Room> roomsLoaded = new List<Room>();
+    //The room we are working with
     private Room currentRoom;
 
     [SerializeField]
@@ -24,19 +27,23 @@ public class RoomsController : MonoBehaviour
     [SerializeField]
     Door doorPrefab;
     [SerializeField]
+    //Updoors have a different prefab with different colliders
     Door upDoorPrefab;
     [SerializeField]
     Door goldDoorPrefab;
     [SerializeField]
+    //Updoors have a different prefab with different colliders
     Door upGoldDoorPrefab;
 
-
+    //There should be only one gold room per floor.
     bool isGoldRoomLoaded = false;
 
-
+    //Used on NewRoom method
     Room newRoom;
-
+    //Used on NewRoom method
     Vector3 startNewRoom;
+    //Used on NewRoom method
+    //Position were we will move the new room
     Vector3 correction;
     int roomID = 0;
 
@@ -58,11 +65,11 @@ public class RoomsController : MonoBehaviour
         cam = Camera.main.GetComponent<CameraController>();
 
         currentRoom = Instantiate(initialRoom, gameObject.transform);
-        floorLoaded.Add(currentRoom);
+        roomsLoaded.Add(currentRoom);
         currentRoom.SetX(0); currentRoom.setY(0);
 
         InstantiateAllRooms();
-        foreach (Room room in floorLoaded)
+        foreach (Room room in roomsLoaded)
         {
             room.SetID(roomID);
             roomID++;
@@ -72,6 +79,10 @@ public class RoomsController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// //Instantiate a room with a random prefab next to one of the loaded rooms. 
+    /// </summary>
+    /// <param name="isGoldRoom">If true the room will be gold</param>
     public void NewRoom(bool isGoldRoom)
     {
         bool isRoomCreated = false;
@@ -80,10 +91,8 @@ public class RoomsController : MonoBehaviour
         while (!isRoomInPosition)
         {
 
-            //Instantiate a room with a random prefab next to one of the loaded rooms. 
-
             //Get the instance of a random room already loaded in the level.
-            Room randomLoadedRoom = floorLoaded[Random.Range(0, floorLoaded.Count)];
+            Room randomLoadedRoom = roomsLoaded[Random.Range(0, roomsLoaded.Count)];
 
             //0 = up, 1 = down, 2 = right, 3 = left
             int direction = Random.Range(0, 3);
@@ -111,7 +120,7 @@ public class RoomsController : MonoBehaviour
                 newRoom.transform.position = correction;
                 currentRoom = newRoom;
 
-                floorLoaded.Add(currentRoom);
+                roomsLoaded.Add(currentRoom);
                 isRoomInPosition = true;
                 Debug.Log(currentRoom.transform.position + " currentRoomTransformPos");
             }
@@ -128,7 +137,7 @@ public class RoomsController : MonoBehaviour
 
     /// <param name="baseRoom"> The base room </param>
     /// <param name="isGoldRoom"> If true, the room will be gold. </param>
-    /// <returns></returns>
+    /// <returns>True if the room is created or false if the coordinate is not free</returns>
     bool InstantiateRoomTop(Room baseRoom, bool isGoldRoom)
     {
         //Get the base room coordinates
@@ -170,7 +179,7 @@ public class RoomsController : MonoBehaviour
 
     /// <param name="baseRoom"> The base room </param>
     /// <param name="isGoldRoom"> If true, the room will be gold. </param>
-    /// <returns></returns>
+    /// <returns>True if the room is created or false if the coordinate is not free</returns>
     bool InstantiateRoomDown(Room baseRoom, bool isGoldRoom)
     {
         //Get the base room coordinates
@@ -212,7 +221,7 @@ public class RoomsController : MonoBehaviour
 
     /// <param name="baseRoom"> The base room </param>
     /// <param name="isGoldRoom"> If true, the room will be gold. </param>
-    /// <returns></returns>
+    /// <returns>True if the room is created or false if the coordinate is not free</returns>
     bool InstantiateRoomRight(Room baseRoom, bool isGoldRoom)
     {
         //Get the base room coordinates
@@ -254,7 +263,7 @@ public class RoomsController : MonoBehaviour
 
     /// <param name="baseRoom"> The base room </param>
     /// <param name="isGoldRoom"> If true, the room will be gold. </param>
-    /// <returns></returns>
+    /// <returns>True if the room is created or false if the coordinate is not free</returns>
     bool InstantiateRoomLeft(Room baseRoom, bool isGoldRoom)
     {
         //Get the base room coordinates
@@ -346,7 +355,7 @@ public class RoomsController : MonoBehaviour
     {
         bool coordinateTaken = false;
         bool isGold = false;
-        foreach (Room room in floorLoaded)
+        foreach (Room room in roomsLoaded)
         {
 
             if (room.getX() == newRoomX && room.getY() == newRoomY)

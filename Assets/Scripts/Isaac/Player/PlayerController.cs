@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject Arrow;
-    public GameObject ShotInit;
+
     float movementSpeed;
 
     Vector3 moveTo;
@@ -87,26 +86,6 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        //if (collision.tag.Equals("ExitRight"))
-        //{
-        //    RoomsController.instance.NewRoom("right");
-        //}
-
-        //if (collision.tag.Equals("ExitLeft"))
-        //{
-        //    RoomsController.instance.NewRoom("left");
-        //}
-
-        //if (collision.tag.Equals("ExitUp"))
-        //{
-        //    RoomsController.instance.NewRoom("up");
-        //}
-
-        //if (collision.tag.Equals("ExitDown"))
-        //{
-        //    RoomsController.instance.NewRoom("down");
-        //}
-        Debug.Log(collision.tag);
         Room room = collision.GetComponentInParent<Room>();
         if (room)
         {
@@ -117,11 +96,5 @@ public class PlayerController : MonoBehaviour
                 room.Invoke("StartRoom", 1f);
             }
         }
-
-
-
     }
-
-
-
 }
