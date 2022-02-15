@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Item : Pickup
 {
-    float attackSpeed;
-    int hp;
-    int range;
+    string effectDescription;
     public override void DoEffect()
     {
         base.DoEffect();

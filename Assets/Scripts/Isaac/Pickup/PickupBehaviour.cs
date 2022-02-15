@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupBehaviour : MonoBehaviour
 {
-    public Sword pickupSO;
+    public Item pickupSO;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

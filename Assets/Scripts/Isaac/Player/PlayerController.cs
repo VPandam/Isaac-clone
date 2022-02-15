@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour
     float movementSpeed;
 
     Vector3 moveTo;
-    CameraController camera;
+    CameraController cam;
 
 
     private void Start()
     {
         movementSpeed = PlayerStats.instance.MoveSpeed;
-        camera = Camera.main.GetComponent<CameraController>();
+        cam = Camera.main.GetComponent<CameraController>();
     }
     // Update is called once per frame
     void Update()
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         Room room = collision.GetComponentInParent<Room>();
         if (room)
         {
-            camera.MoveCameraTo(room.transform.position);
+            cam.MoveCameraTo(room.transform.position);
             if (!room.playerEntered)
             {
                 room.playerEntered = true;

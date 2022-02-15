@@ -15,7 +15,11 @@ public class PlayerStats : MonoBehaviour
     private float attackDamage = 3f;
 
     GameObject currentTear;
-    public GameObject baseTear;
+
+    [SerializeField]
+    GameObject baseTear;
+    Vector3 basicScaleBaseTear;
+    Color basicColorBaseTear;
 
     public int Health { get => health; set => health = value; }
     public int MaxHealth { get => maxHealth; set => maxHealth = value; }
@@ -31,11 +35,17 @@ public class PlayerStats : MonoBehaviour
 
         if (currentTear == null)
             currentTear = baseTear;
+
+        basicColorBaseTear = baseTear.GetComponent<SpriteRenderer>().color;
+        basicScaleBaseTear = baseTear.transform.localScale;
+
+        health = maxHealth;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnApplicationQuit()
     {
-
+        baseTear.transform.localScale = basicScaleBaseTear;
+        baseTear.GetComponent<SpriteRenderer>().color = basicColorBaseTear;
     }
 }
