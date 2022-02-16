@@ -83,17 +83,23 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    //
     private void OnTriggerExit2D(Collider2D collision)
     {
-
-        Room room = collision.GetComponentInParent<Room>();
-        if (room)
+        if (collision.CompareTag("DoorExitZone"))
         {
-            cam.MoveCameraTo(room.transform.position);
-            if (!room.playerEntered)
+
+            ExitZone exitZone = collision.GetComponent<ExitZone>();
+            Room roomToSpawn = exitZone.roomToSpawn;
+            if (roomToSpawn)
             {
-                room.playerEntered = true;
-                room.Invoke("StartRoom", 1f);
+                cam.MoveCameraTo(roomToSpawn.transform.position);
+                if (!roomToSpawn.playerEntered)
+                {
+                    roomToSpawn.playerEntered = true;
+                    roomToSpawn.Invoke("StartRoom", 1f);
+                }
+                this.gameObject.transform.position = exitZone.playerSpawnPosition;
             }
         }
     }

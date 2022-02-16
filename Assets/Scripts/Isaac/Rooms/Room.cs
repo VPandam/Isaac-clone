@@ -16,13 +16,24 @@ public class Room : MonoBehaviour
 
     //Exit zones are the door triggers
     public GameObject exitZones;
+    public ExitZone exitZoneUp;
+    public ExitZone exitZoneDown;
+    public ExitZone exitZoneRight;
+    public ExitZone exitZoneLeft;
 
-
+    //Position to spawn rooms
     public GameObject roomSpawnTop;
     public GameObject roomSpawnDown;
     public GameObject roomSpawnRight;
     public GameObject roomSpawnLeft;
 
+    //Position to spawn player when he enter the room
+    public GameObject playerSpawnTop;
+    public GameObject playerSpawnDown;
+    public GameObject playerSpawnRight;
+    public GameObject playerSpawnLeft;
+
+    //Position to spawn the doors
     public GameObject doorUpPos;
     public GameObject doorRightPos;
     public GameObject doorLeftPos;
@@ -33,10 +44,6 @@ public class Room : MonoBehaviour
     public int ID;
     public bool isGold;
 
-    Room newxtRoomUp;
-    Room nextRoomDown;
-    Room nextRoomLeft;
-    Room nextRoomRight;
 
 
     private void Awake()
@@ -46,7 +53,6 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindDoors();
         if (enemies.Count == 0)
         {
             Invoke("SetExitZonesActive", 1f);
@@ -55,7 +61,7 @@ public class Room : MonoBehaviour
 
     }
 
-    void FindDoors()
+    public void FindDoors()
     {
         Door[] foundDoors = gameObject.GetComponentsInChildren<Door>();
 

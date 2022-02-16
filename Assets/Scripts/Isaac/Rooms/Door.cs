@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DoorPos
+{
+    Up, Down, Right, Left
+}
 
 public class Door : MonoBehaviour
 {
     public bool open;
     BoxCollider2D doorCollider;
     Animator animator;
+
+    public DoorPos doorPos;
+
+    public
     // Start is called before the first frame update
     void Start()
     {

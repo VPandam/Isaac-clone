@@ -35,6 +35,8 @@ public class RoomsController : MonoBehaviour
     //Updoors have a different prefab with different colliders
     Door upGoldDoorPrefab;
 
+    public GameObject RoomsParent;
+
     //There should be only one gold room per floor.
     bool isGoldRoomLoaded = false;
 
@@ -75,8 +77,7 @@ public class RoomsController : MonoBehaviour
             roomID++;
             InstantiateDoors(room);
         }
-
-
+        ConenctDoors();
     }
 
     /// <summary>
@@ -329,13 +330,13 @@ public class RoomsController : MonoBehaviour
                 {
                     isGoldRoomLoaded = true;
                     roomLoaded = true;
-                    return Instantiate(roomToInstantiate);
+                    return Instantiate(roomToInstantiate, Vector3.zero, roomToInstantiate.transform.rotation, RoomsParent.transform);
                 }
             }
             else
             {
                 roomLoaded = true;
-                return Instantiate(roomToInstantiate);
+                return Instantiate(roomToInstantiate, Vector3.zero, roomToInstantiate.transform.rotation, RoomsParent.transform);
             }
 
         }
@@ -421,11 +422,18 @@ public class RoomsController : MonoBehaviour
         //If the door is in a side of the room, rotates the door prefab 90 degrees.
         Quaternion doorAngle = Quaternion.AngleAxis(90f, Vector3.forward);
 
+        Door door;
+
         //If the room is a gold one, instantiate a goldDoor prefab, else instantiate a normal door prefab. 
-        if (isGoldRoom) { Instantiate(goldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform); }
+        if (isGoldRoom)
+        {
+            door = Instantiate(goldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door.doorPos = DoorPos.Right;
+        }
         else
         {
-            Instantiate(doorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door = Instantiate(doorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door.doorPos = DoorPos.Right;
         }
     }
     void InstantiateLeftDoor(Room room, bool isGoldRoom)
@@ -437,10 +445,17 @@ public class RoomsController : MonoBehaviour
 
         //If the door is in a side of the room, rotates the door prefab 90 degrees.
         Quaternion doorAngle = Quaternion.AngleAxis(90f, Vector3.forward);
-        if (isGoldRoom) { Instantiate(goldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform); }
+
+        Door door;
+        if (isGoldRoom)
+        {
+            door = Instantiate(goldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door.doorPos = DoorPos.Left;
+        }
         else
         {
-            Instantiate(doorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door = Instantiate(doorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door.doorPos = DoorPos.Left;
         }
     }
     void InstantiateTopDoor(Room room, bool isGoldRoom)
@@ -452,10 +467,17 @@ public class RoomsController : MonoBehaviour
 
         //If the door is in a side of the room, rotates the door prefab 90 degrees.
         Quaternion doorAngle = Quaternion.identity;
-        if (isGoldRoom) { Instantiate(upGoldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform); }
+
+        Door door;
+        if (isGoldRoom)
+        {
+            door = Instantiate(upGoldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door.doorPos = DoorPos.Up;
+        }
         else
         {
-            Instantiate(upDoorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door = Instantiate(upDoorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door.doorPos = DoorPos.Up;
         }
     }
     void InstantiateDownDoor(Room room, bool isGoldRoom)
@@ -467,14 +489,68 @@ public class RoomsController : MonoBehaviour
 
         //If the door is in a side of the room, rotates the door prefab 90 degrees.
         Quaternion doorAngle = Quaternion.identity;
-        if (isGoldRoom) { Instantiate(goldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform); }
+
+        Door door;
+        if (isGoldRoom)
+        {
+            door = Instantiate(goldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door.doorPos = DoorPos.Down;
+        }
         else
         {
-            Instantiate(doorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door = Instantiate(doorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+            door.doorPos = DoorPos.Down;
         }
     }
 
     #endregion
+
+    /// <summary>
+    /// Once all doors are instantiated, set connections between them.
+    /// </summary>
+    void ConenctDoors()
+    {
+        foreach (var room in roomsLoaded)
+        {
+            room.FindDoors();
+            foreach (var door in room.doors)
+            {
+                SetDoorSpawnPos(door, room);
+            }
+        }
+    }
+
+    void SetDoorSpawnPos(Door door, Room room)
+    {
+        Room roomToConnect;
+        //Depending on the door position, find the room to connect with and set the player spawn position.
+        switch (door.doorPos)
+        {
+            case DoorPos.Up:
+                roomToConnect = roomsLoaded.Find(loadedRoom => loadedRoom.x == room.x && loadedRoom.y == room.y + 1);
+                room.exitZoneUp.playerSpawnPosition = roomToConnect.playerSpawnDown.transform.position;
+                room.exitZoneUp.roomToSpawn = roomToConnect;
+                break;
+            case DoorPos.Down:
+                roomToConnect = roomsLoaded.Find(loadedRoom => loadedRoom.x == room.x && loadedRoom.y == room.y - 1);
+                room.exitZoneDown.playerSpawnPosition = roomToConnect.playerSpawnTop.transform.position;
+                room.exitZoneDown.roomToSpawn = roomToConnect;
+                break;
+            case DoorPos.Right:
+                roomToConnect = roomsLoaded.Find(loadedRoom => loadedRoom.x == room.x + 1 && loadedRoom.y == room.y);
+                room.exitZoneRight.playerSpawnPosition = roomToConnect.playerSpawnLeft.transform.position;
+                room.exitZoneRight.roomToSpawn = roomToConnect;
+                break;
+            case DoorPos.Left:
+                roomToConnect = roomsLoaded.Find(loadedRoom => loadedRoom.x == room.x - 1 && loadedRoom.y == room.y);
+                room.exitZoneLeft.playerSpawnPosition = roomToConnect.playerSpawnRight.transform.position;
+                room.exitZoneLeft.roomToSpawn = roomToConnect;
+                break;
+
+            default:
+                break;
+        }
+    }
 
     void InstantiateAllRooms()
     {
