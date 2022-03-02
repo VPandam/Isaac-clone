@@ -6,13 +6,16 @@ public class PlayerStats : MonoBehaviour
 {
     // Start is called before the first frame update
     public static PlayerStats instance;
+    public StatsScrO playerStatsScrO;
+    private int currentHealth;
+    private int maxHealth;
+    private float moveSpeed;
+    private float fireRate;
+    private float shotSpeed;
+    private float attackDamage;
 
-    private int health = 10;
-    private int maxHealth = 10;
-    private float moveSpeed = 4f;
-    private float fireRate = 0.5f;
-    private float shotSpeed = 3f;
-    private float attackDamage = 3f;
+    public delegate void OnHpChange(int hpChange);
+    public OnHpChange OnHpChangeCallback;
 
     GameObject currentTear;
 
@@ -21,7 +24,7 @@ public class PlayerStats : MonoBehaviour
     Vector3 basicScaleBaseTear;
     Color basicColorBaseTear;
 
-    public int Health { get => health; set => health = value; }
+    public int CurrentHealth { get => currentHealth; set => currentHealth = value; }
     public int MaxHealth { get => maxHealth; set => maxHealth = value; }
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public float FireRate { get => fireRate; set => fireRate = value; }
@@ -33,13 +36,25 @@ public class PlayerStats : MonoBehaviour
         if (instance == null)
             instance = this;
 
+        GetStatsFromSO();
+
         if (currentTear == null)
             currentTear = baseTear;
+
 
         basicColorBaseTear = baseTear.GetComponent<SpriteRenderer>().color;
         basicScaleBaseTear = baseTear.transform.localScale;
 
-        health = maxHealth;
+        currentHealth = maxHealth;
+
+    }
+    void GetStatsFromSO()
+    {
+        maxHealth = playerStatsScrO.maxHealth;
+        attackDamage = playerStatsScrO.attackDamage;
+        fireRate = playerStatsScrO.fireRate;
+        moveSpeed = playerStatsScrO.moveSpeed;
+        shotSpeed = playerStatsScrO.shotSpeed;
 
     }
 
@@ -48,4 +63,14 @@ public class PlayerStats : MonoBehaviour
         baseTear.transform.localScale = basicScaleBaseTear;
         baseTear.GetComponent<SpriteRenderer>().color = basicColorBaseTear;
     }
+
+    public void UpdateHp(int hpUpdate)
+    {
+        CurrentHealth -= hpUpdate;
+        if (OnHpChangeCallback != null)
+        {
+            OnHpChangeCallback.Invoke(hpUpdate);
+        }
+    }
+
 }

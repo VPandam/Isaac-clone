@@ -51,7 +51,6 @@ public class RoomsController : MonoBehaviour
 
 
     CameraController cam;
-    public GameObject player;
 
     private void Awake()
     {
@@ -62,8 +61,6 @@ public class RoomsController : MonoBehaviour
     }
     void Start()
     {
-
-        Instantiate(player, gameObject.transform);
         cam = Camera.main.GetComponent<CameraController>();
 
         currentRoom = Instantiate(initialRoom, gameObject.transform);
@@ -520,10 +517,16 @@ public class RoomsController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set the spawn position of the player when crossing a specific door.
+    /// </summary>
+    /// <param name="door">The door</param>
+    /// <param name="room">The room where the door is</param>
     void SetDoorSpawnPos(Door door, Room room)
     {
         Room roomToConnect;
         //Depending on the door position, find the room to connect with and set the player spawn position.
+        //This variable is stored in each exit zone of each door.
         switch (door.doorPos)
         {
             case DoorPos.Up:
