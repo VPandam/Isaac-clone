@@ -153,7 +153,7 @@ TextureImporter:
       213: -6522214886090126133
     second: AtlasZelda_49
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -173,6 +173,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -182,8 +184,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -204,9 +206,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1307,6 +1313,57 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      AtlasZelda_21: 3331162688431782372
+      AtlasZelda_1: 8513295086837213880
+      AtlasZelda_14: -7893833031696522142
+      AtlasZelda_48: -1117566973073816989
+      AtlasZelda_17: 563677123246799221
+      AtlasZelda_34: -9122662766214783576
+      AtlasZelda_40: -3252675426564585480
+      AtlasZelda_18: 2587026710117006468
+      AtlasZelda_43: 9164408337777762983
+      AtlasZelda_45: 2266178217940905585
+      AtlasZelda_4: 8372731605614003885
+      AtlasZelda_32: 7717412609954264358
+      AtlasZelda_28: -3756805492037502928
+      AtlasZelda_37: -8615582049282172280
+      AtlasZelda_27: -1212521784405046191
+      AtlasZelda_7: -3538581002591973314
+      AtlasZelda_25: 6595067603451848156
+      AtlasZelda_22: 1539894334026033139
+      AtlasZelda_31: -3711688482360737382
+      AtlasZelda_42: 5672444787878861299
+      AtlasZelda_24: 673815627908255573
+      AtlasZelda_10: -7749086404424439054
+      AtlasZelda_13: -9105880558115992208
+      AtlasZelda_0: 7276521108496876563
+      AtlasZelda_16: -238722686810467810
+      AtlasZelda_41: -3394869854882160150
+      AtlasZelda_19: -1642543214985577866
+      AtlasZelda_35: -1655951427440534945
+      AtlasZelda_49: -6522214886090126133
+      AtlasZelda_44: 4212157296660027465
+      AtlasZelda_3: 6321546295933964657
+      AtlasZelda_2: -5486048964341209650
+      AtlasZelda_9: -6838308760367133319
+      AtlasZelda_36: -6020137994004618013
+      AtlasZelda_11: 4741958493509754363
+      AtlasZelda_20: -4731304960639827120
+      AtlasZelda_15: 1441239419511850402
+      AtlasZelda_38: -4171101946913329499
+      AtlasZelda_46: 8438702994415432860
+      AtlasZelda_39: 7434692305410207944
+      AtlasZelda_5: -4005920184409195865
+      AtlasZelda_8: 6698369812412030193
+      AtlasZelda_12: -379066947037474067
+      AtlasZelda_29: -4974581442932944981
+      AtlasZelda_30: 6530192503322480931
+      AtlasZelda_26: 561094745997374892
+      AtlasZelda_23: 5020463409692160025
+      AtlasZelda_6: -4470889379505671701
+      AtlasZelda_47: -927340984669482053
+      AtlasZelda_33: 81042092192540475
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

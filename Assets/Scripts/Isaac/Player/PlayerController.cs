@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum MovingDirection
 {
@@ -9,7 +10,7 @@ public enum MovingDirection
 public class PlayerController : MonoBehaviour
 {
     static public PlayerController instance;
-    float movementSpeed;
+    [SerializeField] float movementSpeed = 3;
 
     CameraController cam;
 
@@ -32,7 +33,13 @@ public class PlayerController : MonoBehaviour
     //The amount of force you need to apply to the joyastick to be capted
     public float sensibility = 0.3f;
 
+    // Controller controls;
+    public InputActions controls;
+    Vector2 controlsMovement;
     Rigidbody2D rb;
+    bool moving;
+    Vector2 movementInput;
+
 
     private void Awake()
     {
@@ -40,6 +47,17 @@ public class PlayerController : MonoBehaviour
         {
             instance = this;
         }
+
+        controls = new InputActions();
+        controls.Enable();
+        // controls.Player.Move.performed += Move;
+
+        controls.Player.Move.canceled += ctxt =>
+        {
+            movementInput = Vector2.zero;
+        };
+
+
     }
     private void Start()
     {
@@ -52,47 +70,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        horizontalKeys = Input.GetAxisRaw("HorizontalKeys");
-        vertical = Input.GetAxisRaw("Vertical");
-        verticalKeys = Input.GetAxisRaw("VerticalKeys");
-
-        bool joystickNotMoving = horizontal < sensibility && horizontal > -sensibility && vertical < sensibility && vertical > -sensibility;
-        bool keysNotMoving = horizontalKeys < sensibility && horizontalKeys > -sensibility && verticalKeys < sensibility && verticalKeys > -sensibility;
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SwapToKeyboard();
-            Debug.Log("Using keyboard");
-        }
-        if (Input.GetButtonDown("Submit"))
-        {
-            SwapToJoystick();
-            Debug.Log("Using Joystick");
-        }
+        movementInput = controls.Player.Move.ReadValue<Vector2>();
 
 
-        if (usingJoystick && !joystickNotMoving)
-        {
-            animator.SetFloat(HORIZONTAL, horizontal);
-            animator.SetFloat(VERTICAL, vertical);
-            animator.SetBool(MOVING, true);
-            Vector3 movement = new Vector3(horizontal, vertical, 0).normalized;
-            transform.Translate(movement * Time.deltaTime * movementSpeed);
-        }
 
-        if (usingKeyboard && !keysNotMoving)
-        {
-            animator.SetFloat(HORIZONTAL, horizontalKeys);
-            animator.SetFloat(VERTICAL, verticalKeys);
-            animator.SetBool(MOVING, true);
-            transform.Translate(movementSpeed * Time.deltaTime * horizontalKeys, movementSpeed * Time.deltaTime * verticalKeys, 0);
-        }
-
-        bool movingRightInput = ((horizontal > sensibility && usingJoystick) || (horizontalKeys > sensibility && usingKeyboard));
-        bool movingLeftInput = ((horizontal < -sensibility && usingJoystick) || (horizontalKeys < -sensibility && usingKeyboard));
-        bool movingUpInput = ((vertical < -sensibility && usingJoystick) || (verticalKeys < -sensibility && usingKeyboard));
-        bool movingDownInput = ((vertical > sensibility && usingJoystick) || (verticalKeys > sensibility && usingKeyboard));
+        bool movingRightInput = (movementInput.x > sensibility);
+        bool movingLeftInput = (movementInput.x < -sensibility);
+        bool movingUpInput = (movementInput.y < -sensibility);
+        bool movingDownInput = (movementInput.y > sensibility);
 
         /// There are 4 different IDLE aniamtions.
         /// Last moving direction is a parameter used in the player animator to activate each animation.
@@ -114,24 +99,30 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if ((joystickNotMoving && usingJoystick) ||
-        (keysNotMoving && usingKeyboard))
+        if (!moving)
         {
             animator.SetBool(MOVING, false);
         }
 
 
     }
-    public void SwapToKeyboard()
+    private void FixedUpdate()
     {
-        usingKeyboard = true;
-        usingJoystick = false;
+        // // Debug.Log(movementInput);
+        moving = movementInput.normalized.magnitude > sensibility;
+
+        if (movementInput.normalized.magnitude > sensibility)
+            Move();
     }
-    public void SwapToJoystick()
+    void Move()
     {
-        usingKeyboard = false;
-        usingJoystick = true;
+        Debug.Log(movementInput);
+        animator.SetFloat(HORIZONTAL, movementInput.x);
+        animator.SetFloat(VERTICAL, movementInput.y);
+        animator.SetBool(MOVING, true);
+        rb.MovePosition(rb.position + movementInput * movementSpeed * Time.deltaTime);
     }
+
 
     /// <summary>
     /// When crossing a door, move the camera to the new room.

@@ -20,12 +20,14 @@ public class BulletPlayer : MonoBehaviour
         gameObject.transform.Translate(new Vector3(PlayerStats.instance.ShotSpeed * Time.deltaTime, 0, 0));
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.tag.Equals("Enemy"))
+        Debug.Log("OnTriger");
+        if (other.tag.Equals("Enemy") || other.tag.Equals("Wall"))
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
-            enemy.CollectHp(enemy);
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy)
+                enemy.CollectHp(enemy);
             Destroy(gameObject);
         }
     }
