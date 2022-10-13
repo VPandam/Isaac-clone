@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
 
         controls = new InputActions();
         controls.Enable();
-        // controls.Player.Move.performed += Move;
 
         controls.Player.Move.canceled += ctxt =>
         {
@@ -67,7 +66,8 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main.GetComponent<CameraController>();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
-    // Update is called once per frame
+
+
     void Update()
     {
         movementInput = controls.Player.Move.ReadValue<Vector2>();
@@ -108,7 +108,6 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        // // Debug.Log(movementInput);
         moving = movementInput.normalized.magnitude > sensibility;
 
         if (movementInput.normalized.magnitude > sensibility)
@@ -116,7 +115,6 @@ public class PlayerController : MonoBehaviour
     }
     void Move()
     {
-        Debug.Log(movementInput);
         animator.SetFloat(HORIZONTAL, movementInput.x);
         animator.SetFloat(VERTICAL, movementInput.y);
         animator.SetBool(MOVING, true);
@@ -154,5 +152,9 @@ public class PlayerController : MonoBehaviour
                 this.gameObject.transform.position = exitZone.playerSpawnPosition;
             }
         }
+    }
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 }

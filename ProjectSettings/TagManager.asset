@@ -8,13 +8,13 @@ TagManager:
   - Door
   - Room
   - RoomsController
-  - DoorRightSpawnPos
-  - DoorLeftSpawnPos
-  - DoorUpSpawnPos
-  - DoorDownSpawnPos
   - DoorCollider
   - DoorExitZone
   - Bullet
+  - Wall
+  - ExitDown
+  - ExitRight
+  - ExitLEft
   layers:
   - Default
   - TransparentFX

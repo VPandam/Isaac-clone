@@ -16,8 +16,7 @@ public class UpdateHpUI : MonoBehaviour
         {
             for (int i = 0; i < playerStats.MaxHealth / 2; i++)
             {
-                GameObject hp = Instantiate(hpGO);
-                hp.transform.SetParent(hpContainer.transform, true);
+                GameObject hp = Instantiate(hpGO, hpContainer.transform);
             }
         }
 

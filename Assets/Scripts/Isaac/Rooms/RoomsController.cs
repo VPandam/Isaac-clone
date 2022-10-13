@@ -86,6 +86,7 @@ public class RoomsController : MonoBehaviour
         bool isRoomCreated = false;
         bool isRoomInPosition = false;
         newRoom = null;
+
         while (!isRoomInPosition)
         {
 
@@ -95,7 +96,9 @@ public class RoomsController : MonoBehaviour
             //0 = up, 1 = down, 2 = right, 3 = left
             int direction = Random.Range(0, 3);
 
-            //Instantiate a room and set the coordinates
+            //InstantiateRoom[Direction] checks if there is a room in the coordinate pointed by direction.
+            //If there is not a room instantiates a new room. If there is a room returns false.
+            //We iterate over random directions until the room is created.
             switch (direction)
             {
                 case 0:
@@ -125,14 +128,14 @@ public class RoomsController : MonoBehaviour
         }
     }
 
-    #region Methods for checking coordinates up, down, right and left.
+    #region "Methods for checking coordinates up, down, right and left."
 
     /// <summary>
     /// Checks if the the coordinate in the top of the base room is free.
     /// If is free, instantiate a random room, set the vector correction and return true.
     /// Else, return false.
     /// </summary>
-
+    /// 
     /// <param name="baseRoom"> The base room </param>
     /// <param name="isGoldRoom"> If true, the room will be gold. </param>
     /// <returns>True if the room is created or false if the coordinate is not free</returns>
@@ -319,11 +322,11 @@ public class RoomsController : MonoBehaviour
             else { roomToInstantiate = allRooms[Random.Range(0, allRooms.Count)]; }
 
             //There should be only one gold room per level.
-            if (roomToInstantiate.isGold == true)
+            if (roomToInstantiate.isGold)
             {
                 //If the gold room is been not loaded yet, instantiate the gold room. 
                 //Else restart the loop.
-                if (isGoldRoomLoaded == false)
+                if (!isGoldRoomLoaded)
                 {
                     isGoldRoomLoaded = true;
                     roomLoaded = true;
