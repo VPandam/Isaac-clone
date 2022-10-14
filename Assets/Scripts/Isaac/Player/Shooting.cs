@@ -24,8 +24,8 @@ public class Shooting : MonoBehaviour
     //Animation names
     const int SHOOTING_LAYER_INDEX = 1;
     const string SHOOTING = "Shooting";
-    const string SHOOT_HORIZONTAL = "ShootHorizontal";
-    const string SHOOT_VERTICAL = "ShootVertical";
+    const string SHOOT_DIRECTION = "ShootDirection";
+
     const string LAST_MOVING_DIRECTION = "LastMoving";
 
 
@@ -100,10 +100,10 @@ public class Shooting : MonoBehaviour
             shootingDirection = ShootingDirection.left;
 
         if (shootInput.y < -sensibility && shootDirectionVertical)
-            shootingDirection = ShootingDirection.up;
+            shootingDirection = ShootingDirection.down;
 
         if (shootInput.y > sensibility && shootDirectionVertical)
-            shootingDirection = ShootingDirection.down;
+            shootingDirection = ShootingDirection.up;
 
         return shootingDirection;
     }
@@ -114,8 +114,7 @@ public class Shooting : MonoBehaviour
         //If we are shooting change the layer to the shooting animation
         animator.SetLayerWeight(SHOOTING_LAYER_INDEX, 1);
         animator.SetBool(SHOOTING, true);
-        animator.SetFloat(SHOOT_HORIZONTAL, shootInput.x);
-        animator.SetFloat(SHOOT_VERTICAL, shootInput.y);
+        animator.SetInteger(SHOOT_DIRECTION, (int)shootingDirection);
 
         int degreesShot = 0;
         //Change the bullet angle depending on the direction of the input.
@@ -126,14 +125,14 @@ public class Shooting : MonoBehaviour
 
             default:
                 break;
-            case ShootingDirection.down:
+            case ShootingDirection.up:
                 degreesShot = 90;
-                animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.down);
+                animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.up);
                 break;
 
-            case ShootingDirection.up:
+            case ShootingDirection.down:
                 degreesShot = -90;
-                animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.up);
+                animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.down);
                 break;
 
             case ShootingDirection.left:

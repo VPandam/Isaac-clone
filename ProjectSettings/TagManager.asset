@@ -12,9 +12,6 @@ TagManager:
   - DoorExitZone
   - Bullet
   - Wall
-  - ExitDown
-  - ExitRight
-  - ExitLEft
   layers:
   - Default
   - TransparentFX

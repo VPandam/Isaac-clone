@@ -128,11 +128,11 @@ public class PlayerController : MonoBehaviour
     /// Destroy all bullets
     /// </summary>
     /// <param name="collision"></param>
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("DoorExitZone"))
         {
-
+            Debug.Log("WTF");
             ExitZone exitZone = collision.GetComponent<ExitZone>();
             Room roomToSpawn = exitZone.roomToSpawn;
             if (roomToSpawn)

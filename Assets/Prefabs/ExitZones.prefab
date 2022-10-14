@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1052792753760454462}
   m_Layer: 0
   m_Name: ExitDown
-  m_TagString: ExitDown
+  m_TagString: DoorExitZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7165734935625154553}
   m_RootOrder: 3
@@ -44,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.108647466, y: -2.5908308}
+  m_Offset: {x: -0.108647466, y: -2.6562514}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -55,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2802365, y: 0.14833856}
+  m_Size: {x: 1.2802365, y: 0.01759696}
   m_EdgeRadius: 0
 --- !u!1 &4703200413488720910
 GameObject:
@@ -69,7 +70,7 @@ GameObject:
   - component: {fileID: 311922931710537886}
   m_Layer: 0
   m_Name: ExitUp
-  m_TagString: Untagged
+  m_TagString: DoorExitZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +85,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7165734935625154553}
   m_RootOrder: 0
@@ -101,7 +103,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.091101766, y: 2.5963874}
+  m_Offset: {x: -0.091101766, y: 2.6487038}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +114,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2914374, y: 0.13732529}
+  m_Size: {x: 1.2914374, y: 0.032692432}
   m_EdgeRadius: 0
 --- !u!1 &5073122027112584589
 GameObject:
@@ -140,6 +142,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1346775311521432804}
   - {fileID: 142918770990039741}
@@ -160,7 +163,7 @@ GameObject:
   - component: {fileID: 2076291212930747076}
   m_Layer: 0
   m_Name: ExitRight
-  m_TagString: ExitRight
+  m_TagString: DoorExitZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,6 +178,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7165734935625154553}
   m_RootOrder: 1
@@ -192,7 +196,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.320574, y: -0.028529882}
+  m_Offset: {x: 4.350949, y: -0.028529882}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -203,7 +207,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14018393, y: 1.2962956}
+  m_Size: {x: 0.043984413, y: 1.2962956}
   m_EdgeRadius: 0
 --- !u!1 &9109554718729013202
 GameObject:
@@ -217,7 +221,7 @@ GameObject:
   - component: {fileID: 1057248575500089653}
   m_Layer: 0
   m_Name: ExitLeft
-  m_TagString: ExitLEft
+  m_TagString: DoorExitZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,6 +236,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7165734935625154553}
   m_RootOrder: 2
@@ -249,7 +254,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.3417, y: -0.034115523}
+  m_Offset: {x: -4.394041, y: -0.034115553}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -260,5 +265,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14659977, y: 1.3060956}
+  m_Size: {x: 0.042016506, y: 1.3060956}
   m_EdgeRadius: 0
