@@ -39,22 +39,22 @@
      <Compile Include="Assets\Scripts\Isaac\Rooms\ExitZone.cs" />
      <Compile Include="Assets\Scripts\Isaac\UI\UpdateHpUI.cs" />
      <Compile Include="Assets\Scripts\Isaac\Pickup\Pickup.cs" />
+     <Compile Include="Assets\Scripts\Isaac\Pickup\Items\Sword\Sword.cs" />
      <Compile Include="Assets\Scripts\Isaac\BulletPlayer.cs" />
+     <Compile Include="Assets\Scripts\Isaac\Pickup\Items\ItemManager.cs" />
      <Compile Include="Assets\Scripts\Isaac\StatsScrO.cs" />
      <Compile Include="Assets\Scripts\Isaac\GameManager.cs" />
      <Compile Include="Assets\Scripts\Isaac\Player\Shooting.cs" />
      <Compile Include="Assets\Scripts\Isaac\Rooms\Door.cs" />
-     <Compile Include="Assets\Scripts\Isaac\Enemy.cs" />
-     <Compile Include="Assets\Scripts\Isaac\Player\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\Isaac\Enemy\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Isaac\Player\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\PlayerRotatingController.cs" />
      <Compile Include="Assets\InputActions.cs" />
      <Compile Include="Assets\Scripts\Isaac\CameraController.cs" />
      <Compile Include="Assets\Scripts\Isaac\Rooms\Room.cs" />
      <Compile Include="Assets\Scripts\Isaac\Rooms\RoomsController.cs" />
      <Compile Include="Assets\Scripts\Isaac\Pickup\Items\Item.cs" />
-     <Compile Include="Assets\Scripts\Isaac\Pickup\Items\Sword\Sword.cs" />
-     <Compile Include="Assets\Scripts\Isaac\Pickup\PickupBehaviour.cs" />
-     <Compile Include="Assets\Scripts\Isaac\Player\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Isaac\Player\PlayerMovement.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Program Files\Unity\2021.3.8f1\2021.3.8f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

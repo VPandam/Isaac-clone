@@ -17,7 +17,7 @@ public class BulletPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Translate(new Vector3(PlayerStats.instance.ShotSpeed * Time.deltaTime, 0, 0));
+        gameObject.transform.Translate(new Vector3(PlayerManager.instance.shotSpeed * Time.deltaTime, 0, 0));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,7 +27,7 @@ public class BulletPlayer : MonoBehaviour
         {
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy)
-                enemy.CollectHp(enemy);
+                enemy.TakeDamage();
             Destroy(gameObject);
         }
     }

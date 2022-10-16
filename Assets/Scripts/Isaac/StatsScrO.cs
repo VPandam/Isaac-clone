@@ -11,5 +11,6 @@ public class StatsScrO : ScriptableObject
     public float fireRate;
     public float shotSpeed;
     public float attackDamage;
+
 }
 

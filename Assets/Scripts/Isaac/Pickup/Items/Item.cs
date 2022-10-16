@@ -1,14 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : Pickup
+// public interface Iitem
+// {
+//     public void DoEffect();
+// }
+public class Item : MonoBehaviour
 {
-    string effectDescription;
-    public override void DoEffect()
-    {
-        base.DoEffect();
-        Debug.Log("Item effect");
+    public string effectDescription;
+    public string _name;
+    public Sprite _sprite;
+    public readonly Vector2 itemSize = new Vector2(0.5f, 0.5f);
+    [HideInInspector] public int id;
 
+
+    public virtual void DoEffect()
+    {
+        Debug.Log(effectDescription);
     }
+
 }

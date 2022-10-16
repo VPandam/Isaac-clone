@@ -29,7 +29,7 @@ public class Shooting : MonoBehaviour
     const string LAST_MOVING_DIRECTION = "LastMoving";
 
 
-    PlayerController playerController;
+    PlayerMovement playerController;
 
     //Direction of the next shot if we are using a joystick.
     Vector2 shootInput;
@@ -46,19 +46,25 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-        playerController = gameObject.GetComponent<PlayerController>();
-        shotDelay = PlayerStats.instance.FireRate;
+        playerController = gameObject.GetComponent<PlayerMovement>();
+        shotDelay = PlayerManager.instance.fireRate;
         if (shotDelay == 0)
         {
             shotDelay = 0.5f;
         }
-        currentTear = PlayerStats.instance.CurrentTear;
+        currentTear = PlayerManager.instance.currentTear;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager._instance.pause)
+        {
+            animator.SetBool(SHOOTING, false);
+            animator.SetLayerWeight(SHOOTING_LAYER_INDEX, 0);
+            return;
+        }
         //Gets the input in the shotDirection vector2.
         shootInput = playerController.controls.Player.Fire.ReadValue<Vector2>();
 
@@ -109,7 +115,6 @@ public class Shooting : MonoBehaviour
     }
     void Shoot(ShootingDirection shootingDirection)
     {
-        Debug.Log(shootingDirection);
         //We want the shoot animation to prioritize shooting animation over movement.
         //If we are shooting change the layer to the shooting animation
         animator.SetLayerWeight(SHOOTING_LAYER_INDEX, 1);
