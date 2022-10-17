@@ -35,11 +35,7 @@ public class GameManager : MonoBehaviour
 
         pause = true;
 
-        while (blackScreenCG.alpha < 1)
-        {
-            blackScreenCG.alpha += Time.deltaTime / 0.2f;
-            yield return null;
-        }
+        blackScreenCG.alpha = 1;
 
         yield return new WaitForSeconds(0.2f);
         while (blackScreenCG.alpha > 0)
@@ -48,10 +44,17 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(0.1f);
-        Debug.Log(pause);
         pause = false;
+    }
 
+    public void Pause()
+    {
+        Debug.Log("Pause");
+        pause = true;
+    }
 
-
+    public void Resume()
+    {
+        pause = false;
     }
 }

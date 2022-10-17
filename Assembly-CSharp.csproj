@@ -51,10 +51,10 @@
      <Compile Include="Assets\Scripts\PlayerRotatingController.cs" />
      <Compile Include="Assets\InputActions.cs" />
      <Compile Include="Assets\Scripts\Isaac\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Isaac\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Isaac\Rooms\Room.cs" />
      <Compile Include="Assets\Scripts\Isaac\Rooms\RoomsController.cs" />
      <Compile Include="Assets\Scripts\Isaac\Pickup\Items\Item.cs" />
-     <Compile Include="Assets\Scripts\Isaac\Player\PlayerMovement.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Program Files\Unity\2021.3.8f1\2021.3.8f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

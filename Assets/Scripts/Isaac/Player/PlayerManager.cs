@@ -73,12 +73,20 @@ public class PlayerManager : MonoBehaviour
         {
             UpdateHp(-damage, HpType.red);
         }
+        // StartCoroutine(StopMovingAfterDamage());
     }
+    public IEnumerator StopMovingAfterDamage()
+    {
+        GameManager._instance.Pause();
+        yield return new WaitForSeconds(0.2f);
+        GameManager._instance.Resume();
+    }
+
     public void UpdateHp(int hpUpdate, HpType hpType)
     {
         if (hpType == HpType.red)
             currentHealth += hpUpdate;
-            
+
         else if (hpType == HpType.blue)
             currentBlueHealth += hpUpdate;
 
