@@ -145,7 +145,7 @@ MonoBehaviour:
   moveSpeed: 5
   fireRate: 0.5
   shotSpeed: 12
-  attackDamage: 2
+  attackDamage: 0
   currentTear: {fileID: 0}
   baseTear: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
     type: 3}
@@ -178,7 +178,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

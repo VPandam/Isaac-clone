@@ -99,12 +99,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7560940694b74474084b46ab8a71bd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 0}
   _hitSprite: {fileID: 21300000, guid: 55e52a4551f4a464ea0138ebb7660022, type: 3}
   rangeAttack: 5
   speed: 1
   roomMask:
     serializedVersion: 2
     m_Bits: 256
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 0
   changingDirectionSpeed: 356.5
 --- !u!50 &4974706644610152211
 Rigidbody2D:
