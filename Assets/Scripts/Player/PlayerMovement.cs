@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum MovingDirection
+public enum FacingDirection
 {
     up, down, right, left
 }
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movementInput;
     bool moving;
+    bool isKnockback;
 
 
 
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         };
         controls.Player.UpdateHp.performed += ctxt =>
         {
-            PlayerManager.instance.TakeDamage(1);
+            PlayerManager.sharedInstance.TakeDamage(1);
         };
 
 
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (GameManager._instance.pause)
+        if (GameManager._instance.pause || isKnockback)
         {
             _animator.SetBool(MOVING, false);
 
@@ -85,19 +86,19 @@ public class PlayerMovement : MonoBehaviour
         /// Last moving direction is a parameter used in the player animator to activate each animation.
         if (movingRightInput)
         {
-            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.right);
+            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.right);
         }
         if (movingLeftInput)
         {
-            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.left);
+            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.left);
         }
         if (movingUpInput)
         {
-            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.down);
+            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.down);
         }
         if (movingDownInput)
         {
-            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.up);
+            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.up);
         }
 
 
@@ -111,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (GameManager._instance.pause)
+        if (GameManager._instance.pause || isKnockback)
         {
             _animator.SetBool(MOVING, false);
             return;
@@ -124,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Move()
     {
-        float movementSpeed = PlayerManager.instance.moveSpeed;
+        float movementSpeed = PlayerManager.sharedInstance.moveSpeed;
         _animator.SetFloat(HORIZONTAL, movementInput.x);
         _animator.SetFloat(VERTICAL, movementInput.y);
         _animator.SetBool(MOVING, true);
@@ -173,6 +174,16 @@ public class PlayerMovement : MonoBehaviour
             //Move the player to the new room spawn position
             gameObject.transform.position = exitZone.playerSpawnPosition;
         }
+    }
+    public IEnumerator Knockback(Vector2 direction)
+    {
+        isKnockback = true;
+
+        _rb.velocity = Vector2.zero;
+        _rb.AddForce(direction, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.2f);
+
+        isKnockback = false;
     }
 
 

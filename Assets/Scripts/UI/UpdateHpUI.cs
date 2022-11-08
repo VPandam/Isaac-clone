@@ -15,9 +15,9 @@ public class UpdateHpUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerStats = PlayerManager.instance;
+        playerStats = PlayerManager.sharedInstance;
         UpdateHPUI(0);
-        PlayerManager.instance.OnHpChangeCallback += UpdateHPUI;
+        PlayerManager.sharedInstance.OnHpChangeCallback += UpdateHPUI;
     }
 
     public void UpdateHPUI(int hpChange)

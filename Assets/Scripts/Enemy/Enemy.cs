@@ -8,6 +8,14 @@ public enum EnemyState
     dead,
     follow
 }
+public enum CardinalDirection
+{
+    up, down, left, right
+}
+// public struct CardinalDirection
+// {
+
+// }
 public class Enemy : MonoBehaviour
 {
 
@@ -22,14 +30,10 @@ public class Enemy : MonoBehaviour
     public Sprite _hitSprite;
 
     //Stats
-    protected float maxHp = 3f;
-    protected float currentHp = 3f;
-    protected int attackDamage = 1;
-    protected float rangeAttack = 1f;
-    protected float speed = 1f;
+    [SerializeField] protected float maxHp = 3f, currentHp = 3f, rangeAttack = 1f;
+    [SerializeField] protected int attackDamage = 1, speed = 1;
 
-    protected LayerMask roomMask;
-    protected LayerMask playerMask;
+    [SerializeField] protected LayerMask roomMask, playerMask;
 
     //Movement
     protected float raycastRange = 1.5f;
@@ -41,6 +45,8 @@ public class Enemy : MonoBehaviour
     protected float timer;
     protected float timeTick = 1;
     protected PlayerManager playerManager;
+
+
 
 
 
@@ -60,133 +66,11 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        Debug.Log(isKnockback);
-        if (isKnockback)
-        {
-            return;
-        }
-        switch (_currentState)
-        {
-            case EnemyState.wander:
-                Wander();
-                if (!changingDirection)
-                    CheckCircle();
 
-                break;
-            // case enemyState.follow:
-            //     follow();
-            //     break;
-            case EnemyState.dead:
-                Destroy(gameObject);
-                break;
-
-        }
-
-        // if (!IsPlayerInAttackRange() && currentState != enemyState.dead)
-        // {
-        //     currentState = enemyState.wander;
-        // }
-        // else if (IsPlayerInAttackRange() && currentState != enemyState.dead)
-        // {
-        //     currentState = enemyState.follow;
-        // }
-
-
-
-    }
-    /// <summary>
-    /// Returns true if there is a collision
-    /// </summary>
-    /// <returns></returns>
-    bool CheckCircle()
-    {
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, raycastRange, roomMask);
-        if (collider)
-            StartCoroutine(ChangeDirection(collider));
-        return collider != null;
-    }
-    // void CheckDirection()
-    // {
-    //     RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, moveDirection, raycastRange, roomMask);
-    //     if (raycastHit)
-    //         StartCoroutine(ChangeDirection(raycastHit));
-    // }
-
-    bool IsPlayerInAttackRange()
-    {
-        if (Vector3.Distance(transform.position, player.transform.position) <= rangeAttack)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        };
-    }
-
-    public virtual void Wander()
-    {
-        if (!choosingDirection)
-        {
-            StartCoroutine(ChooseDirection());
-        }
-        _rb.MovePosition(_rb.position + moveDirection * speed * Time.fixedDeltaTime);
-
-
-
-
-        // if (IsPlayerInAttackRange() && currentState != enemyState.dead)
-        // {
-        //     currentState = enemyState.follow;
-        // }
-    }
-    public virtual IEnumerator ChooseDirection()
-    {
-        choosingDirection = true;
-
-        moveDirection = GetRandomDirection();
-        FlipSprite();
-        yield return new WaitForSeconds(Random.Range(5f, 10f));
-
-        choosingDirection = false;
-
-    }
-    public virtual IEnumerator ChangeDirection(Collider2D collider)
-    {
-        changingDirection = true;
-        moveDirection = -moveDirection;
-        FlipSprite();
-        yield return new WaitForSeconds(1f);
-        changingDirection = false;
-    }
-
-    // void follow()
-    // {
-    //     this.speed = 2f;
-    //     transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
-    // }
-    Vector2 GetRandomDirection()
-    {
-        float movementX = Random.Range(-100, 101);
-        float movementY = Random.Range(-100, 101);
-        return new Vector2(movementX, movementY).normalized;
-    }
-    void FlipSprite()
-    {
-        if (moveDirection.x > 0)
-        {
-            _spriteRenderer.flipX = true;
-        }
-        else
-        {
-            _spriteRenderer.flipX = false;
-        }
-    }
     public void TakeDamage()
     {
-        currentHp -= PlayerManager.instance.attackDamage;
+        Debug.Log("TakeDamage");
+        currentHp -= PlayerManager.sharedInstance.attackDamage;
         StartCoroutine(BlinkColorDamage()); if (currentHp <= 0)
         {
             Room currentRoom = GetComponentInParent<Room>();

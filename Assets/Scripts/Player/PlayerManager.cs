@@ -8,7 +8,7 @@ public enum HpType
 }
 public class PlayerManager : MonoBehaviour
 {
-    public static PlayerManager instance;
+    public static PlayerManager sharedInstance;
 
     [SerializeField] SpriteRenderer _spriteR;
 
@@ -35,8 +35,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (sharedInstance == null)
+            sharedInstance = this;
 
 
         if (currentTear == null)

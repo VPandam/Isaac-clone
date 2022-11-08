@@ -8,7 +8,7 @@ public class Sword : Item
     override public void DoEffect()
     {
         base.DoEffect();
-        playerStats = PlayerManager.instance;
+        playerStats = PlayerManager.sharedInstance;
         playerStats.attackDamage += 2;
         playerStats.currentTear.GetComponent<SpriteRenderer>().color = Color.blue;
         playerStats.currentTear.transform.localScale = new Vector3(2, 2, 2);

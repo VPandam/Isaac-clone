@@ -2,24 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPlayer : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    public float speed = 3f;
+    public float _speed;
     GameObject player;
     GameObject enemy;
+    Rigidbody2D _rb;
+    public Vector2 _shotDirection;
     void Start()
     {
         Destroy(gameObject, 5f);
+        _rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         enemy = GameObject.FindGameObjectWithTag("Enemy");
+        // _rb.velocity = shotDirection * speed;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        gameObject.transform.Translate(new Vector3(PlayerManager.instance.shotSpeed * Time.deltaTime, 0, 0));
+        _rb.MovePosition(_rb.position + _shotDirection * Time.fixedDeltaTime * _speed);
     }
 
+    public void SetBullet(Vector2 shotDirection, float speed)
+    {
+        _shotDirection = shotDirection;
+        _speed = speed;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("OnTriger");

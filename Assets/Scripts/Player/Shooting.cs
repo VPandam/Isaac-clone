@@ -37,6 +37,8 @@ public class Shooting : MonoBehaviour
     //Sensibility of the input.
     [SerializeField] float sensibility = 0.3f;
 
+    Vector2 shootDirection;
+
 
     private void Awake()
     {
@@ -47,12 +49,12 @@ public class Shooting : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         playerController = gameObject.GetComponent<PlayerMovement>();
-        shotDelay = PlayerManager.instance.fireRate;
+        shotDelay = PlayerManager.sharedInstance.fireRate;
         if (shotDelay == 0)
         {
             shotDelay = 0.5f;
         }
-        currentTear = PlayerManager.instance.currentTear;
+        currentTear = PlayerManager.sharedInstance.currentTear;
 
     }
 
@@ -121,7 +123,6 @@ public class Shooting : MonoBehaviour
         animator.SetBool(SHOOTING, true);
         animator.SetInteger(SHOOT_DIRECTION, (int)shootingDirection);
 
-        int degreesShot = 0;
         //Change the bullet angle depending on the direction of the input.
         //Sets the lastMovingDirection parameter of the animator, this determines the
         //IDLE animation to run if we are not shooting or moving.
@@ -131,23 +132,23 @@ public class Shooting : MonoBehaviour
             default:
                 break;
             case ShootingDirection.up:
-                degreesShot = 90;
-                animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.up);
+                shootDirection = Vector2.up;
+                animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.up);
                 break;
 
             case ShootingDirection.down:
-                degreesShot = -90;
-                animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.down);
+                shootDirection = Vector2.down;
+                animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.down);
                 break;
 
             case ShootingDirection.left:
-                degreesShot = -180;
-                animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.left);
+                shootDirection = Vector2.left;
+                animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.left);
                 break;
 
             case ShootingDirection.right:
-                degreesShot = 0;
-                animator.SetInteger(LAST_MOVING_DIRECTION, (int)MovingDirection.right);
+                shootDirection = Vector2.right;
+                animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.right);
                 break;
             case ShootingDirection.nul:
                 return;
@@ -160,7 +161,8 @@ public class Shooting : MonoBehaviour
         //Reset the nextShotTime
         if (Time.time >= nextShotTime)
         {
-            Instantiate(currentTear, ShotInit.transform.position, Quaternion.AngleAxis(degreesShot, Vector3.forward));
+            GameObject tear = Instantiate(currentTear, ShotInit.transform.position, Quaternion.identity);
+            tear.GetComponent<Bullet>().SetBullet(shootDirection, PlayerManager.sharedInstance.shotSpeed);
             nextShotTime = Time.time + shotDelay;
         }
 
