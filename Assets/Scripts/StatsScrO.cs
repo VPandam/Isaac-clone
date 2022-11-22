@@ -13,4 +13,3 @@ public class StatsScrO : ScriptableObject
     public float attackDamage;
 
 }
-

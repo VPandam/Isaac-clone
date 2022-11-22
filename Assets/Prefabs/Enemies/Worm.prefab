@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076033074425326277}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 2997499922095280429}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &7197996983334326228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,17 +49,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd59ae6789991e04c9115a60f85dbbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKnockback: 0
   _currentState: 0
   _hitSprite: {fileID: 21300000, guid: 55e52a4551f4a464ea0138ebb7660022, type: 3}
+  maxHp: 3
+  currentHp: 3
+  rangeAttack: 1
+  attackDamage: 1
+  speed: 2
   roomMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
-  minFireRate: 1
-  maxFireRate: 3
-  shootSpeed: 3
+  minFireRate: 3
+  maxFireRate: 8
+  shootSpeed: 5
   rightShootingStart: {fileID: 8923762360693402452}
   leftShootingStart: {fileID: 8665037962976106825}
   bulletPrefab: {fileID: 5315961047368399508, guid: 2f7f492ad4c3fdb4d8967f1c69ebe341,
@@ -208,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8923762360693402452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 0, z: 0}
+  m_LocalPosition: {x: 0.39, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

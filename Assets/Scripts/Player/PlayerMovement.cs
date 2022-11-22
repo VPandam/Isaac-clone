@@ -1,196 +1,201 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
-public enum FacingDirection
-{
-    up, down, right, left
-}
-public class PlayerMovement : MonoBehaviour
-{
-    //Components
-    static public PlayerMovement _instance;
-    CameraController _cam;
-
-    public Animator _animator;
-    Rigidbody2D _rb;
 
 
-
-    const string MOVING = "Moving";
-    const string HORIZONTAL = "Horizontal";
-    const string VERTICAL = "Vertical";
-    const string LAST_MOVING_DIRECTION = "LastMoving";
-
-    //The minimum input you need to apply to be captured
-    public float sensibility = 0.3f;
-
-    // Controller controls;
-    public InputActions controls;
-    Vector2 controlsMovement;
-
-
-    Vector2 movementInput;
-    bool moving;
-    bool isKnockback;
-
-
-
-    private void Awake()
+    public enum FacingDirection
     {
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-
-        controls = new InputActions();
-        controls.Enable();
-
-        controls.Player.Move.canceled += ctxt =>
-        {
-            movementInput = Vector2.zero;
-        };
-        controls.Player.UpdateHp.performed += ctxt =>
-        {
-            PlayerManager.sharedInstance.TakeDamage(1);
-        };
-
-
+        up, down, right, left
     }
-    private void Start()
+    public class PlayerMovement : MonoBehaviour
     {
-        _animator = gameObject.GetComponent<Animator>();
-        _cam = Camera.main.GetComponent<CameraController>();
-        _rb = gameObject.GetComponent<Rigidbody2D>();
-    }
+        //Components
+        static public PlayerMovement _instance;
+        CameraController _cam;
+
+        public Animator _animator;
+        Rigidbody2D _rb;
 
 
-    void Update()
-    {
-        if (GameManager._instance.pause || isKnockback)
+
+        const string MOVING = "Moving";
+        const string HORIZONTAL = "Horizontal";
+        const string VERTICAL = "Vertical";
+        const string LAST_MOVING_DIRECTION = "LastMoving";
+
+        //The minimum input you need to apply to be captured
+        public float sensibility = 0.3f;
+
+        // Controller controls;
+        public InputActions controls;
+        Vector2 controlsMovement;
+
+
+        Vector2 movementInput;
+        bool moving;
+        public bool isKnockback;
+
+        RelocateAStarPath relocateAStarPath;
+
+        private void Awake()
         {
-            _animator.SetBool(MOVING, false);
-
-            return;
-        }
-
-        movementInput = controls.Player.Move.ReadValue<Vector2>();
-
-        bool movingRightInput = (movementInput.x > sensibility);
-        bool movingLeftInput = (movementInput.x < -sensibility);
-        bool movingUpInput = (movementInput.y < -sensibility);
-        bool movingDownInput = (movementInput.y > sensibility);
-
-        /// There are 4 different IDLE aniamtions.
-        /// Last moving direction is a parameter used in the player animator to activate each animation.
-        if (movingRightInput)
-        {
-            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.right);
-        }
-        if (movingLeftInput)
-        {
-            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.left);
-        }
-        if (movingUpInput)
-        {
-            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.down);
-        }
-        if (movingDownInput)
-        {
-            _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.up);
-        }
-
-
-        if (!moving)
-        {
-            _animator.SetBool(MOVING, false);
-            _rb.velocity = Vector2.zero;
-        }
-
-
-    }
-    private void FixedUpdate()
-    {
-        if (GameManager._instance.pause || isKnockback)
-        {
-            _animator.SetBool(MOVING, false);
-            return;
-        }
-
-        moving = movementInput.normalized.magnitude > sensibility;
-
-        if (movementInput.normalized.magnitude > sensibility)
-            Move();
-    }
-    void Move()
-    {
-        float movementSpeed = PlayerManager.sharedInstance.moveSpeed;
-        _animator.SetFloat(HORIZONTAL, movementInput.x);
-        _animator.SetFloat(VERTICAL, movementInput.y);
-        _animator.SetBool(MOVING, true);
-        _rb.MovePosition(_rb.position + movementInput * movementSpeed * Time.fixedDeltaTime);
-    }
-
-
-    /// <summary>
-    /// When crossing a door, move the camera to the new room.
-    /// Change the player position to the new room player spawn. 
-    /// Destroy all bullets
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("DoorExitZone"))
-        {
-            ChangeRoom(collision);
-        }
-    }
-    void ChangeRoom(Collider2D collision)
-    {
-        ExitZone exitZone = collision.GetComponent<ExitZone>();
-        Room roomToSpawn = exitZone.roomToSpawn;
-
-        if (roomToSpawn)
-        {
-            //Fade in black screen
-            GameManager._instance.StartCoroutine("FadeInFadeOut");
-
-            //Destroy all bullets
-            GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
-            foreach (var bullet in bullets)
+            if (_instance == null)
             {
-                Destroy(bullet);
+                _instance = this;
             }
 
-            //Move the camera to the new room
-            _cam.MoveCameraTo(roomToSpawn.transform.position);
-            if (!roomToSpawn.playerEntered)
+            controls = new InputActions();
+            controls.Enable();
+
+            controls.Player.Move.canceled += ctxt =>
             {
-                roomToSpawn.playerEntered = true;
-                roomToSpawn.Invoke("StartRoom", 1f);
+                movementInput = Vector2.zero;
+            };
+            controls.Player.UpdateHp.performed += ctxt =>
+            {
+                PlayerManager.sharedInstance.TakeDamage(1);
+            };
+
+
+        }
+        private void Start()
+        {
+            _animator = gameObject.GetComponent<Animator>();
+            _cam = Camera.main.GetComponent<CameraController>();
+            _rb = gameObject.GetComponent<Rigidbody2D>();
+            relocateAStarPath = RelocateAStarPath.instance;
+        }
+
+
+        void Update()
+        {
+            if (GameManager._instance.pause || isKnockback)
+            {
+                _animator.SetBool(MOVING, false);
+
+                return;
             }
 
-            //Move the player to the new room spawn position
-            gameObject.transform.position = exitZone.playerSpawnPosition;
+            movementInput = controls.Player.Move.ReadValue<Vector2>();
+
+            bool movingRightInput = (movementInput.x > sensibility);
+            bool movingLeftInput = (movementInput.x < -sensibility);
+            bool movingUpInput = (movementInput.y < -sensibility);
+            bool movingDownInput = (movementInput.y > sensibility);
+
+            /// There are 4 different IDLE aniamtions.
+            /// Last moving direction is a parameter used in the player animator to activate each animation.
+            if (movingRightInput)
+            {
+                _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.right);
+            }
+            if (movingLeftInput)
+            {
+                _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.left);
+            }
+            if (movingUpInput)
+            {
+                _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.down);
+            }
+            if (movingDownInput)
+            {
+                _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.up);
+            }
+
+
+            if (!moving)
+            {
+                _animator.SetBool(MOVING, false);
+                _rb.velocity = Vector2.zero;
+            }
+
+
         }
+        private void FixedUpdate()
+        {
+            if (GameManager._instance.pause || isKnockback)
+            {
+                _animator.SetBool(MOVING, false);
+                return;
+            }
+
+            moving = movementInput.normalized.magnitude > sensibility;
+
+            if (movementInput.normalized.magnitude > sensibility)
+                Move();
+        }
+        void Move()
+        {
+            float movementSpeed = PlayerManager.sharedInstance.moveSpeed;
+            _animator.SetFloat(HORIZONTAL, movementInput.x);
+            _animator.SetFloat(VERTICAL, movementInput.y);
+            _animator.SetBool(MOVING, true);
+            _rb.MovePosition(_rb.position + movementInput * movementSpeed * Time.fixedDeltaTime);
+        }
+
+
+        /// <summary>
+        /// When crossing a door, move the camera to the new room.
+        /// Change the player position to the new room player spawn. 
+        /// Destroy all bullets
+        /// </summary>
+        /// <param name="collision"></param>
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("DoorExitZone"))
+            {
+                ChangeRoom(collision);
+            }
+        }
+        void ChangeRoom(Collider2D collision)
+        {
+            ExitZone exitZone = collision.GetComponent<ExitZone>();
+            Room roomToSpawn = exitZone.roomToSpawn;
+
+            if (roomToSpawn)
+            {
+                //Fade in black screen
+                GameManager._instance.StartCoroutine("FadeInFadeOut");
+
+                //Destroy all bullets
+                GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+                foreach (var bullet in bullets)
+                {
+                    Destroy(bullet);
+                }
+
+                //Move the camera to the new room
+                _cam.MoveCameraTo(roomToSpawn.transform.position);
+                if (!roomToSpawn.playerEntered)
+                {
+                    roomToSpawn.playerEntered = true;
+                    roomToSpawn.Invoke("StartRoom", 1f);
+                }
+
+                //Move the player to the new room spawn position
+                gameObject.transform.position = exitZone.playerSpawnPosition;
+
+                relocateAStarPath.Relocate(roomToSpawn.transform.position);
+            }
+        }
+        public IEnumerator Knockback(Vector2 direction)
+        {
+            isKnockback = true;
+
+            _rb.velocity = direction;
+            // _rb.AddForce(direction, ForceMode2D.Impulse);
+            yield return new WaitForSeconds(0.2f);
+
+            isKnockback = false;
+        }
+
+
+
+        private void OnDisable()
+        {
+            controls.Disable();
+        }
+
     }
-    public IEnumerator Knockback(Vector2 direction)
-    {
-        isKnockback = true;
-
-        _rb.velocity = Vector2.zero;
-        _rb.AddForce(direction, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(0.2f);
-
-        isKnockback = false;
-    }
 
 
 
-    private void OnDisable()
-    {
-        controls.Disable();
-    }
-
-}

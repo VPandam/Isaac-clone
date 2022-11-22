@@ -1,56 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public enum DoorPos
-{
-    Up, Down, Right, Left
-}
-
-public class Door : MonoBehaviour
-{
-    public bool open;
-    BoxCollider2D doorCollider;
-    Animator animator;
-
-    public DoorPos doorPos;
-
-    public
-    // Start is called before the first frame update
-    void Start()
+    public enum DoorPos
     {
-        animator = gameObject.GetComponent<Animator>();
-        doorCollider = gameObject.GetComponent<BoxCollider2D>();
-        open = true;
+        Up, Down, Right, Left
     }
 
-    // Update is called once per frame
-    void Update()
+    public class Door : MonoBehaviour
     {
-        if (open)
+        public bool open;
+        BoxCollider2D doorCollider;
+        Animator animator;
+
+        public DoorPos doorPos;
+
+        public
+        // Start is called before the first frame update
+        void Start()
         {
-            OpenDoor();
+            animator = gameObject.GetComponent<Animator>();
+            doorCollider = gameObject.GetComponent<BoxCollider2D>();
+            open = true;
         }
-        else
+
+        // Update is called once per frame
+        void Update()
         {
-            CloseDoor();
+            if (open)
+            {
+                OpenDoor();
+            }
+            else
+            {
+                CloseDoor();
+            }
+        }
+
+        void OpenDoor()
+        {
+            doorCollider.enabled = false;
+            animator.SetBool("Open", true);
+        }
+
+        void CloseDoor()
+        {
+            doorCollider.enabled = true;
+            animator.SetBool("Open", false);
+        }
+
+        public void SetOpen(bool value)
+        {
+            open = value;
         }
     }
 
-    void OpenDoor()
-    {
-        doorCollider.enabled = false;
-        animator.SetBool("Open", true);
-    }
 
-    void CloseDoor()
-    {
-        doorCollider.enabled = true;
-        animator.SetBool("Open", false);
-    }
-
-    public void SetOpen(bool value)
-    {
-        open = value;
-    }
-}

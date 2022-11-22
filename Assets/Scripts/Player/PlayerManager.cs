@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public enum HpType
 {
@@ -121,3 +121,6 @@ public class PlayerManager : MonoBehaviour
     }
 
 }
+    
+
+

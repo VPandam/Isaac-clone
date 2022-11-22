@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+        // RoomsController.instance.InstantiateAllRooms();
+        // RoomsController.instance.ConenctDoors();
         Instantiate(player);
-
+        RoomsController.instance.CreateRooms();
         blackScreenCG = blackScreenGO.GetComponent<CanvasGroup>();
 
     }

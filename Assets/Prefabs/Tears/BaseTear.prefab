@@ -122,6 +122,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0
   _shotDirection: {x: 0, y: 0}
+  tearCollidesSound: {fileID: 8300000, guid: 54240eadd82f9c846b85aac7624ca49b, type: 3}
+  tearCollidesEnemySound: {fileID: 8300000, guid: 1b3c5a06ecd25664bbb5d768c713f965,
+    type: 3}
+  tearSounds:
+  - {fileID: 8300000, guid: df32d6bd923ce9d4a9734fb4154835df, type: 3}
+  - {fileID: 8300000, guid: d7c15e732f8c8914085c0a2f90f34dbf, type: 3}
+  - {fileID: 8300000, guid: 4f06e4fb1d1580c4f9efea8c6007553b, type: 3}
 --- !u!58 &6326310838559278091
 CircleCollider2D:
   m_ObjectHideFlags: 0
