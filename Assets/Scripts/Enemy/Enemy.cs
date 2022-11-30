@@ -13,7 +13,7 @@ using UnityEngine;
     public class Enemy : MonoBehaviour
 
     {
-        protected GameObject player;
+        public GameObject player;
         public bool isKnockback;
         //Componetns
         public EnemyState _currentState;
@@ -91,7 +91,7 @@ using UnityEngine;
             {
                 currentRoom.OpenRoom();
             }
-            // Destroy(gameObject);
+            Destroy(gameObject);
         }
 
         IEnumerator BlinkColorDamage()
@@ -133,9 +133,9 @@ using UnityEngine;
             {
                 _rb.velocity = Vector2.zero;
                 _rb.AddForce(direction * 5, ForceMode2D.Impulse);
-                yield return new WaitForSeconds(2f);
                 _rb.velocity = Vector2.zero;
             }
+            yield return new WaitForSeconds(.2f);
 
 
             isKnockback = false;
@@ -147,6 +147,8 @@ using UnityEngine;
 
         }
     }
+    
+
 
 
 

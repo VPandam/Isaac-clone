@@ -383,6 +383,7 @@ MonoBehaviour:
     type: 3}
   allRooms:
   - {fileID: 5928578769743732397, guid: d11110303d290c945bfa64972321b79b, type: 3}
+  - {fileID: 5928578769743732397, guid: 319ea3041aea177469580201fda62826, type: 3}
   goldRoomPrefab: {fileID: 6719536954886476543, guid: 8c41c06a64226d54192f4ace60d67121,
     type: 3}
   doorPrefab: {fileID: 8769796165222838934, guid: b884f4e46c46cf54b8f0a320c403cd01,

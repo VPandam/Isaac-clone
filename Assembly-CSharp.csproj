@@ -44,6 +44,7 @@
      <Compile Include="Assets\Scripts\Rooms\ExitZone.cs" />
      <Compile Include="Assets\Scripts\UI\UpdateHpUI.cs" />
      <Compile Include="Assets\Scripts\Pickup\Pickup.cs" />
+     <Compile Include="Assets\Scripts\Enemy\AIBase2.cs" />
      <Compile Include="Assets\Scripts\RelocateAStarPath.cs" />
      <Compile Include="Assets\Scripts\Pickup\Items\Sword\Sword.cs" />
      <Compile Include="Assets\Scripts\Player\Bullet.cs" />
@@ -56,6 +57,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
      <Compile Include="Assets\InputActions.cs" />
+     <Compile Include="Assets\Scripts\Enemy\AIPath2.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyBullet.cs" />
@@ -63,6 +65,7 @@
      <Compile Include="Assets\Scripts\Enemy\Chaser\Chaser.cs" />
      <Compile Include="Assets\Scripts\Rooms\RoomsController.cs" />
      <Compile Include="Assets\Scripts\Pickup\Items\Item.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyIA.cs" />
      <Compile Include="Assets\Scripts\Resources.cs" />
      <Compile Include="Assets\Scripts\Enemy\Worm\Worm.cs" />
      <Reference Include="UnityEngine">

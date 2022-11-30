@@ -2,10 +2,12 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Serialization;
 
+
 namespace Pathfinding
 {
     using Pathfinding.RVO;
     using Pathfinding.Util;
+    
 
     /// <summary>
     /// Base class for AIPath and RichAI.
@@ -18,7 +20,6 @@ namespace Pathfinding
     [RequireComponent(typeof(Seeker))]
     public abstract class AIBase : VersionedMonoBehaviour
     {
-
 
         /// <summary>\copydoc Pathfinding::IAstarAI::radius</summary>
         public float radius = 0.5f;

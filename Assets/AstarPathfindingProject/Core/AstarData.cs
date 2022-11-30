@@ -9,6 +9,7 @@ using Pathfinding.Serialization;
 #endif
 
 namespace Pathfinding {
+	
 	[System.Serializable]
 	/// <summary>
 	/// Stores the navigation graphs for the A* Pathfinding System.
@@ -24,6 +25,7 @@ namespace Pathfinding {
 				return AstarPath.active;
 			}
 		}
+		
 
 		#region Fields
 		/// <summary>

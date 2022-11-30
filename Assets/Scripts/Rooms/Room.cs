@@ -59,7 +59,6 @@ using UnityEngine;
             }
 
         }
-
         public void FindDoors()
         {
             Door[] foundDoors = gameObject.GetComponentsInChildren<Door>();
@@ -80,15 +79,12 @@ using UnityEngine;
         }
         void CloseRoom()
         {
-
             roomOpen = false;
             foreach (Door door in doors)
             {
 
                 door.SetOpen(false);
             }
-
-
         }
         void SpawnEnemies()
         {

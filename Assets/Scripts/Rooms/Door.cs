@@ -14,7 +14,6 @@
         public DoorPos doorPos;
 
         public
-        // Start is called before the first frame update
         void Start()
         {
             animator = gameObject.GetComponent<Animator>();
@@ -22,7 +21,6 @@
             open = true;
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (open)
