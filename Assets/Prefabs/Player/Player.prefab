@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
+  BombPrefab: {fileID: 500493407045441845, guid: c4750f9f210c3f04e99ec7cd57b31fcd,
+    type: 3}
   sensibility: 0.3
   isKnockback: 0
 --- !u!114 &8424231289732146327
@@ -151,6 +153,10 @@ MonoBehaviour:
   attackDamage: 2
   currentTear: {fileID: 0}
   isInvincible: 0
+  currentBombs: 0
+  currentKeys: 0
+  currentCoins: 0
+  maxCollectables: 99
   baseTear: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
     type: 3}
 --- !u!70 &6191683847908417852
@@ -166,8 +172,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.9, y: 1.15}
+  m_Offset: {x: -0.0096634235, y: -0.2641528}
+  m_Size: {x: 0.6178319, y: 0.6216977}
   m_Direction: 0
 --- !u!50 &4961813274905574699
 Rigidbody2D:

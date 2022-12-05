@@ -809,7 +809,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.28}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -835,60 +835,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3100387944485266296}
     m_Modifications:
-    - target: {fileID: 4051490495950511693, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511696, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511697, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 3.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511697, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511697, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 2.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511699, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511702, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4051490495950511705, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511705, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511705, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511705, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4051490495950511705, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
         type: 3}
@@ -944,16 +894,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InitialRoomColiders
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511710, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4051490495950511710, guid: 2b6f6cef4571c68469d11e40b86e6bf4,
-        type: 3}
-      propertyPath: m_TagString
-      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b6f6cef4571c68469d11e40b86e6bf4, type: 3}
