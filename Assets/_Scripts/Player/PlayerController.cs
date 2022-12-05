@@ -184,7 +184,16 @@ using UnityEngine;
 
         void PlaceBomb()
         {
-            Instantiate(BombPrefab, transform.position, Quaternion.identity);
+            PlayerManager playerManager = PlayerManager.sharedInstance;
+            if (playerManager.currentBombs >= 1)
+            { 
+                playerManager.currentBombs--;
+                if (playerManager.onUIChangeCallback != null)
+                {
+                    playerManager.onUIChangeCallback.Invoke();
+                }
+                Instantiate(BombPrefab, transform.position, Quaternion.identity);
+            }
         }
         public IEnumerator Knockback(Vector2 direction)
         {

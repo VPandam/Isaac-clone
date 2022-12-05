@@ -1,12 +1,14 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
-    public class UpdateHpUI : MonoBehaviour
+    public class UIUpdate : MonoBehaviour
     {
         public GameObject heart, halfHeart;
         public GameObject hpContainer;
         public GameObject bHeart, halfBHeart;
+        [SerializeField] private TextMeshProUGUI bombsText, keysText, coinsText;
 
         [SerializeField] List<GameObject> hpList = new List<GameObject>();
         [SerializeField] List<GameObject> blueHpList = new List<GameObject>();
@@ -15,12 +17,13 @@ using UnityEngine;
         void Start()
         {
             playerStats = PlayerManager.sharedInstance;
-            UpdateHPUI(0);
-            PlayerManager.sharedInstance.OnHpChangeCallback += UpdateHPUI;
+            UpdateUI();
+            PlayerManager.sharedInstance.onUIChangeCallback += UpdateUI;
         }
 
-        public void UpdateHPUI(int hpChange)
+        public void UpdateUI()
         {
+            PlayerManager playerManager = PlayerManager.sharedInstance;
             if (heart && hpContainer && playerStats)
             {
                 //Clear all hearts of the lists
@@ -48,8 +51,12 @@ using UnityEngine;
                     GameObject bHalfHeartAdd = Instantiate(halfBHeart, hpContainer.transform);
                     hpList.Insert(0, bHalfHeartAdd);
                 }
-
             }
+
+            bombsText.text = playerManager.currentBombs.ToString();
+            keysText.text = playerManager.currentKeys.ToString();
+            coinsText.text = playerManager.currentCoins.ToString();
+
         }
         void ClearLists()
         {

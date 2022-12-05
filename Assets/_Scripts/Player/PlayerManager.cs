@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 
@@ -26,9 +27,10 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 
     //Collectables
     public int currentBombs, currentKeys, currentCoins;
+    public int StartingBombs, StartingKeys, StartingCoins;
     [SerializeField]private int maxCollectables = 99;
-    public delegate void OnHpChange(int hpChange);
-    public OnHpChange OnHpChangeCallback;
+    public delegate void OnUIChange();
+    public OnUIChange onUIChangeCallback;
 
 
     [SerializeField] GameObject baseTear;
@@ -55,6 +57,13 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 
     }
 
+    private void Start()
+    {
+        currentBombs = StartingBombs; 
+        currentKeys = StartingKeys; 
+        currentCoins = StartingCoins;
+        onUIChangeCallback.Invoke();
+    }
 
     private void OnApplicationQuit()
     {
@@ -107,9 +116,9 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         else if (hpType == HpType.Blue)
             currentBlueHealth += hpUpdate;
 
-        if (OnHpChangeCallback != null)
+        if (onUIChangeCallback != null)
         {
-            OnHpChangeCallback.Invoke(hpUpdate);
+            onUIChangeCallback.Invoke();
         }
     }
     public IEnumerator InvincibilityOnHit(float time)

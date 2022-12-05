@@ -375,7 +375,7 @@
 "Assets/_Scripts/Rooms/Room.cs"
 "Assets/_Scripts/Rooms/RoomsController.cs"
 "Assets/_Scripts/StatsScrO.cs"
-"Assets/_Scripts/UI/UpdateHpUI.cs"
+"Assets/_Scripts/UI/UIUpdate.cs"
 -langversion:9.0
 
 /deterministic

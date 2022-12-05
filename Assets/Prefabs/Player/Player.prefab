@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f924ea40549a56346bc49700b539f7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteR: {fileID: 0}
   currentHealth: 0
   currentBlueHealth: 4
   maxHealth: 10
@@ -156,6 +155,9 @@ MonoBehaviour:
   currentBombs: 0
   currentKeys: 0
   currentCoins: 0
+  StartingBombs: 4
+  StartingKeys: 1
+  StartingCoins: 0
   maxCollectables: 99
   baseTear: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
     type: 3}

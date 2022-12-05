@@ -42,7 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\_Scripts\Rooms\ExitZone.cs" />
-     <Compile Include="Assets\_Scripts\UI\UpdateHpUI.cs" />
+     <Compile Include="Assets\_Scripts\UI\UIUpdate.cs" />
      <Compile Include="Assets\_Scripts\Pickup\Pickup.cs" />
      <Compile Include="Assets\_Scripts\Enemy\AIBase2.cs" />
      <Compile Include="Assets\_Scripts\RelocateAStarPath.cs" />
