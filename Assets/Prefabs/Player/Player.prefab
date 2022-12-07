@@ -78,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1462936923
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7276521108496876563, guid: 524f3e0a8ead61f43afc6ad7ceee20fd,
     type: 3}
@@ -142,7 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f924ea40549a56346bc49700b539f7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAudioSource: {fileID: 0}
   currentHealth: 0
+  currentHealthContainers: 0
   currentBlueHealth: 4
   maxHealth: 10
   totalMaxHealth: 0
@@ -213,7 +215,7 @@ MonoBehaviour:
   currentTear: {fileID: 0}
   ShotInit: {fileID: 5196682691440778537}
   sensibility: 0.3
-  _audioSource: {fileID: 0}
+  playerAudioSource: {fileID: 0}
   tearSound: {fileID: 8300000, guid: a12396ccbad64a845a93a051342216eb, type: 3}
 --- !u!82 &7463164408260257252
 AudioSource:

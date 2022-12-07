@@ -34,20 +34,17 @@
 
         //Sensibility of the input.
         [SerializeField] float sensibility = 0.3f;
-
+        public AudioSource playerAudioSource;
         Vector2 shootDirection;
-        public AudioSource _audioSource;
+      
         public AudioClip tearSound;
 
-        private void Awake()
-        {
-            _audioSource = GetComponent<AudioSource>();
-        }
-        // Start is called before the first frame update
+
         void Start()
         {
             animator = gameObject.GetComponent<Animator>();
             playerController = gameObject.GetComponent<PlayerController>();
+            playerAudioSource = PlayerManager.sharedInstance.playerAudioSource;
             shotDelay = PlayerManager.sharedInstance.fireRate;
             if (shotDelay == 0)
             {

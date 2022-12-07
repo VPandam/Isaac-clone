@@ -18,13 +18,16 @@ public class Collectable : MonoBehaviour
         switch (_collectableType)
         {
             case CollectableType.Bomb:
-                playerManager.currentBombs += ammount;
-                break;
+               if (playerManager.currentBombs ! >= playerManager.maxCollectables)
+                    playerManager.currentBombs += ammount;
+               break;
             case CollectableType.Coin:
-                playerManager.currentCoins += ammount;
+                if (playerManager.currentCoins ! >= playerManager.maxCollectables)
+                    playerManager.currentCoins += ammount;
                 break;
             case CollectableType.Key:
-                playerManager.currentKeys += ammount;
+                if (playerManager.currentBombs ! >= playerManager.maxCollectables)
+                 playerManager.currentKeys += ammount;
                 break;
             case CollectableType.Heart:
                 playerManager.UpdateHp(ammount, HpType.Red);

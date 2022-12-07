@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public enum HpType
@@ -12,9 +13,11 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     public static PlayerManager sharedInstance;
 
     SpriteRenderer _spriteR;
+    [HideInInspector] public AudioSource playerAudioSource;
 
     //Stats
     public int currentHealth;
+    public int currentHealthContainers;
     public int currentBlueHealth;
     public int maxHealth;
     public int totalMaxHealth;
@@ -27,8 +30,8 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 
     //Collectables
     public int currentBombs, currentKeys, currentCoins;
-    public int StartingBombs, StartingKeys, StartingCoins;
-    [SerializeField]private int maxCollectables = 99;
+    public int StartingBombs, StartingKeys, StartingCoins, maxCollectables = 99;
+
     public delegate void OnUIChange();
     public OnUIChange onUIChangeCallback;
 
@@ -36,6 +39,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     [SerializeField] GameObject baseTear;
     Vector3 basicScaleBaseTear;
     Color basicColorBaseTear;
+   
 
 
     private void Awake()
@@ -44,6 +48,13 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
             sharedInstance = this;
 
 
+    }
+
+    private void Start()
+    {
+        _spriteR = GetComponent<SpriteRenderer>();
+        playerAudioSource = GetComponent<AudioSource>();
+        
         if (currentTear == null)
             currentTear = baseTear;
 
@@ -53,12 +64,6 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 
         currentHealth = maxHealth;
 
-        _spriteR = GetComponent<SpriteRenderer>();
-
-    }
-
-    private void Start()
-    {
         currentBombs = StartingBombs; 
         currentKeys = StartingKeys; 
         currentCoins = StartingCoins;

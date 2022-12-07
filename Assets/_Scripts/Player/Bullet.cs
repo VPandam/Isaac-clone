@@ -18,7 +18,7 @@
             Destroy(gameObject, 5f);
             _rb = GetComponent<Rigidbody2D>();
             player = GameObject.FindGameObjectWithTag("Player");
-            playerAudioSource = player.GetComponent<Shooting>()._audioSource;
+            playerAudioSource = PlayerManager.sharedInstance.playerAudioSource;
             enemy = GameObject.FindGameObjectWithTag("Enemy");
             int index = Random.Range(0, tearSounds.Length);
             Debug.Log(index);

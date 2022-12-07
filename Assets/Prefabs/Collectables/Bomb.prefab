@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500493407045441845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.982, y: 0.054, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1131215615
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1355785250, guid: 9492784c93646ad4ca1bf7abde9ed8c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,4 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exploteTime: 2
   explosionRadius: 2.51
+  explosionGO: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+  explosionSound: {fileID: 8300000, guid: 0b0c12d24a472b74aa93bb595023d963, type: 3}
   bombDamage: 3

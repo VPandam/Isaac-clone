@@ -54,6 +54,7 @@
      <Compile Include="Assets\_Scripts\Player\Shooting.cs" />
      <Compile Include="Assets\_Scripts\Rooms\Door.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Enemy.cs" />
+     <Compile Include="Assets\_Scripts\Obstacles\Rock.cs" />
      <Compile Include="Assets\_Scripts\Player\PlayerManager.cs" />
      <Compile Include="Assets\_Scripts\Player\CharacterController2D.cs" />
      <Compile Include="Assets\InputActions.cs" />
@@ -66,13 +67,13 @@
      <Compile Include="Assets\_Scripts\Rooms\Room.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Chaser\Chaser.cs" />
      <Compile Include="Assets\_Scripts\Rooms\RoomsController.cs" />
+     <Compile Include="Assets\_Scripts\Interfaces\IDamageable.cs" />
+     <Compile Include="Assets\_Scripts\Interfaces\IExplodable.cs" />
      <Compile Include="Assets\_Scripts\Pickup\Items\Item.cs" />
      <Compile Include="Assets\_Scripts\Enemy\EnemyIA.cs" />
      <Compile Include="Assets\_Scripts\Resources.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Worm\Worm.cs" />
-     <Compile Include="Assets\_Scripts\Interfaces\IDamageable.cs" />
-     <Compile Include="Assets\_Scripts\Interfaces\IExplodable.cs" />
-     <Compile Include="Assets\Obstacles\Rock.cs" />
+     <Compile Include="Assets\Prefabs\ToonExplosion v1.0\ToonExplosionEffect.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
