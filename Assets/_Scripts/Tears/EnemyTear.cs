@@ -1,18 +1,18 @@
 using UnityEngine;
 
 
-    public class EnemyBullet : Bullet
+    public class EnemyTear : Tear
     {
         int _attackDamage;
-        public void SetBullet(Vector2 shotDirection, float speed, int attackDamage)
+        public  void SetEnemyBullet(Vector2 shotDirection, float speed, int attackDamage)
         {
             _shotDirection = shotDirection;
             _speed = speed;
             _attackDamage = attackDamage;
         }
-        private void OnTriggerEnter2D(Collider2D other)
+        public override void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag.Equals("Player") || other.tag.Equals("Wall"))
+            if (other.tag.Equals("Player"))
             {
                 PlayerManager playerManager = other.GetComponent<PlayerManager>();
                 PlayerController playerController = other.GetComponent<PlayerController>();

@@ -46,8 +46,6 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     {
         if (sharedInstance == null)
             sharedInstance = this;
-
-
     }
 
     private void Start()
@@ -125,6 +123,39 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         {
             onUIChangeCallback.Invoke();
         }
+    }    
+    public void UpdateCoins(int coinsUpdate)
+    {
+        if (currentCoins <= maxCollectables)
+        {
+            currentCoins += coinsUpdate;
+            if (onUIChangeCallback != null)
+            {
+                onUIChangeCallback.Invoke();
+            }
+        }
+
+    }  public void UpdateBombs(int bombsUpdate)
+    {
+        if (currentBombs <= maxCollectables)
+        {
+            currentBombs += bombsUpdate;
+            if (onUIChangeCallback != null)
+            {
+                onUIChangeCallback.Invoke();
+            }
+        }
+    }  public void UpdateKeys(int keysUpdate)
+    {
+        if (currentKeys <= maxCollectables)
+        {
+            currentKeys += keysUpdate;
+            if (onUIChangeCallback != null)
+            {
+                onUIChangeCallback.Invoke();
+            }
+        }
+
     }
     public IEnumerator InvincibilityOnHit(float time)
     {

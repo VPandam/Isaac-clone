@@ -159,7 +159,7 @@
             if (Time.time >= nextShotTime)
             {
                 GameObject tear = Instantiate(currentTear, ShotInit.transform.position, Quaternion.identity);
-                tear.GetComponent<Bullet>().SetBullet(shootDirection, PlayerManager.sharedInstance.shotSpeed);
+                tear.GetComponent<Tear>().SetBullet(shootDirection, PlayerManager.sharedInstance.shotSpeed);
                 nextShotTime = Time.time + shotDelay;
             }
 

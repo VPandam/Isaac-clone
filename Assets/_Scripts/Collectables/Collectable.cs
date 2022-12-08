@@ -7,34 +7,42 @@ public enum CollectableType
 {
     Bomb, Key, Coin, Heart, BlueHeart
 }
-public class Collectable : MonoBehaviour
+public class Collectable : MonoBehaviour, IShoppable
 {
     [SerializeField] int ammount;
     public CollectableType _collectableType;
+    public int shopPrice;
+    public GameObject _shopSlot;
+    private PlayerManager _playerManager;
 
+    private void Start()
+    {
+        _playerManager = PlayerManager.sharedInstance;
+    }
 
-    void Collect(PlayerManager playerManager)
+    void Collect()
     {
         switch (_collectableType)
         {
             case CollectableType.Bomb:
-               if (playerManager.currentBombs ! >= playerManager.maxCollectables)
-                    playerManager.currentBombs += ammount;
-               break;
+                _playerManager.UpdateBombs(ammount);
+                break;
             case CollectableType.Coin:
-                if (playerManager.currentCoins ! >= playerManager.maxCollectables)
-                    playerManager.currentCoins += ammount;
+                _playerManager.UpdateCoins(ammount);
                 break;
             case CollectableType.Key:
-                if (playerManager.currentBombs ! >= playerManager.maxCollectables)
-                 playerManager.currentKeys += ammount;
+                _playerManager.UpdateKeys(ammount);
                 break;
             case CollectableType.Heart:
-                playerManager.UpdateHp(ammount, HpType.Red);
+                _playerManager.UpdateHp(ammount, HpType.Red);
                 break;
             case CollectableType.BlueHeart:
-                playerManager.UpdateHp(ammount, HpType.Blue);
+                _playerManager.UpdateHp(ammount, HpType.Blue);
                 break;
+        }
+        if (_playerManager.onUIChangeCallback != null)
+        {
+            _playerManager.onUIChangeCallback.Invoke();
         }
         Destroy(gameObject);
     }
@@ -43,8 +51,25 @@ public class Collectable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerManager playerManager = other.gameObject.GetComponent<PlayerManager>();
-            Collect(playerManager);
+            if(_shopSlot != null) BuyItem();
+            else
+                Collect();
         }
+    }
+
+    public void BuyItem()
+    {
+        if (_playerManager.currentCoins >= shopPrice)
+        {
+            _playerManager.UpdateCoins(-shopPrice);
+            Collect();
+            Destroy(_shopSlot);        
+        }
+          
+    }
+
+    public void SetShopSlot(GameObject shopSlot)
+    {
+        _shopSlot = shopSlot;
     }
 }

@@ -99,8 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88dd76fcd2b010245b8b580f73cdffed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammount: 1
+  ammount: 2
   _collectableType: 3
+  shopPrice: 5
+  _shopSlot: {fileID: 0}
 --- !u!58 &5724270212408546512
 CircleCollider2D:
   m_ObjectHideFlags: 0

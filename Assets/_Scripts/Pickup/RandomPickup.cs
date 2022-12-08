@@ -1,6 +1,6 @@
 using UnityEngine;
 
-    public class Pickup : MonoBehaviour
+    public class RandomPickup : MonoBehaviour
     {
         Item item;
         SpriteRenderer spriteRenderer;
@@ -10,7 +10,7 @@ using UnityEngine;
             spriteRenderer = GetComponent<SpriteRenderer>();
             if (item._sprite)
                 spriteRenderer.sprite = item._sprite;
-            spriteRenderer.size = item.itemSize;
+            spriteRenderer.size = new Vector2(0.5f,0.5f);
         }
         private void OnTriggerEnter2D(Collider2D other)
         {

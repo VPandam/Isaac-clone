@@ -100,21 +100,21 @@ using UnityEngine;
             {
                 //Shoot a bullet to the right
                 GameObject bulletRight = Instantiate(bulletPrefab, rightShootingStart.transform.position, Quaternion.identity);
-                bulletRight.GetComponent<EnemyBullet>().SetBullet(Vector2.right, shootSpeed, attackDamage);
+                bulletRight.GetComponent<EnemyTear>().SetEnemyBullet(Vector2.right, shootSpeed, attackDamage);
 
                 //Shoot a bullet to the left
                 GameObject bulletLeft = Instantiate(bulletPrefab, leftShootingStart.transform.position, Quaternion.identity);
-                bulletLeft.GetComponent<EnemyBullet>().SetBullet(Vector2.left, shootSpeed, attackDamage);
+                bulletLeft.GetComponent<EnemyTear>().SetEnemyBullet(Vector2.left, shootSpeed, attackDamage);
             }
             else
             {
                 //Shoot a bullet up
                 GameObject bulletUp = Instantiate(bulletPrefab, rightShootingStart.transform.position, Quaternion.identity);
-                bulletUp.GetComponent<EnemyBullet>().SetBullet(Vector2.up, shootSpeed, attackDamage);
+                bulletUp.GetComponent<EnemyTear>().SetEnemyBullet(Vector2.up, shootSpeed, attackDamage);
 
                 //Shoot a bullet down
                 GameObject bulletDown = Instantiate(bulletPrefab, leftShootingStart.transform.position, Quaternion.identity);
-                bulletDown.GetComponent<EnemyBullet>().SetBullet(Vector2.down, shootSpeed, attackDamage);
+                bulletDown.GetComponent<EnemyTear>().SetEnemyBullet(Vector2.down, shootSpeed, attackDamage);
             }
         }
 

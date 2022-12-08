@@ -43,11 +43,11 @@
   <ItemGroup>
      <Compile Include="Assets\_Scripts\Rooms\ExitZone.cs" />
      <Compile Include="Assets\_Scripts\UI\UIUpdate.cs" />
-     <Compile Include="Assets\_Scripts\Pickup\Pickup.cs" />
+     <Compile Include="Assets\_Scripts\Pickup\RandomPickup.cs" />
      <Compile Include="Assets\_Scripts\Enemy\AIBase2.cs" />
      <Compile Include="Assets\_Scripts\RelocateAStarPath.cs" />
      <Compile Include="Assets\_Scripts\Pickup\Items\Sword\Sword.cs" />
-     <Compile Include="Assets\_Scripts\Player\Bullet.cs" />
+     <Compile Include="Assets\_Scripts\Tears\Tear.cs" />
      <Compile Include="Assets\_Scripts\Pickup\Items\ItemManager.cs" />
      <Compile Include="Assets\_Scripts\StatsScrO.cs" />
      <Compile Include="Assets\_Scripts\GameManager.cs" />
@@ -62,10 +62,11 @@
      <Compile Include="Assets\_Scripts\Collectables\Collectable.cs" />
      <Compile Include="Assets\_Scripts\CameraController.cs" />
      <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
-     <Compile Include="Assets\_Scripts\Enemy\EnemyBullet.cs" />
+     <Compile Include="Assets\_Scripts\Tears\EnemyTear.cs" />
      <Compile Include="Assets\_Scripts\Collectables\Bomb.cs" />
      <Compile Include="Assets\_Scripts\Rooms\Room.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Chaser\Chaser.cs" />
+     <Compile Include="Assets\Prefabs\ToonExplosion v1.0\ToonExplosionEffect.cs" />
      <Compile Include="Assets\_Scripts\Rooms\RoomsController.cs" />
      <Compile Include="Assets\_Scripts\Interfaces\IDamageable.cs" />
      <Compile Include="Assets\_Scripts\Interfaces\IExplodable.cs" />
@@ -73,7 +74,10 @@
      <Compile Include="Assets\_Scripts\Enemy\EnemyIA.cs" />
      <Compile Include="Assets\_Scripts\Resources.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Worm\Worm.cs" />
-     <Compile Include="Assets\Prefabs\ToonExplosion v1.0\ToonExplosionEffect.cs" />
+     <Compile Include="Assets\_Scripts\Rooms\Shop\ShopItem.cs" />
+     <Compile Include="Assets\_Scripts\Rooms\Shop\ShopRoom.cs" />
+     <Compile Include="Assets\_Scripts\Interfaces\IShoppable.cs" />
+     <Compile Include="Assets\_Scripts\Tears\ColliderWithWalls.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
