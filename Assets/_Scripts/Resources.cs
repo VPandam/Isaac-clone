@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum CardinalDirections
 {
@@ -27,6 +29,22 @@ public class Resources : MonoBehaviour
         int nextDirectionIndex = Random.Range(0, cardinalDirections.Count);
         Vector2 randomCardinalDirection = cardinalDirections[(CardinalDirections)nextDirectionIndex];
         return randomCardinalDirection;
+    }    
+    
+    public Vector2 RandomVector2()
+    {
+        float x = Random.Range(-1f, 1f), y = Random.Range(-1f, 1f);
+        Vector2 randomDirection = new Vector2(x,y);
+        return randomDirection;
+    }
+    
+    public Vector2 Parabola(Vector2 start, Vector2 end, float height, float t)
+    {
+        Func<float, float> f = x => -4 * height * x * x + 4 * height * x;
+
+        var mid = Vector2.Lerp(start, end, t);
+
+        return new Vector2(mid.x, f(t) + Mathf.Lerp(start.y, end.y, t));
     }
 
     //Convert a vector into a cardinal direction.

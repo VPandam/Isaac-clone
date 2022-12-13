@@ -99,11 +99,24 @@ using UnityEngine;
             }
 
         }
+        public void FinishRoom()
+        {
+            Invoke(nameof(SpawnRoomReward), 1);
+            Invoke(nameof(OpenRoom), 1); 
+     
+        }
 
         //Exit zones are triggers in the doors.
         public void SetExitZonesActive()
         {
             exitZones.SetActive(true);
+        }
+
+        public void SpawnRoomReward()
+        {
+            var roomLootList = ItemManager.instance.roomLoot;
+            int randomIndex = Random.Range(0, roomLootList.Count);
+            Instantiate(roomLootList[randomIndex], transform.position, Quaternion.identity);
         }
 
         public int getX()

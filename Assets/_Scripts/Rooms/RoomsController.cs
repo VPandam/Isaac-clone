@@ -90,7 +90,7 @@ using UnityEngine;
             while (!isRoomInPosition)
             {
 
-                //Get the instance of a random room already loaded in the level.
+                //Get the reference of a random room already loaded in the level.
                 Room randomLoadedRoom = roomsLoaded[Random.Range(0, roomsLoaded.Count)];
 
                 //0 = up, 1 = down, 2 = right, 3 = left
@@ -149,6 +149,7 @@ using UnityEngine;
             int newRoomX = baseRoomX;
             int newRoomY = baseRoomY + 1;
 
+            //If there is not a room in the given coordinate
             if (!CheckCoordinate(newRoomX, newRoomY)[0])
             {
                 if (isGoldRoom)

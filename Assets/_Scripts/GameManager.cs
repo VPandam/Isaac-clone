@@ -34,12 +34,10 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator FadeInFadeOut()
     {
-
         pause = true;
-
         blackScreenCG.alpha = 1;
-
         yield return new WaitForSeconds(0.2f);
+        
         while (blackScreenCG.alpha > 0)
         {
             blackScreenCG.alpha -= Time.deltaTime / 0.2f;

@@ -94,7 +94,7 @@ using UnityEngine;
             _currentState = EnemyState.dead;
             if (enemies.Count == 0)
             {
-                currentRoom.OpenRoom();
+                currentRoom.FinishRoom();
             }
             Destroy(gameObject);
         }
