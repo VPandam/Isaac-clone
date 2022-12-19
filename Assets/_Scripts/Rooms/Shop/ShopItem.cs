@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//This game object has the collectable item  as a child.
+
 public class ShopItem : MonoBehaviour
 {
     private Collectable _collectable;

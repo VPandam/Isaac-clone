@@ -45,17 +45,23 @@ using UnityEngine;
 
         AstarPath pathfinder;
 
+        [SerializeField] GameObject minimapIcon;
+        private Color minimapIconInitialColor;
+        [SerializeField] private Color activeRoomMinimapColor;
+        private SpriteRenderer minimapIconSR;
         private void Awake()
         {
             // pathfinder.GetComponent<AstarPath>();
-        }
+            minimapIconSR = minimapIcon.GetComponent<SpriteRenderer>();
+        } 
         // Start is called before the first frame update
         void Start()
         {
+           
+
             if (enemies.Count == 0)
             {
                 Invoke("SetExitZonesActive", 1f);
-
             }
 
         }
@@ -82,7 +88,6 @@ using UnityEngine;
             roomOpen = false;
             foreach (Door door in doors)
             {
-
                 door.SetOpen(false);
             }
         }
@@ -106,6 +111,17 @@ using UnityEngine;
      
         }
 
+        public void SetVisibleOnMinimap()
+        {
+            minimapIcon.SetActive(true);
+            minimapIconInitialColor = minimapIconSR.color;
+            minimapIconSR.color = activeRoomMinimapColor;
+        }
+
+        public void OnLeftRoom()
+        {
+            minimapIconSR.color = minimapIconInitialColor;
+        }
         //Exit zones are triggers in the doors.
         public void SetExitZonesActive()
         {

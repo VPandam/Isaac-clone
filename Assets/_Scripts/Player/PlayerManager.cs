@@ -15,22 +15,32 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     SpriteRenderer _spriteR;
     [HideInInspector] public AudioSource playerAudioSource;
 
+    public int currentHealth, currentHealthContainers, currentBlueHealth; 
+    [HideInInspector]  public GameObject currentTear;
+    
+    //Collectables
+    [HideInInspector]
+    public int currentBombs, currentKeys, currentCoins;
+    
     //Stats
-    public int currentHealth;
-    public int currentHealthContainers;
-    public int currentBlueHealth;
+    [Header("Stats")]
     public int maxHealth;
-    public int totalMaxHealth;
     public float moveSpeed;
     public float fireRate;
     public float shotSpeed;
     public int attackDamage;
-    public GameObject currentTear;
-    public bool isInvincible;
+    
+    [HideInInspector] public bool isInvincible;
 
-    //Collectables
-    public int currentBombs, currentKeys, currentCoins;
-    public int StartingBombs, StartingKeys, StartingCoins, maxCollectables = 99;
+    [Space(10)]
+    
+    //Starting stats
+    [Header("Starting stats")] 
+    public int startingBombs;
+    public int startingKeys;
+    public int startingCoins;
+    public int startingHealthContainers;
+    public int maxCollectables = 99;
 
     public delegate void OnUIChange();
     public OnUIChange onUIChangeCallback;
@@ -39,6 +49,8 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     [SerializeField] GameObject baseTear;
     Vector3 basicScaleBaseTear;
     Color basicColorBaseTear;
+    
+    [HideInInspector] public Room currentRoom;
    
 
 
@@ -60,11 +72,11 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         basicColorBaseTear = baseTear.GetComponent<SpriteRenderer>().color;
         basicScaleBaseTear = baseTear.transform.localScale;
 
-        currentHealth = maxHealth;
-
-        currentBombs = StartingBombs; 
-        currentKeys = StartingKeys; 
-        currentCoins = StartingCoins;
+        currentHealth = startingHealthContainers*2;
+        currentBombs = startingBombs; 
+        currentKeys = startingKeys; 
+        currentCoins = startingCoins;
+        currentHealthContainers = startingHealthContainers;
         onUIChangeCallback.Invoke();
     }
 
@@ -114,10 +126,16 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     public void UpdateHp(int hpUpdate, HpType hpType)
     {
         if (hpType == HpType.Red)
-            currentHealth += hpUpdate;
-
+        {
+            if (hpUpdate < 0 && currentHealth + hpUpdate < 0) currentHealth = 0;
+            else currentHealth += hpUpdate;
+        }
+        
         else if (hpType == HpType.Blue)
-            currentBlueHealth += hpUpdate;
+        {
+            if (hpUpdate < 0 && currentBlueHealth + hpUpdate < 0) currentBlueHealth = 0;
+            else currentBlueHealth += hpUpdate;
+        }
 
         if (onUIChangeCallback != null)
         {
@@ -172,6 +190,26 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
             _spriteR.enabled = true;
             yield return new WaitForSeconds(0.05f);
         }
+    }
+
+    public bool CheckIfWeCanGetMoreHp(int hpUpdate)
+    {
+        int totalPlayerHp = currentHealth + currentBlueHealth;
+        //We cant have more health than the maximum health or more red health than the current health containers 
+        if ((hpUpdate > 0) && ((totalPlayerHp >= maxHealth) || (currentHealth / 2 >= currentHealthContainers)))
+        {
+            return false;
+        }
+        else return true;
+    }public bool CheckIfWeCanGetMoreBlueHp(int hpUpdate)
+    {
+        int totalPlayerHp = currentHealth + currentBlueHealth;
+        //We cant have more health than the maximum health or more red health than the current health containers 
+        if ((hpUpdate > 0) && (totalPlayerHp >= maxHealth))
+        {
+            return false;
+        }
+        else return true;
     }
 
 }

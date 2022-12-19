@@ -34,9 +34,11 @@ public class Collectable : MonoBehaviour, IShoppable
                 _playerManager.UpdateKeys(ammount);
                 break;
             case CollectableType.Heart:
+                if (!_playerManager.CheckIfWeCanGetMoreHp(ammount)) return;
                 _playerManager.UpdateHp(ammount, HpType.Red);
                 break;
             case CollectableType.BlueHeart:
+                if (!_playerManager.CheckIfWeCanGetMoreBlueHp(ammount)) return;
                 _playerManager.UpdateHp(ammount, HpType.Blue);
                 break;
         }
@@ -59,13 +61,17 @@ public class Collectable : MonoBehaviour, IShoppable
 
     public void BuyItem()
     {
+        if (_collectableType == CollectableType.Heart && !_playerManager.CheckIfWeCanGetMoreHp(ammount)) return;
+        
+        if (_collectableType == CollectableType.BlueHeart && !_playerManager.CheckIfWeCanGetMoreBlueHp(ammount)) return;
+        
         if (_playerManager.currentCoins >= shopPrice)
         {
             _playerManager.UpdateCoins(-shopPrice);
             Collect();
             Destroy(_shopSlot);        
         }
-          
+        
     }
 
     public void SetShopSlot(GameObject shopSlot)

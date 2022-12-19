@@ -14,7 +14,6 @@ public class Chest : MonoBehaviour
     private Animator _animator;
     private bool isOpened;
 
-    float animation = 0;
 
     public virtual void Start()
     {
@@ -28,7 +27,7 @@ public class Chest : MonoBehaviour
         _animator.SetTrigger(TRIGGER_CHEST);
 
         //We can get a random amount of items between 1 and 3.s
-        int lootAmount = Random.Range(1, 4);
+        int lootAmount = 4; Random.Range(1, 4);
 
         for (int i = 0; i < lootAmount; i++)
         { 
@@ -50,6 +49,7 @@ public class Chest : MonoBehaviour
     }
       IEnumerator MoveChestLoot(GameObject loot, Vector2 end)
       {
+          float animation = 0;
           float animationTime = .8f;
           var lootCollider = loot.GetComponent<Collider2D>();
           lootCollider.enabled = false;
@@ -58,7 +58,7 @@ public class Chest : MonoBehaviour
           while (Vector3.Distance(loot.transform.position, end) >= .1f)// object has reached goal } )
           { 
              animation += Time.deltaTime;
-             animation = animation % animationTime;
+             // animation = animation % animationTime;
              loot.transform.position = Resources.sharedInstance.Parabola(transform.position, end, 1.5f, animation / animationTime);
             yield return null;
           }

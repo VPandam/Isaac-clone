@@ -10,14 +10,13 @@ public class CameraController : MonoBehaviour
 
     Vector3 LookAt = Vector3.zero;
     Camera camara;
+    [SerializeField] GameObject minimapCamera;
     Vector3 offset = new Vector3(0, 0, -1);
     Vector3 positionToMove;
     // Start is called before the first frame update
     void Start()
     {
         camara = Camera.main;
-
-
     }
 
     // Update is called once per frame
@@ -39,6 +38,9 @@ public class CameraController : MonoBehaviour
         float percentageComplete = elapsedTime / lerpDuration;
 
         this.transform.position = Vector3.Lerp(this.transform.position, positionToMove, percentageComplete);
+        
+        minimapCamera.transform.position = transform.position;
+   ;
     }
     public void MoveCameraTo(Vector3 position)
     {

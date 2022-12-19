@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 
-    public enum FacingDirection
+public enum FacingDirection
     {
         up, down, right, left
     }
@@ -38,6 +39,8 @@ using UnityEngine;
 
         RelocateAStarPath relocateAStarPath;
 
+
+
         private void Awake()
         {
             if (_instance == null)
@@ -49,6 +52,7 @@ using UnityEngine;
             controls.Enable();
 
             controls.Player.Bomb.performed += ctxt => PlaceBomb();
+            controls.Player.OpenMinimap.performed += ctxt => Minimap._sharedInstance.OpenCloseMinimap();
 
             controls.Player.Move.canceled += ctxt =>
             {
@@ -154,9 +158,12 @@ using UnityEngine;
         {
             ExitZone exitZone = collision.GetComponent<ExitZone>();
             Room roomToSpawn = exitZone.roomToSpawn;
-
+            Room currentRoom = PlayerManager.sharedInstance.currentRoom;
             if (roomToSpawn)
             {
+                currentRoom.OnLeftRoom();
+                PlayerManager.sharedInstance.currentRoom = roomToSpawn;
+                roomToSpawn.SetVisibleOnMinimap();
                 //Fade in black screen
                 GameManager._instance.StartCoroutine("FadeInFadeOut");
 
@@ -205,9 +212,6 @@ using UnityEngine;
 
             isKnockback = false;
         }
-
-
-
         private void OnDisable()
         {
             controls.Disable();

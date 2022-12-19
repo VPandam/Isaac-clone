@@ -65,6 +65,8 @@ using UnityEngine;
 
             currentRoom = Instantiate(initialRoom, gameObject.transform);
             roomsLoaded.Add(currentRoom);
+            currentRoom.SetVisibleOnMinimap();
+            PlayerManager.sharedInstance.currentRoom = currentRoom;
             currentRoom.SetX(0); currentRoom.setY(0);
 
             InstantiateAllRooms();

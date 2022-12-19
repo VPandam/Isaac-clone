@@ -382,6 +382,7 @@
 "Assets/_Scripts/Tears/ColliderWithWalls.cs"
 "Assets/_Scripts/Tears/EnemyTear.cs"
 "Assets/_Scripts/Tears/Tear.cs"
+"Assets/_Scripts/UI/Minimap.cs"
 "Assets/_Scripts/UI/UIUpdate.cs"
 -langversion:9.0
 

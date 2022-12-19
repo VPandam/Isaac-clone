@@ -62,6 +62,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenMinimap"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c8a986a-a86c-49e4-a19f-a038caed3513"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -337,6 +346,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Bomb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26908f29-536b-462e-a934-00f4fe352230"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenMinimap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6fa39728-ddc8-4ecd-adee-fbb7f4b67f9d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenMinimap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -928,6 +959,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_UpdateHp = m_Player.FindAction("UpdateHp", throwIfNotFound: true);
         m_Player_Bomb = m_Player.FindAction("Bomb", throwIfNotFound: true);
+        m_Player_OpenMinimap = m_Player.FindAction("OpenMinimap", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1003,6 +1035,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_UpdateHp;
     private readonly InputAction m_Player_Bomb;
+    private readonly InputAction m_Player_OpenMinimap;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -1011,6 +1044,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @UpdateHp => m_Wrapper.m_Player_UpdateHp;
         public InputAction @Bomb => m_Wrapper.m_Player_Bomb;
+        public InputAction @OpenMinimap => m_Wrapper.m_Player_OpenMinimap;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1032,6 +1066,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Bomb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBomb;
                 @Bomb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBomb;
                 @Bomb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBomb;
+                @OpenMinimap.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenMinimap;
+                @OpenMinimap.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenMinimap;
+                @OpenMinimap.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenMinimap;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1048,6 +1085,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Bomb.started += instance.OnBomb;
                 @Bomb.performed += instance.OnBomb;
                 @Bomb.canceled += instance.OnBomb;
+                @OpenMinimap.started += instance.OnOpenMinimap;
+                @OpenMinimap.performed += instance.OnOpenMinimap;
+                @OpenMinimap.canceled += instance.OnOpenMinimap;
             }
         }
     }
@@ -1208,6 +1248,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnUpdateHp(InputAction.CallbackContext context);
         void OnBomb(InputAction.CallbackContext context);
+        void OnOpenMinimap(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

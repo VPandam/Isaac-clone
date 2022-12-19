@@ -145,21 +145,21 @@ MonoBehaviour:
   playerAudioSource: {fileID: 0}
   currentHealth: 0
   currentHealthContainers: 0
-  currentBlueHealth: 4
-  maxHealth: 10
-  totalMaxHealth: 0
+  currentBlueHealth: 0
+  currentTear: {fileID: 0}
+  currentBombs: 0
+  currentKeys: 0
+  currentCoins: 0
+  maxHealth: 32
   moveSpeed: 7
   fireRate: 0.5
   shotSpeed: 15
   attackDamage: 2
-  currentTear: {fileID: 0}
   isInvincible: 0
-  currentBombs: 0
-  currentKeys: 0
-  currentCoins: 0
-  StartingBombs: 4
-  StartingKeys: 1
-  StartingCoins: 15
+  startingBombs: 1
+  startingKeys: 1
+  startingCoins: 15
+  startingHealthContainers: 3
   maxCollectables: 99
   baseTear: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
     type: 3}
