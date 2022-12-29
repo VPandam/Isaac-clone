@@ -5,13 +5,13 @@ using UnityEngine;
     public class Room : MonoBehaviour
     {
         public List<Enemy> enemies = new List<Enemy>();
-        public List<Door> doors = new List<Door>();
+        [HideInInspector]public List<Door> doors = new List<Door>();
 
         //Sets the door state
-        public bool roomOpen;
+        [HideInInspector]public bool roomOpen;
 
         //True if the player is been already in the room.
-        public bool playerEntered = false;
+        [HideInInspector]public bool playerEntered = false;
 
         //Exit zones are the door triggers
         public GameObject exitZones;
@@ -38,16 +38,15 @@ using UnityEngine;
         public GameObject doorLeftPos;
         public GameObject doorDownPos;
 
-        public int x;
-        public int y;
-        public int ID;
+        [HideInInspector]public int x,y,ID;
         public bool isGold;
 
         AstarPath pathfinder;
 
+        //Minimap
         [SerializeField] GameObject minimapIcon;
         private Color minimapIconInitialColor;
-        [SerializeField] private Color activeRoomMinimapColor;
+        private Color activeRoomMinimapColor = new Color(115,115,115);
         private SpriteRenderer minimapIconSR;
         private void Awake()
         {
@@ -55,10 +54,9 @@ using UnityEngine;
             minimapIconSR = minimapIcon.GetComponent<SpriteRenderer>();
         } 
         // Start is called before the first frame update
-        void Start()
+        protected virtual void Start()
         {
-           
-
+            
             if (enemies.Count == 0)
             {
                 Invoke("SetExitZonesActive", 1f);

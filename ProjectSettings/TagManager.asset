@@ -59,8 +59,14 @@ TagManager:
   - name: Collectables
     uniqueID: 3163751681
     locked: 0
+  - name: Enemy
+    uniqueID: 3728027629
+    locked: 0
   - name: Player
     uniqueID: 1462936923
+    locked: 0
+  - name: Tear
+    uniqueID: 1118680949
     locked: 0
   - name: UI
     uniqueID: 2912364359

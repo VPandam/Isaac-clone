@@ -178,7 +178,10 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     public IEnumerator InvincibilityOnHit(float time)
     {
         isInvincible = true;
+        yield return new WaitForSeconds(0.2f);
+        Physics2D.IgnoreLayerCollision(10, 11, true);
         yield return new WaitForSeconds(time);
+        Physics2D.IgnoreLayerCollision(10, 11, false);
         isInvincible = false;
     }
     public IEnumerator FlashOnInvincibility()
@@ -201,7 +204,8 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
             return false;
         }
         else return true;
-    }public bool CheckIfWeCanGetMoreBlueHp(int hpUpdate)
+    }
+    public bool CheckIfWeCanGetMoreBlueHp(int hpUpdate)
     {
         int totalPlayerHp = currentHealth + currentBlueHealth;
         //We cant have more health than the maximum health or more red health than the current health containers 

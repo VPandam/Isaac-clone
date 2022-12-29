@@ -79,7 +79,6 @@ public enum FacingDirection
             if (GameManager._instance.pause || isKnockback)
             {
                 _animator.SetBool(MOVING, false);
-
                 return;
             }
 
@@ -128,7 +127,7 @@ public enum FacingDirection
 
             moving = movementInput.normalized.magnitude > sensibility;
 
-            if (movementInput.normalized.magnitude > sensibility)
+            if (moving)
                 Move();
         }
         void Move()

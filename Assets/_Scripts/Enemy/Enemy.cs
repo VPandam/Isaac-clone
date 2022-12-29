@@ -13,8 +13,8 @@ using UnityEngine;
     public class Enemy : MonoBehaviour, IDamageable, IExplodable
 
     {
-        public GameObject player;
-        public bool isKnockback;
+        [HideInInspector] public GameObject player;
+        [HideInInspector]public bool isKnockback;
         //Componetns
         public EnemyState _currentState;
         protected SpriteRenderer _spriteRenderer;
@@ -23,8 +23,8 @@ using UnityEngine;
         public Sprite _hitSprite;
 
         //Stats
-        [SerializeField] protected int maxHp = 3, currentHp = 3, rangeAttack = 1;
-        [SerializeField] protected int attackDamage = 1, speed = 1;
+        [SerializeField] protected int maxHp = 3,  rangeAttack = 1, attackDamage = 1, speed = 1;
+        [HideInInspector] protected int currentHp = 3;
         [SerializeField] protected LayerMask roomMask, playerMask;
 
         //Movement
@@ -52,7 +52,7 @@ using UnityEngine;
                 return;
             }
         }
-        void Start()
+        protected virtual void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
@@ -107,7 +107,7 @@ using UnityEngine;
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.tag == "Player")
+            if (collision.gameObject.tag == "Player" && !playerManager.isInvincible)
             {
                 Debug.Log("PlayerCollision");
                 // Rigidbody2D playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
@@ -115,9 +115,8 @@ using UnityEngine;
                 // ForceMode2D.Impulse);
 
                 playerManager.TakeDamage(attackDamage);
-
-
             }
+
         }
         private void OnCollisionStay2D(Collision2D other)
         {

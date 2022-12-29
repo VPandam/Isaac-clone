@@ -22,7 +22,6 @@
             playerAudioSource = PlayerManager.sharedInstance.playerAudioSource;
             enemy = GameObject.FindGameObjectWithTag("Enemy");
             int index = Random.Range(0, tearSounds.Length);
-            Debug.Log(index);
             if (tearSounds.Length > 0)
                 playerAudioSource.PlayOneShot(tearSounds[index]);
             // _rb.velocity = shotDirection * speed;

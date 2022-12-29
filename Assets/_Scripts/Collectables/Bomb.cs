@@ -11,11 +11,29 @@ public class Bomb : MonoBehaviour
     [SerializeField] private GameObject explosionGO;
     [SerializeField] private AudioClip explosionSound;
     [SerializeField]int bombDamage;
+    private float actualScale, targetScale; 
+    
     
     private void Start()
     {
         Invoke("Explode", exploteTime);
+        actualScale = 1;
+        targetScale = actualScale * 2;
+        StartCoroutine(nameof(GrowScale));
     }
+
+    IEnumerator GrowScale()
+    {
+        Debug.Log("GrowScale" + " actualScale and targetScale "  + " " + actualScale + " " + targetScale);
+        while (actualScale < targetScale)
+        {
+            Debug.Log("actualScale = " + actualScale + " localScale = " + transform.localScale);
+            actualScale += actualScale * Time.deltaTime;
+            transform.localScale = new Vector3(1,1,1) * actualScale;
+            yield return null;
+        }
+    }
+
 
     void Explode()
     {
