@@ -191,7 +191,7 @@ public enum FacingDirection
         void PlaceBomb()
         {
             PlayerManager playerManager = PlayerManager.sharedInstance;
-            if (playerManager.currentBombs >= 1)
+            if (playerManager.currentBombs >= 1 && !playerManager.isInvincible)
             { 
                 playerManager.currentBombs--;
                 if (playerManager.onUIChangeCallback != null)

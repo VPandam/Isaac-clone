@@ -18,19 +18,29 @@ public class Bomb : MonoBehaviour
     {
         Invoke("Explode", exploteTime);
         actualScale = 1;
-        targetScale = actualScale * 2;
+        targetScale = actualScale * 1.2f;
         StartCoroutine(nameof(GrowScale));
     }
 
     IEnumerator GrowScale()
     {
-        Debug.Log("GrowScale" + " actualScale and targetScale "  + " " + actualScale + " " + targetScale);
-        while (actualScale < targetScale)
+        while (true)
         {
-            Debug.Log("actualScale = " + actualScale + " localScale = " + transform.localScale);
-            actualScale += actualScale * Time.deltaTime;
-            transform.localScale = new Vector3(1,1,1) * actualScale;
-            yield return null;
+            while (actualScale < targetScale)
+            {
+                Debug.Log("Growing actualScale = " + actualScale + " localScale = " + transform.localScale);
+                actualScale += actualScale * Time.deltaTime * 0.4f;
+                transform.localScale = new Vector3(1,1,1) * actualScale;
+                yield return null;
+            }
+
+            while (actualScale > 1)
+            {
+                Debug.Log("Lowering actualScale = " + actualScale + " localScale = " + transform.localScale);
+                actualScale -= actualScale * Time.deltaTime * 0.4f;
+                transform.localScale = new Vector3(1,1,1) * actualScale;
+                yield return null;
+            }
         }
     }
 

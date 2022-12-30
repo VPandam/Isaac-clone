@@ -156,7 +156,7 @@ MonoBehaviour:
   shotSpeed: 15
   attackDamage: 2
   isInvincible: 0
-  startingBombs: 1
+  startingBombs: 99
   startingKeys: 1
   startingCoins: 15
   startingHealthContainers: 3
