@@ -13,13 +13,14 @@ GameObject:
   - component: {fileID: 5217585761027400894}
   - component: {fileID: 3970157009664047975}
   - component: {fileID: 3836054695482114221}
+  - component: {fileID: 6627452804469197744}
   m_Layer: 11
   m_Name: PoopBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8636619162430678776
 Transform:
   m_ObjectHideFlags: 0
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.74, y: 2.93}
+  m_Size: {x: 2.77, y: 2.93}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -103,10 +104,11 @@ MonoBehaviour:
   player: {fileID: 0}
   isKnockback: 0
   _currentState: 0
+  normalSprite: {fileID: 832129643, guid: b39d3c6ab6cae8f4fa71f7e0842f29df, type: 3}
   _hitSprite: {fileID: 21300000, guid: ca475db0d87cd9c4c8127dff865b5042, type: 3}
   maxHp: 30
   rangeAttack: 1
-  attackDamage: 3
+  attackDamage: 2
   speed: 5
   roomMask:
     serializedVersion: 2
@@ -116,10 +118,16 @@ MonoBehaviour:
     m_Bits: 1024
   bulletPref: {fileID: 5315961047368399508, guid: 2f7f492ad4c3fdb4d8967f1c69ebe341,
     type: 3}
+  whistleSprite: {fileID: 21300000, guid: 7b71491fef367124b9e126f23949853a, type: 3}
+  WhistleNotesPref: {fileID: 7539776798767636385, guid: 62714ba9b977deb48a4633aa4ef237c4,
+    type: 3}
+  whistleNotesSpawnPoint: {fileID: 1271173783084226824}
+  whistleClip: {fileID: 8300000, guid: 63cd1a8d286767342b1e223cc8085695, type: 3}
   bulletSpeed: 15
-  angleBetweenBullets: 10
+  angleBetweenBullets: 15
   numberOfBullets: 3
   tackleSpeed: 150
+  angrySprite: {fileID: -1978814461, guid: aeeeba5d91b0a924ead5de3a44eca221, type: 3}
   tackleTime: 2
 --- !u!50 &3970157009664047975
 Rigidbody2D:
@@ -158,6 +166,102 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.32}
   serializedVersion: 2
   m_Radius: 1.01
+--- !u!82 &6627452804469197744
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076033074425326277}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1271173783084226824
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,9 +272,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9218473256864376318}
   m_Layer: 11
-  m_Name: ShootStart
+  m_Name: NotesSpawn
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -182,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271173783084226824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.607, y: 1.075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

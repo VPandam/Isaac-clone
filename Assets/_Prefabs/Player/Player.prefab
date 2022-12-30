@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1462936923
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7276521108496876563, guid: 524f3e0a8ead61f43afc6ad7ceee20fd,
     type: 3}
@@ -151,7 +151,7 @@ MonoBehaviour:
   currentKeys: 0
   currentCoins: 0
   maxHealth: 32
-  moveSpeed: 7
+  moveSpeed: 9
   fireRate: 0.5
   shotSpeed: 15
   attackDamage: 2
@@ -163,6 +163,7 @@ MonoBehaviour:
   maxCollectables: 99
   baseTear: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
     type: 3}
+  currentRoom: {fileID: 0}
 --- !u!70 &6191683847908417852
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

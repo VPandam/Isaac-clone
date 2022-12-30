@@ -13,14 +13,18 @@ public class PoopBoss : Enemy
     private PoopBossState currentPoopBossState;
 
     private bool changingCurrentState, shooting, tackleing;
-    [Header("Shooting")]
+    [Header("Shooting")] 
     [SerializeField] private GameObject bulletPref;
+    [SerializeField] private Sprite whistleSprite;
+    [SerializeField] GameObject WhistleNotesPref, whistleNotesSpawnPoint;
+    [SerializeField] private AudioClip whistleClip;
     [SerializeField] private float bulletSpeed, angleBetweenBullets;
     [SerializeField] private int numberOfBullets;
     float shootAngle;
 
     [Header("Tackleing")] 
     [SerializeField] private float tackleSpeed;
+    [SerializeField] private Sprite angrySprite;
     [SerializeField] float tackleTime;
 
     protected override void Start()
@@ -52,8 +56,7 @@ public class PoopBoss : Enemy
         float randomTime = Random.Range(2,3);
         yield return new WaitForSeconds(randomTime);
         //0 is Shoot, 1 is tackle
-        // int randomIndex = Random.Range(0, 2);
-        int randomIndex = 1;
+        int randomIndex = Random.Range(0, 2);
         if (randomIndex == 0)currentPoopBossState = PoopBossState.Shoot;
         else if (randomIndex == 1)currentPoopBossState = PoopBossState.Tackle;
         changingCurrentState = false;
@@ -64,21 +67,28 @@ public class PoopBoss : Enemy
     ///The second bullet will always face the player.
     /// </summary>
     IEnumerator Shoot()
+    {
+        shooting = true;
+        yield return new WaitForSeconds(1);
+        _spriteRenderer.sprite = whistleSprite;
+        Instantiate(WhistleNotesPref, whistleNotesSpawnPoint.transform.position, Quaternion.identity);
+        if(whistleClip) _audioSource.PlayOneShot(whistleClip, 0.5f);
+        yield return new WaitForSeconds(1);
+        _spriteRenderer.sprite = normalSprite;
+        float playerRotation = CalculatePlayerRotation();
+        //Im aiming to shot 3 bullets, so we add the angle between bullets to the first one.
+        //After that we will substract it everytime we shoot.
+        shootAngle = playerRotation + angleBetweenBullets;
+        for (var i = 0; i < numberOfBullets; i++)
         {
-            shooting = true;
-            yield return new WaitForSeconds(1);
-            float playerRotation = CalculatePlayerRotation();
-            //Im aiming to shot 3 bullets, so we add the angle between bullets to the first one.
-            //After that we will substract it everytime we shoot.
-            shootAngle = playerRotation + angleBetweenBullets;
-            for (var i = 0; i < numberOfBullets; i++)
-            {
-                InstantiateTear();
-                shootAngle -= angleBetweenBullets;
-            };
-            currentPoopBossState = PoopBossState.Chill;
-            shooting = false;
-        }
+            InstantiateTear();
+            shootAngle -= angleBetweenBullets;
+        };
+        shooting = false;
+        //After shooting once, we make more probable to shoot again by getting a random value.
+        if (Random.Range(0, 3) == 0) currentPoopBossState = PoopBossState.Shoot;
+        else currentPoopBossState = PoopBossState.Chill;
+    }
 
     void InstantiateTear()
     {
@@ -95,6 +105,7 @@ public class PoopBoss : Enemy
     IEnumerator Tackle()
     {
         tackleing = true;
+        _spriteRenderer.sprite = angrySprite;
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(0.5f);
@@ -120,7 +131,17 @@ public class PoopBoss : Enemy
             //     yield return null;
             // }
         }
-        currentPoopBossState = PoopBossState.Chill;
+
+        _spriteRenderer.sprite = normalSprite;
         tackleing = false;
+        currentPoopBossState = PoopBossState.Chill;
+    }
+
+    protected override IEnumerator BlinkColorDamage()
+    {
+        Color hitColor = new Color(1f, 0.4f, 0.4f);
+        _spriteRenderer.color = hitColor;
+        yield return new WaitForSeconds(0.07f);
+        _spriteRenderer.color = Color.white;
     }
 }

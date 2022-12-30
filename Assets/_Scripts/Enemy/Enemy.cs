@@ -19,8 +19,9 @@ using UnityEngine;
         public EnemyState _currentState;
         protected SpriteRenderer _spriteRenderer;
         protected Rigidbody2D _rb;
-        protected Sprite normalSprite;
+        [SerializeField]protected Sprite normalSprite;
         public Sprite _hitSprite;
+        protected AudioSource _audioSource;
 
         //Stats
         [SerializeField] protected int maxHp = 3,  rangeAttack = 1, attackDamage = 1, speed = 1;
@@ -67,6 +68,7 @@ using UnityEngine;
             normalSprite = _spriteRenderer.sprite;
             _rb = GetComponent<Rigidbody2D>();
             moveDirection = -transform.right;
+            _audioSource = GetComponent<AudioSource>();
         }
 
 
@@ -99,7 +101,7 @@ using UnityEngine;
             Destroy(gameObject);
         }
 
-        IEnumerator BlinkColorDamage()
+        protected virtual IEnumerator BlinkColorDamage()
         {
             _spriteRenderer.sprite = _hitSprite;
             yield return new WaitForSeconds(0.07f);

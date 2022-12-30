@@ -357,6 +357,7 @@
 "Assets/_Scripts/Enemy/Enemy.cs"
 "Assets/_Scripts/Enemy/EnemyIA.cs"
 "Assets/_Scripts/Enemy/PoopBoss/PoopBoss.cs"
+"Assets/_Scripts/Enemy/PoopBoss/WhistleNotes.cs"
 "Assets/_Scripts/Enemy/Worm/Worm.cs"
 "Assets/_Scripts/GameManager.cs"
 "Assets/_Scripts/Interfaces/IDamageable.cs"
