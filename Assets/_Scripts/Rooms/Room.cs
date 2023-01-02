@@ -48,6 +48,8 @@ using UnityEngine;
         private Color minimapIconInitialColor;
         private Color activeRoomMinimapColor = new Color(115,115,115);
         private SpriteRenderer minimapIconSR;
+
+        private bool roomLooted;
         private void Awake()
         {
             // pathfinder.GetComponent<AstarPath>();
@@ -79,7 +81,6 @@ using UnityEngine;
                 CloseRoom();
                 SpawnEnemies();
             }
-
         }
         void CloseRoom()
         {
@@ -102,12 +103,12 @@ using UnityEngine;
             }
 
         }
-        public void FinishRoom()
+        public virtual void FinishRoom()
         {
             Invoke(nameof(SpawnRoomReward), 1);
-            Invoke(nameof(OpenRoom), 1); 
-     
+            Invoke(nameof(OpenRoom), 1);
         }
+        
 
         public void SetVisibleOnMinimap()
         {
@@ -128,9 +129,13 @@ using UnityEngine;
 
         public void SpawnRoomReward()
         {
-            var roomLootList = ItemManager.instance.roomLoot;
-            int randomIndex = Random.Range(0, roomLootList.Count);
-            Instantiate(roomLootList[randomIndex], transform.position, Quaternion.identity);
+            if(!roomLooted)
+            {
+                roomLooted = true;
+                var roomLootList = ItemManager.instance.roomLoot;
+                int randomIndex = Random.Range(0, roomLootList.Count);
+                Instantiate(roomLootList[randomIndex], transform.position, Quaternion.identity);
+            }
         }
 
         public int getX()

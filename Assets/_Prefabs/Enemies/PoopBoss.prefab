@@ -128,7 +128,7 @@ MonoBehaviour:
   numberOfBullets: 3
   tackleSpeed: 150
   angrySprite: {fileID: -1978814461, guid: aeeeba5d91b0a924ead5de3a44eca221, type: 3}
-  tackleTime: 2
+  tackleTime: 1.5
 --- !u!50 &3970157009664047975
 Rigidbody2D:
   serializedVersion: 4
@@ -286,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271173783084226824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.607, y: 1.075, z: 0}
+  m_LocalPosition: {x: -1.41, y: 1.075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

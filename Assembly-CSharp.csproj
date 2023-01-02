@@ -70,6 +70,7 @@
      <Compile Include="Assets\_Scripts\Rooms\Room.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Chaser\Chaser.cs" />
      <Compile Include="Assets\_Prefabs\ToonExplosion v1.0\ToonExplosionEffect.cs" />
+     <Compile Include="Assets\_Scripts\Enemy\PoopBoss\WhistleNotes.cs" />
      <Compile Include="Assets\_Scripts\Rooms\RoomsController.cs" />
      <Compile Include="Assets\_Scripts\Rooms\Shop\ShopRoom.cs" />
      <Compile Include="Assets\_Scripts\Interfaces\IDamageable.cs" />
@@ -82,7 +83,7 @@
      <Compile Include="Assets\_Scripts\Resources.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Worm\Worm.cs" />
      <Compile Include="Assets\_Scripts\Rooms\Shop\ShopItem.cs" />
-     <Compile Include="Assets\_Scripts\Enemy\PoopBoss\WhistleNotes.cs" />
+     <Compile Include="Assets\_Scripts\Rooms\BossRoom\Stairs.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

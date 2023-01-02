@@ -10,13 +10,17 @@ using UnityEngine;
     public class RoomsController : MonoBehaviour
     {
         //Singleton
-        static public RoomsController instance;
+        static public RoomsController _instance;
         //The ammount of rooms created per level
-        public int ammountOfInitialRooms = 10;
+        [SerializeField] int ammountOfInitialRooms = 10;
         //Prefab of the first room
-        public Room initialRoom;
+        [SerializeField] Room initialRoom;
         //List of all the room prefabs
-        public List<Room> allRooms = new List<Room>();
+        [SerializeField] List<Room> allRooms = new List<Room>(), allRoomsLvl2 = new List<Room>(), 
+        allRoomsLvl3 = new List<Room>(), allRoomsLvl4 = new List<Room>();
+
+        int currentLevel = 1;
+        private Dictionary<int, List<Room>> levelRooms = new Dictionary<int, List<Room>>();
         //Rooms already loaded
         private List<Room> roomsLoaded = new List<Room>();
         //The room we are working with
@@ -49,20 +53,22 @@ using UnityEngine;
 
         private void Awake()
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = this;
+                _instance = this;
             }
+            levelRooms.Add(1, allRooms);
+            levelRooms.Add(2, allRoomsLvl2);
+            levelRooms.Add(3, allRoomsLvl3);
+            levelRooms.Add(4, allRoomsLvl4);
         }
         void Start()
         {
             cam = Camera.main.GetComponent<CameraController>();
-
         }
 
         public void CreateRooms()
         {
-
             currentRoom = Instantiate(initialRoom, gameObject.transform);
             roomsLoaded.Add(currentRoom);
             currentRoom.SetVisibleOnMinimap();
@@ -322,7 +328,11 @@ using UnityEngine;
                 {
                     roomToInstantiate = goldRoomPrefab;
                 }
-                else { roomToInstantiate = allRooms[Random.Range(0, allRooms.Count)]; }
+                else
+                {
+                    var roomsList = levelRooms[currentLevel];
+                    roomToInstantiate = roomsList[Random.Range(0, roomsList.Count)];
+                }
 
                 //There should be only one gold room per level.
                 if (roomToInstantiate.isGold)
@@ -563,18 +573,15 @@ using UnityEngine;
 
         void InstantiateAllRooms()
         {
-
             for (int i = 0; i < ammountOfInitialRooms; i++)
             {
                 NewRoom(false);
-
             }
 
             if (!isGoldRoomLoaded)
             {
                 NewRoom(true);
             }
-
         }
 
         public void setNewRoomXY(Room room, int valueX, int valueY)
@@ -582,7 +589,27 @@ using UnityEngine;
             room.SetX(valueX); room.setY(valueY);
         }
 
+        public void LoadNewLevel()
+        {
+            currentLevel++;
+            ResetVariables();
+            DestroyAllRooms();
+            CreateRooms();
+        }
 
+        void ResetVariables()
+        {
+            isGoldRoomLoaded = false;
+            roomID = 0;
+        }
+        void DestroyAllRooms()
+        {
+            foreach (var room in roomsLoaded)
+            {
+                Destroy(room.gameObject);
+            }
+            roomsLoaded.Clear();
+        }
     }
 
 

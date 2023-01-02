@@ -150,13 +150,13 @@ public enum FacingDirection
         {
             if (collision.CompareTag("DoorExitZone"))
             {
-                ChangeRoom(collision);
+                ExitZone exitZone = collision.GetComponent<ExitZone>();
+                Room roomToSpawn = exitZone.roomToSpawn;
+                ChangeRoom(roomToSpawn, exitZone);
             }
         }
-        void ChangeRoom(Collider2D collision)
+        public void ChangeRoom(Room roomToSpawn,  ExitZone exitZone = null)
         {
-            ExitZone exitZone = collision.GetComponent<ExitZone>();
-            Room roomToSpawn = exitZone.roomToSpawn;
             Room currentRoom = PlayerManager.sharedInstance.currentRoom;
             if (roomToSpawn)
             {
@@ -164,7 +164,7 @@ public enum FacingDirection
                 PlayerManager.sharedInstance.currentRoom = roomToSpawn;
                 roomToSpawn.SetVisibleOnMinimap();
                 //Fade in black screen
-                GameManager._instance.StartCoroutine("FadeInFadeOut");
+                if(exitZone) GameManager._instance.StartCoroutine("FadeInFadeOut");
 
                 //Destroy all bullets
                 GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
@@ -181,9 +181,16 @@ public enum FacingDirection
                     roomToSpawn.Invoke("StartRoom", 1f);
                 }
 
-                //Move the player to the new room spawn position
-                gameObject.transform.position = exitZone.playerSpawnPosition;
-
+                if (exitZone)
+                {
+                    //Move the player to the new room spawn position
+                    gameObject.transform.position = exitZone.playerSpawnPosition;
+                }
+                else
+                {
+                    //If we are not tping from a spawn room, we are starting a new level.
+                    gameObject.transform.position = Vector3.zero;
+                }
                 relocateAStarPath.Relocate(roomToSpawn.transform.position);
             }
         }

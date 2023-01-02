@@ -38,12 +38,14 @@ public class ItemManager : MonoBehaviour
         if (allItems.Count > 0)
         {
             Item returnItem = allItems[random];
-            itemsUsed.Add(returnItem);
-            allItems.Remove(returnItem);
             return returnItem;
         }
         return null;
-
+    }
+    public void RegisterItemAsUsed(Item item)
+    {
+        itemsUsed.Add(item);
+        allItems.Remove(item);
     }
 }
     

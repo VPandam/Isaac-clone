@@ -374,6 +374,7 @@
 "Assets/_Scripts/RelocateAStarPath.cs"
 "Assets/_Scripts/Resources.cs"
 "Assets/_Scripts/Rooms/BossRoom/BossRoom.cs"
+"Assets/_Scripts/Rooms/BossRoom/Stairs.cs"
 "Assets/_Scripts/Rooms/Door.cs"
 "Assets/_Scripts/Rooms/ExitZone.cs"
 "Assets/_Scripts/Rooms/Room.cs"

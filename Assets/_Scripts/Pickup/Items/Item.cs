@@ -28,6 +28,7 @@ using UnityEngine.Serialization;
 
         public virtual void DoEffect()
         {
+            ItemManager.instance.RegisterItemAsUsed(this);
             Debug.Log(effectDescription);
         }
 
@@ -52,8 +53,7 @@ using UnityEngine.Serialization;
             {
                 if (_shopSlot != null) BuyItem();
                 else
-                {
-                    
+                {  
                 Debug.Log(_name + " picked up");
                 DoEffect();
                     Destroy(this.gameObject);

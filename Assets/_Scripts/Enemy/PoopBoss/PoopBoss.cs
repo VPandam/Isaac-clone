@@ -86,7 +86,7 @@ public class PoopBoss : Enemy
         };
         shooting = false;
         //After shooting once, we make more probable to shoot again by getting a random value.
-        if (Random.Range(0, 3) == 0) currentPoopBossState = PoopBossState.Shoot;
+        if (Random.Range(0, 4) == 0) currentPoopBossState = PoopBossState.Shoot;
         else currentPoopBossState = PoopBossState.Chill;
     }
 
@@ -108,7 +108,7 @@ public class PoopBoss : Enemy
         _spriteRenderer.sprite = angrySprite;
         for (int i = 0; i < 3; i++)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
             Vector3 startingPos  = transform.position;
             Vector3 finalPos = player.transform.position;
             float timer = 0;

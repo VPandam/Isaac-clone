@@ -40,7 +40,6 @@
         }
         public virtual void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("OnTriger");
             if (other.tag.Equals("Enemy"))
             {
                 Enemy enemy = other.GetComponent<Enemy>();
