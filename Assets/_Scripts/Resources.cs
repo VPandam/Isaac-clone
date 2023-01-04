@@ -22,7 +22,6 @@ public class Resources : MonoBehaviour
         cardinalDirections.Add(CardinalDirections.right, Vector2.right);
         cardinalDirections.Add(CardinalDirections.left, Vector2.left);
         cardinalDirections.Add(CardinalDirections.down, Vector2.down);
-        Debug.Log(cardinalDirections);
     }
     public Vector2 GetRandomCardinalDirection()
     {

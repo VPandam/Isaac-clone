@@ -44,6 +44,7 @@
      <Compile Include="Assets\_Scripts\Rooms\ExitZone.cs" />
      <Compile Include="Assets\_Scripts\UI\UIUpdate.cs" />
      <Compile Include="Assets\_Scripts\UI\Minimap.cs" />
+     <Compile Include="Assets\_Scripts\Levels\LevelManager.cs" />
      <Compile Include="Assets\_Scripts\Enemy\PoopBoss\PoopBoss.cs" />
      <Compile Include="Assets\_Scripts\Pickup\RandomPickup.cs" />
      <Compile Include="Assets\_Scripts\Enemy\AIBase2.cs" />
@@ -80,10 +81,11 @@
      <Compile Include="Assets\_Scripts\Rooms\BossRoom\BossRoom.cs" />
      <Compile Include="Assets\_Scripts\Enemy\EnemyIA.cs" />
      <Compile Include="Assets\_Scripts\Chests\Chest.cs" />
+     <Compile Include="Assets\_Scripts\Rooms\BossRoom\Stairs.cs" />
      <Compile Include="Assets\_Scripts\Resources.cs" />
      <Compile Include="Assets\_Scripts\Enemy\Worm\Worm.cs" />
+     <Compile Include="Assets\_Scripts\Levels\Level.cs" />
      <Compile Include="Assets\_Scripts\Rooms\Shop\ShopItem.cs" />
-     <Compile Include="Assets\_Scripts\Rooms\BossRoom\Stairs.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

@@ -774,13 +774,9 @@ MonoBehaviour:
   ammountOfInitialRooms: 10
   initialRoom: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
     type: 3}
-  allRooms:
-  - {fileID: 9025637646202483750, guid: 3a7c5687268f66443be450115c05a149, type: 3}
-  allRoomsLvl2:
-  - {fileID: 5928578769743732397, guid: 319ea3041aea177469580201fda62826, type: 3}
-  allRoomsLvl3: []
-  allRoomsLvl4: []
   goldRoomPrefab: {fileID: 6719536954886476543, guid: 8c41c06a64226d54192f4ace60d67121,
+    type: 3}
+  shopRoomPrefab: {fileID: 137932936243844998, guid: a9c0dfb9da0314d4fa69127296d654f9,
     type: 3}
   doorPrefab: {fileID: 8769796165222838934, guid: b884f4e46c46cf54b8f0a320c403cd01,
     type: 3}
@@ -1315,6 +1311,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpDuration: 0.2
   minimapCamera: {fileID: 499846026}
+--- !u!1 &1565192514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1565192516}
+  - component: {fileID: 1565192515}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1565192515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565192514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc3609c4325f6b4e9bf910f66b31091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level1: {fileID: 11400000, guid: d595b6cfa2dbcb64fa584c931d6cfd8b, type: 2}
+  level2: {fileID: 11400000, guid: 401a020c49c54b34db819b32863abbd5, type: 2}
+  level3: {fileID: 11400000, guid: fb30eef6bee115842bc57ebb8e6c42b2, type: 2}
+  level4: {fileID: 11400000, guid: be2163e9b07171a4ea2a1483de8254b9, type: 2}
+  allLevels: []
+--- !u!4 &1565192516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565192514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.044453, y: -12.48341, z: -0.27504373}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1668160421 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6967660304924501930, guid: 603308e5befab194bad79b0abd7b3ad0,

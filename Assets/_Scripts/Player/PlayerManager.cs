@@ -198,6 +198,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     public bool CheckIfWeCanGetMoreHp(int hpUpdate)
     {
         int totalPlayerHp = currentHealth + currentBlueHealth;
+        Debug.Log(currentHealth / 2);
         //We cant have more health than the maximum health or more red health than the current health containers 
         if ((hpUpdate > 0) && ((totalPlayerHp >= maxHealth) || (currentHealth / 2 >= currentHealthContainers)))
         {

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c5e8deed1ca1d42903afb821bef9e4, type: 3}
+  m_Name: Level3
+  m_EditorClassIdentifier: 
+  level: 2
+  roomList:
+  - {fileID: 5928578769743732397, guid: 319ea3041aea177469580201fda62826, type: 3}
+  - {fileID: 5928578769743732397, guid: d11110303d290c945bfa64972321b79b, type: 3}
+  - {fileID: 137932936243844998, guid: a9c0dfb9da0314d4fa69127296d654f9, type: 3}
+  BossRoomPrefabs:
+  - {fileID: 9025637646202483750, guid: 3a7c5687268f66443be450115c05a149, type: 3}
+  isGoldRoomLoaded: 0
+  isBossRoomLoaded: 0
+  isShopRoomLoaded: 0

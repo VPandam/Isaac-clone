@@ -25,13 +25,13 @@ public class GameManager : MonoBehaviour
         // RoomsController.instance.InstantiateAllRooms();
         // RoomsController.instance.ConenctDoors();
         playerInstance = Instantiate(player);
-        RoomsController._instance.CreateRooms();
         blackScreenCG = blackScreenGO.GetComponent<CanvasGroup>();
 
     }
     private void Start()
     {
         Application.targetFrameRate = 120;
+        RoomsController._instance.CreateRooms();
     }
     IEnumerator FadeInFadeOut()
     {

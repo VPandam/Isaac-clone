@@ -363,6 +363,8 @@
 "Assets/_Scripts/Interfaces/IDamageable.cs"
 "Assets/_Scripts/Interfaces/IExplodable.cs"
 "Assets/_Scripts/Interfaces/IShoppable.cs"
+"Assets/_Scripts/Levels/Level.cs"
+"Assets/_Scripts/Levels/LevelManager.cs"
 "Assets/_Scripts/Obstacles/Rock.cs"
 "Assets/_Scripts/Pickup/Items/Item.cs"
 "Assets/_Scripts/Pickup/Items/ItemManager.cs"
