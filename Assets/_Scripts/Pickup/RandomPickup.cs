@@ -4,23 +4,14 @@ using UnityEngine;
     {
         Item item;
         SpriteRenderer spriteRenderer;
+        [SerializeField] private GameObject itemSpawn;
         private void Start()
         {
             item = ItemManager.instance.GetRandomItem();
             spriteRenderer = GetComponent<SpriteRenderer>();
-            if (item._sprite)
-                spriteRenderer.sprite = item._sprite;
-            spriteRenderer.size = new Vector2(0.5f,0.5f);
+            if (item) Instantiate(item, itemSpawn.transform.position, Quaternion.identity);
         }
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                Debug.Log(item._name + " picked up");
-                item.DoEffect();
-                Destroy(this.gameObject);
-            }
-        }
+ 
 
 
 

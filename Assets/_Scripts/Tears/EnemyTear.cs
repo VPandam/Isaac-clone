@@ -3,12 +3,19 @@ using UnityEngine;
 
     public class EnemyTear : Tear
     {
+        private Enemy _enemy;
         int _attackDamage;
-        public  void SetEnemyBullet(Vector2 shotDirection, float speed, int attackDamage)
+        private float range;
+
+
+        public  void SetEnemyBullet(Vector2 shotDirection, float speed, int attackDamage, float range)
         {
             _shotDirection = shotDirection;
             _speed = speed;
             _attackDamage = attackDamage;
+            this.range = range;
+            Invoke("DestroyTear", this.range);
+
         }
         public override void OnTriggerEnter2D(Collider2D other)
         {

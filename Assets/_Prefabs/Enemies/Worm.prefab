@@ -49,12 +49,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd59ae6789991e04c9115a60f85dbbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   isKnockback: 0
   _currentState: 0
+  normalSprite: {fileID: 0}
   _hitSprite: {fileID: 21300000, guid: 55e52a4551f4a464ea0138ebb7660022, type: 3}
   maxHp: 3
-  currentHp: 3
-  rangeAttack: 1
+  rangeAttack: 3
   attackDamage: 1
   speed: 2
   roomMask:

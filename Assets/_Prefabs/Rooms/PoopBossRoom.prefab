@@ -111,8 +111,14 @@ PrefabInstance:
     - target: {fileID: 3321003733519010663, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}
       propertyPath: m_Name
-      value: BossRoom
+      value: PoopBossRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 3321003733519010681, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0cc3c25b7e27db643acdd0cceba0ff27,
+        type: 3}
     - target: {fileID: 3321003733519010681, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}
       propertyPath: m_Color.b

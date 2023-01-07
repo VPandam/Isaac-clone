@@ -12,12 +12,13 @@ using UnityEngine.UI;
     public class PlayerController : MonoBehaviour
     {
         //Components
-        public static PlayerController _instance;
-        CameraController _cam;
-
         public Animator _animator;
         Rigidbody2D _rb;
 
+        public static PlayerController _instance;
+        CameraController _cam;
+        private GameManager gameManager;
+        
         [SerializeField]private GameObject BombPrefab;
 
 
@@ -50,6 +51,8 @@ using UnityEngine.UI;
                 _instance = this;
             }
 
+            gameManager = GameManager._instance;
+
             controls = new InputActions();
             controls.Enable();
 
@@ -60,10 +63,12 @@ using UnityEngine.UI;
             {
                 movementInput = Vector2.zero;
             };
-            controls.Player.UpdateHp.performed += ctxt =>
+            controls.Player.Pause.performed += ctxt =>
             {
-                PlayerManager.sharedInstance.TakeDamage(1);
+                if (!gameManager.pause) gameManager.Pause();
+                else gameManager.Resume();
             };
+
 
 
         }
@@ -180,7 +185,7 @@ using UnityEngine.UI;
                 if (!roomToSpawn.playerEntered)
                 {
                     roomToSpawn.playerEntered = true;
-                    roomToSpawn.Invoke("StartRoom", 1f);
+                    roomToSpawn.Invoke("StartRoom", .6f);
                 }
 
                 if (exitZone)

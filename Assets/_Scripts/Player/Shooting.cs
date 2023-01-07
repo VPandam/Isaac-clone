@@ -7,8 +7,6 @@
         {
             up, down, left, right, nul
         }
-        //Prefab of the tear to shoot.
-        public GameObject currentTear;
         //Gameobject with the position where we will start shooting.
         public GameObject ShotInit;
         //Time between shots
@@ -50,8 +48,6 @@
             {
                 shotDelay = 0.5f;
             }
-            currentTear = PlayerManager.sharedInstance.currentTear;
-
         }
 
         // Update is called once per frame
@@ -158,7 +154,7 @@
             //Reset the nextShotTime
             if (Time.time >= nextShotTime)
             {
-                GameObject tear = Instantiate(currentTear, ShotInit.transform.position, Quaternion.identity);
+                GameObject tear = Instantiate(PlayerManager.sharedInstance.currentTear, ShotInit.transform.position, Quaternion.identity);
                 tear.GetComponent<Tear>().SetBullet(shootDirection, PlayerManager.sharedInstance.shotSpeed);
                 nextShotTime = Time.time + shotDelay;
             }

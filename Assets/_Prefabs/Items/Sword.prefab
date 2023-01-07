@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5281989814861441955
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842539386679651721, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438144932877507610, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_Name
+      value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588565518950038446, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588565518950038446, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588565518950038446, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850420751124831000, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850420751124831000, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.3802655
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850420751124831000, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -378461444, guid: c429f5375d54cc74982e4e3b3cecf74f,
+        type: 3}
+    - target: {fileID: 8850420751124831000, guid: e7b48b7519b2f764f9d202a6db13d3db,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -8436311630307195349, guid: e7b48b7519b2f764f9d202a6db13d3db, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: e7b48b7519b2f764f9d202a6db13d3db, type: 3}
+--- !u!1 &6537033074150815673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1438144932877507610, guid: e7b48b7519b2f764f9d202a6db13d3db,
+    type: 3}
+  m_PrefabInstance: {fileID: 5281989814861441955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2818094500527885503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537033074150815673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966e9c7d4693c1e4db19c2fc72fa8596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectDescription: More damage!
+  _name: Sword
+  _sprite: {fileID: -378461444, guid: c429f5375d54cc74982e4e3b3cecf74f, type: 3}
+  id: 0
+  shopPrice: 15
+  _shopSlot: {fileID: 0}
+  tearPrefab: {fileID: 1571294123668591775, guid: 951b75c309374574a8fbd42a9963a494,
+    type: 3}

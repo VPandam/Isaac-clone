@@ -15,20 +15,18 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     SpriteRenderer _spriteR;
     [HideInInspector] public AudioSource playerAudioSource;
 
-    public int currentHealth, currentHealthContainers, currentBlueHealth; 
+    [HideInInspector] public int currentHealth, currentHealthContainers, currentBlueHealth; 
     [HideInInspector]  public GameObject currentTear;
     
     //Collectables
-    [HideInInspector]
-    public int currentBombs, currentKeys, currentCoins;
+    [HideInInspector] public int currentBombs, currentKeys, currentCoins;
     
     //Stats
     [Header("Stats")]
     public int maxHealth;
-    public float moveSpeed;
-    public float fireRate;
-    public float shotSpeed;
+    public float moveSpeed, fireRate, shotSpeed, attackRange;
     public int attackDamage;
+
     
     [HideInInspector] public bool isInvincible;
 

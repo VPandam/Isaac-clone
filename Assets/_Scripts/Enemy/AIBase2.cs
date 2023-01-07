@@ -411,6 +411,7 @@ using Pathfinding.Util;
             Init();
             _enemy = GetComponent<Enemy>();
             Debug.Log(_enemy.isKnockback + "  isKnockup");
+            maxSpeed = _enemy.speed;
         }
 
         void Init()

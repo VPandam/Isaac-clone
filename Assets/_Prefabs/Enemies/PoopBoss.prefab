@@ -107,16 +107,16 @@ MonoBehaviour:
   normalSprite: {fileID: 832129643, guid: b39d3c6ab6cae8f4fa71f7e0842f29df, type: 3}
   _hitSprite: {fileID: 21300000, guid: ca475db0d87cd9c4c8127dff865b5042, type: 3}
   maxHp: 30
-  rangeAttack: 1
+  rangeAttack: 5
   attackDamage: 2
-  speed: 5
+  speed: 3
   roomMask:
     serializedVersion: 2
     m_Bits: 256
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
-  bulletPref: {fileID: 5315961047368399508, guid: 2f7f492ad4c3fdb4d8967f1c69ebe341,
+  bulletPref: {fileID: 3185104227086301811, guid: ed13b0761cfa6df4abaf8428c4cd76e4,
     type: 3}
   whistleSprite: {fileID: 21300000, guid: 7b71491fef367124b9e126f23949853a, type: 3}
   WhistleNotesPref: {fileID: 7539776798767636385, guid: 62714ba9b977deb48a4633aa4ef237c4,
@@ -124,9 +124,9 @@ MonoBehaviour:
   whistleNotesSpawnPoint: {fileID: 1271173783084226824}
   whistleClip: {fileID: 8300000, guid: 63cd1a8d286767342b1e223cc8085695, type: 3}
   bulletSpeed: 15
-  angleBetweenBullets: 15
+  angleBetweenBullets: 25
   numberOfBullets: 3
-  tackleSpeed: 150
+  tackleSpeed: 120
   angrySprite: {fileID: -1978814461, guid: aeeeba5d91b0a924ead5de3a44eca221, type: 3}
   tackleTime: 1.5
 --- !u!50 &3970157009664047975

@@ -94,7 +94,7 @@ public class PoopBoss : Enemy
     {
         var rotation = Quaternion.AngleAxis(shootAngle, Vector3.forward);
         GameObject tear = Instantiate(bulletPref, transform.position, rotation);
-        tear.GetComponent<EnemyTear>().SetEnemyBullet(tear.transform.right, bulletSpeed, attackDamage);
+        tear.GetComponent<EnemyTear>().SetEnemyBullet(tear.transform.right, bulletSpeed, attackDamage, rangeAttack);
     }
 
     float CalculatePlayerRotation()

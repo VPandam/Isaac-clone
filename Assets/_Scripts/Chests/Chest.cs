@@ -27,7 +27,7 @@ public class Chest : MonoBehaviour
         _animator.SetTrigger(TRIGGER_CHEST);
 
         //We can get a random amount of items between 1 and 3.s
-        int lootAmount = 4; Random.Range(1, 4);
+        int lootAmount = Random.Range(1, 4);
 
         for (int i = 0; i < lootAmount; i++)
         { 

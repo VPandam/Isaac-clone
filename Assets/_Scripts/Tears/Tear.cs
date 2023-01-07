@@ -1,22 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 
-
-    public class Tear : MonoBehaviour
+public class Tear : MonoBehaviour
     {
         public float _speed;
         GameObject player;
         GameObject enemy;
         Rigidbody2D _rb;
-        public Vector2 _shotDirection;
-        public AudioSource playerAudioSource;
+        [HideInInspector]public Vector2 _shotDirection; 
+        [HideInInspector]public AudioSource playerAudioSource;
         public AudioClip tearCollidesSound, tearCollidesEnemySound;
         public AudioClip[] tearSounds;
         [SerializeField]protected GameObject colliderWithWall;
+        [SerializeField] private ParticleSystem _particleSystem;
 
         public virtual void Start()
         {
-            Destroy(gameObject, 5f);
             _rb = GetComponent<Rigidbody2D>();
             player = GameObject.FindGameObjectWithTag("Player");
             playerAudioSource = PlayerManager.sharedInstance.playerAudioSource;
@@ -56,5 +57,13 @@
                 }
             }
         }
+
+        void DestroyTear()
+        {
+            if(_particleSystem) Instantiate(_particleSystem, transform.position, _particleSystem.transform.rotation);
+            Destroy(gameObject);
+        }
+
+
     }
 

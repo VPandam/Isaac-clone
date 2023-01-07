@@ -16,7 +16,6 @@ MonoBehaviour:
   roomList:
   - {fileID: 5928578769743732397, guid: 319ea3041aea177469580201fda62826, type: 3}
   - {fileID: 5928578769743732397, guid: d11110303d290c945bfa64972321b79b, type: 3}
-  - {fileID: 137932936243844998, guid: a9c0dfb9da0314d4fa69127296d654f9, type: 3}
   BossRoomPrefabs:
   - {fileID: 9025637646202483750, guid: 3a7c5687268f66443be450115c05a149, type: 3}
   isGoldRoomLoaded: 0

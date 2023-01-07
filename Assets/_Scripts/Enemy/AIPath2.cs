@@ -159,8 +159,10 @@ using Pathfinding.Util;
 
 		/// <summary>Helper which calculates points along the current path</summary>
 		protected PathInterpolator interpolator = new PathInterpolator();
-
+		
+		
 		#region IAstarAI implementation
+		
 
 		/// <summary>\copydoc Pathfinding::IAstarAI::Teleport</summary>
 		public override void Teleport (Vector3 newPosition, bool clearPath = true) {

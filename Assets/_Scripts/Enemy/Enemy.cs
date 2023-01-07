@@ -24,7 +24,7 @@ using UnityEngine;
         protected AudioSource _audioSource;
 
         //Stats
-        [SerializeField] protected int maxHp = 3,  rangeAttack = 1, attackDamage = 1, speed = 1;
+        [SerializeField] public int maxHp = 3,  rangeAttack = 1, attackDamage = 1, speed = 1;
         [HideInInspector] protected int currentHp = 3;
         [SerializeField] protected LayerMask roomMask, playerMask;
 

@@ -131,7 +131,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df32d6bd923ce9d4a9734fb4154835df, type: 3}
   - {fileID: 8300000, guid: d7c15e732f8c8914085c0a2f90f34dbf, type: 3}
   - {fileID: 8300000, guid: 4f06e4fb1d1580c4f9efea8c6007553b, type: 3}
-  colliderWithWall: {fileID: 945954600369548844}
+  colliderWithWall: {fileID: 1527440264077603591, guid: 22da7f6c4a445d541b2198748fc1d1e8,
+    type: 3}
+  _particleSystem: {fileID: 0}
 --- !u!58 &6326310838559278091
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,12 +219,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbf55a863e1a68c418f3bf67b6744b4c, type: 3}
---- !u!1 &945954600369548844 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3022963393442459581, guid: cbf55a863e1a68c418f3bf67b6744b4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2653479461131501969}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1950481604442621621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4594389797475534628, guid: cbf55a863e1a68c418f3bf67b6744b4c,

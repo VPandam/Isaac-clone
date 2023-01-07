@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1734512997651782955
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_Name
+      value: BasePlayerTear
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399512, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: _particleSystem
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399514, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 654117260, guid: c715441371210f344b101a948afda766,
+        type: 3}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5315961047368399512, guid: 4e2a8d7965a83a7499158b1949f18343, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4e2a8d7965a83a7499158b1949f18343, type: 3}
+--- !u!1 &1527440264077603591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 945954600369548844, guid: 4e2a8d7965a83a7499158b1949f18343,
+    type: 3}
+  m_PrefabInstance: {fileID: 1734512997651782955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5896386233183102911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
+    type: 3}
+  m_PrefabInstance: {fileID: 1734512997651782955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3342094981419209846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896386233183102911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5c0a84073620846a360adcfc3ae4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0
+  _shotDirection: {x: 0, y: 0}
+  playerAudioSource: {fileID: 0}
+  tearCollidesSound: {fileID: 8300000, guid: 54240eadd82f9c846b85aac7624ca49b, type: 3}
+  tearCollidesEnemySound: {fileID: 8300000, guid: 1b3c5a06ecd25664bbb5d768c713f965,
+    type: 3}
+  tearSounds:
+  - {fileID: 8300000, guid: d7c15e732f8c8914085c0a2f90f34dbf, type: 3}
+  - {fileID: 8300000, guid: 4f06e4fb1d1580c4f9efea8c6007553b, type: 3}
+  - {fileID: 8300000, guid: df32d6bd923ce9d4a9734fb4154835df, type: 3}
+  colliderWithWall: {fileID: 1527440264077603591}
+  _particleSystem: {fileID: 0}

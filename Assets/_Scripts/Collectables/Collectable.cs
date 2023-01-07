@@ -14,10 +14,13 @@ public class Collectable : MonoBehaviour, IShoppable
     public int shopPrice;
     public GameObject _shopSlot;
     private PlayerManager _playerManager;
+    private AudioSource playerAudioSource;
+    [SerializeField]private AudioClip coinClip;
 
     private void Start()
     {
         _playerManager = PlayerManager.sharedInstance;
+        playerAudioSource = _playerManager.GetComponent<AudioSource>();
     }
 
     void Collect()
@@ -29,6 +32,8 @@ public class Collectable : MonoBehaviour, IShoppable
                 break;
             case CollectableType.Coin:
                 _playerManager.UpdateCoins(ammount);
+                if(playerAudioSource != null && coinClip != null) playerAudioSource.PlayOneShot(coinClip, 0.5f);
+                Debug.Log(playerAudioSource != null && coinClip != null);
                 break;
             case CollectableType.Key:
                 _playerManager.UpdateKeys(ammount);

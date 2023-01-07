@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
     private GameObject playerInstance;
 
     CanvasGroup blackScreenCG;
-    [SerializeField] GameObject blackScreenGO;
+    [SerializeField] private GameObject blackScreenGO, pausePanel, firstSelectedButton;
 
     public bool pause;
     private void Awake()
@@ -71,13 +72,24 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("Pause");
+        Debug.Log("pause");
         pause = true;
+        pausePanel.SetActive(true);
+        EventSystem eventSystem = EventSystem.current;
+        eventSystem.SetSelectedGameObject(firstSelectedButton);
+        Time.timeScale = 0;
     }
 
     public void Resume()
     {
         pause = false;
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     public void LoadNewLevel()
