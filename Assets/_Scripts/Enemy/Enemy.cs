@@ -22,6 +22,7 @@ using UnityEngine;
         [SerializeField]protected Sprite normalSprite;
         public Sprite _hitSprite;
         protected AudioSource _audioSource;
+        protected Animator _animator;
 
         //Stats
         [SerializeField] public int maxHp = 3,  rangeAttack = 1, attackDamage = 1, speed = 1;
@@ -48,7 +49,6 @@ using UnityEngine;
 
         protected virtual void FixedUpdate()
         {
-            Debug.Log("isKnockback   " + isKnockback);
             if (isKnockback) return;
             
         }
@@ -62,6 +62,7 @@ using UnityEngine;
             _rb = GetComponent<Rigidbody2D>();
             moveDirection = -transform.right;
             _audioSource = GetComponent<AudioSource>();
+            _animator = GetComponent<Animator>();
         }
 
 

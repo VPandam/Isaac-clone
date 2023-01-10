@@ -7,8 +7,9 @@ using Random = UnityEngine.Random;
 
 public class SpiderLittle : Enemy
 {
-    AIDestinationSetter _destinationSetter;
-
+    //Animator params
+    const string HIT = "Hit";
+    
     [SerializeField]private float minMovementTime, maxMovementTime;
 
     private float distanceToPlayer;
@@ -56,4 +57,11 @@ public class SpiderLittle : Enemy
         moving = false;
     }
 
+    protected override IEnumerator BlinkColorDamage()
+    {
+        _animator.SetBool(HIT, true);
+        yield return new WaitForSeconds(0.07f);
+        _animator.SetBool(HIT, false);
+
+    }
 }

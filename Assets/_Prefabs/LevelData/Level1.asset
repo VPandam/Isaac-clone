@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   roomList:
-  - {fileID: 4047296369270551318, guid: 3aa35adf0bafacc4d90b95ec85431e93, type: 3}
+  - {fileID: 4047296369270551318, guid: e54f191b0420e3645860ae76016ecb6b, type: 3}
   BossRoomPrefabs:
   - {fileID: 9025637646202483750, guid: 3a7c5687268f66443be450115c05a149, type: 3}
   isGoldRoomLoaded: 0
