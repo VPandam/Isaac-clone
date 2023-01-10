@@ -118,6 +118,7 @@
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
 -define:ENABLE_INPUT_SYSTEM
+-define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll"
@@ -356,6 +357,9 @@
 "Assets/_Scripts/Enemy/Chaser/Chaser.cs"
 "Assets/_Scripts/Enemy/Enemy.cs"
 "Assets/_Scripts/Enemy/EnemyIA.cs"
+"Assets/_Scripts/Enemy/FlyingEnemy.cs"
+"Assets/_Scripts/Enemy/LittleFly/LittleFly.cs"
+"Assets/_Scripts/Enemy/LittleSpider/SpiderLittle.cs"
 "Assets/_Scripts/Enemy/PoopBoss/PoopBoss.cs"
 "Assets/_Scripts/Enemy/PoopBoss/WhistleNotes.cs"
 "Assets/_Scripts/Enemy/Worm/Worm.cs"
@@ -367,12 +371,12 @@
 "Assets/_Scripts/Items/Bow.cs"
 "Assets/_Scripts/Items/Item.cs"
 "Assets/_Scripts/Items/ItemManager.cs"
+"Assets/_Scripts/Items/Pickup/RandomPickup.cs"
 "Assets/_Scripts/Items/Shield.cs"
 "Assets/_Scripts/Items/Sword.cs"
 "Assets/_Scripts/Levels/Level.cs"
 "Assets/_Scripts/Levels/LevelManager.cs"
 "Assets/_Scripts/Obstacles/Rock.cs"
-"Assets/_Scripts/Pickup/RandomPickup.cs"
 "Assets/_Scripts/Player/PlayerController.cs"
 "Assets/_Scripts/Player/PlayerManager.cs"
 "Assets/_Scripts/Player/Shooting.cs"
@@ -386,6 +390,7 @@
 "Assets/_Scripts/Rooms/RoomsController.cs"
 "Assets/_Scripts/Rooms/Shop/ShopItem.cs"
 "Assets/_Scripts/Rooms/Shop/ShopRoom.cs"
+"Assets/_Scripts/SceneManagerScript.cs"
 "Assets/_Scripts/StatsScrO.cs"
 "Assets/_Scripts/Tears/ColliderWithWalls.cs"
 "Assets/_Scripts/Tears/EnemyTear.cs"

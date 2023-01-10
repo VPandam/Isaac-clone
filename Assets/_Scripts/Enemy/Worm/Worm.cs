@@ -1,29 +1,23 @@
+using System;
 using System.Collections;
+using Pathfinding;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
-    public class Worm : Enemy
+public class Worm : Enemy
     {
         bool shooting, moving, movingHorizontal = true, callingMove, changingDirectionCollision;
         [SerializeField] float minFireRate, maxFireRate, shootSpeed;
 
         [SerializeField] GameObject rightShootingStart, leftShootingStart, bulletPrefab;
 
+        private AIDestinationSetter _aiDestinationSetter;
 
-        private void Update()
-        {
-            if (isKnockback)
-            {
-                return;
-            }
-        }
-        private void FixedUpdate()
-        {
-            if (isKnockback)
-            {
-                return;
-            }
 
+
+        protected override void FixedUpdate()
+        {
             if (!changingDirection)
                 StartCoroutine(ChangeDirection());
             if (!callingMove)
@@ -32,28 +26,29 @@ using UnityEngine;
                 Move();
             if (!shooting)
                 StartCoroutine(CallShoot());
-
-            CheckCircle();
-
+            
         }
-        /// <summary>
-        /// Returns true if there is a collision
-        /// </summary>
-        /// <returns></returns>
-        bool CheckCircle()
-        {
-            Collider2D collider = Physics2D.OverlapCircle(transform.position, raycastRange, roomMask);
-
-            if (collider && !changingDirectionCollision)
-            {
-                Vector2 directionToCollider = collider.transform.position - transform.position;
-                directionToCollider = resources.GetCardinalDirection(directionToCollider);
-                Debug.Log(directionToCollider);
-                StartCoroutine(ChangeDirectionCollision(directionToCollider.normalized));
-            }
-
-            return collider != null;
-        }
+        // /// <summary>
+        // /// Returns true if there is a collision
+        // /// </summary>
+        // /// <returns></returns>
+        // bool CheckCircle()
+        // {
+        //     RaycastHit2D raycastHit = Physics2D.CircleCast(transform.position, raycastRange,
+        //         Vector2.zero, 0f, roomMask );
+        //
+        //     if (raycastHit && !changingDirectionCollision)
+        //     {
+        //         Debug.Log(raycastHit.ToString() + " Worm collided with");
+        //         Debug.Log(raycastHit.point);
+        //         Vector2 directionToCollider = raycastHit.point - (Vector2)transform.position;
+        //         directionToCollider = resources.GetCardinalDirection(directionToCollider);
+        //         Debug.Log(directionToCollider.normalized);
+        //         StartCoroutine(ChangeDirectionCollision(directionToCollider.normalized));
+        //     }
+        //
+        //     return raycastHit != null;
+        // }
 
         IEnumerator CallMove()
         {
@@ -75,15 +70,15 @@ using UnityEngine;
             changingDirection = true;
             moveDirection = resources.GetRandomCardinalDirection();
             FlipSprite();
-            yield return new WaitForSeconds(Random.Range(5f, 10f));
+            yield return new WaitForSeconds(Random.Range(2f, 4f));
             changingDirection = false;
         }
-        IEnumerator ChangeDirectionCollision(Vector2 direction)
+        IEnumerator ChangeDirectionCollision(Vector2 collisionDirection)
         {
             changingDirectionCollision = true;
-            moveDirection = direction;
+            moveDirection = -collisionDirection;
             FlipSprite();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
             changingDirectionCollision = false;
         }
         IEnumerator CallShoot()
@@ -132,6 +127,30 @@ using UnityEngine;
                 _spriteRenderer.flipX = moveDirection.x > 0;
             }
 
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+                Debug.Log(collision.gameObject);
+            if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Room"))
+            {
+                Vector2 directionToCollider = collision.GetContact(0).point - (Vector2)transform.position;
+                directionToCollider = resources.GetCardinalDirection(directionToCollider);
+                Debug.Log(directionToCollider.normalized);
+                StartCoroutine(ChangeDirectionCollision(directionToCollider.normalized));
+            }
+
+        }
+
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                _rb.velocity = Vector2.zero;
+                moving = false;
+                StartCoroutine(CallMove());
+            }
+            
         }
 
         // private void OnDrawGizmos()

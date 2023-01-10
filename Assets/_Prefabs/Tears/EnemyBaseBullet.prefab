@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5315961047368399509}
   - component: {fileID: 6326310838559278091}
   - component: {fileID: 7173787970087754256}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemyBaseBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1118680949
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2125047182, guid: e7ba009e417d7f34796fa46d2c86f5a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,6 +160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ColliderWithWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022963393442459581, guid: cbf55a863e1a68c418f3bf67b6744b4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4594389797475534628, guid: cbf55a863e1a68c418f3bf67b6744b4c,
         type: 3}

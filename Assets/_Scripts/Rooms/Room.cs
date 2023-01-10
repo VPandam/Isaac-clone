@@ -43,6 +43,8 @@ using UnityEngine;
 
         AstarPath pathfinder;
 
+        private GameObject LootRoomGO;
+
         //Minimap
         [SerializeField] GameObject minimapIcon;
         private Color minimapIconInitialColor;
@@ -50,6 +52,7 @@ using UnityEngine;
         private SpriteRenderer minimapIconSR;
 
         private bool roomLooted;
+        [SerializeField] private GameObject roomLootGO;
         private void Awake()
         {
             // pathfinder.GetComponent<AstarPath>();
@@ -134,7 +137,8 @@ using UnityEngine;
                 roomLooted = true;
                 var roomLootList = ItemManager.instance.roomLoot;
                 int randomIndex = Random.Range(0, roomLootList.Count);
-                Instantiate(roomLootList[randomIndex], transform.position, Quaternion.identity);
+                GameObject rewardGO = Instantiate(roomLootList[randomIndex], roomLootGO.transform.position, Quaternion.identity);
+                rewardGO.transform.SetParent(roomLootGO.transform);
             }
         }
 

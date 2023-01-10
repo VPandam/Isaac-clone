@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5315961047368399509}
   - component: {fileID: 5315961047368399512}
   - component: {fileID: 6326310838559278091}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BaseTear
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -161,6 +161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ColliderWithWalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022963393442459581, guid: cbf55a863e1a68c418f3bf67b6744b4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4594389797475534628, guid: cbf55a863e1a68c418f3bf67b6744b4c,
         type: 3}

@@ -46,22 +46,15 @@ using UnityEngine;
             resources = Resources.sharedInstance;
         }
 
-        private void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
-            if (isKnockback)
-            {
-                return;
-            }
+            Debug.Log("isKnockback   " + isKnockback);
+            if (isKnockback) return;
+            
         }
         protected virtual void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-                Debug.Log(player.gameObject.name + " Hay player o que");
-            else
-            {
-                Debug.Log("Player = null");
-            }
             playerManager = player.GetComponent<PlayerManager>();
             currentHp = maxHp;
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -142,16 +135,14 @@ using UnityEngine;
                 _rb.velocity = Vector2.zero;
             }
             yield return new WaitForSeconds(.2f);
-
-
             isKnockback = false;
         }
-        private void OnDrawGizmos()
-        {
-            // Gizmos.color = Color.red;
-            // Gizmos.DrawSphere(transform.position, raycastRange);
-
-        }
+        // private void OnDrawGizmos()
+        // {
+        //     Gizmos.color = Color.red;
+        //     Gizmos.DrawSphere(transform.position, raycastRange);
+        //
+        // }
     }
     
 

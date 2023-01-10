@@ -6,13 +6,9 @@ public class Chaser : Enemy
 {
     AIDestinationSetter _destinationSetter;
 
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
-        if (isKnockback)
-        {
-            return;
-        }
-
+        base.FixedUpdate();
         switch (_currentState)
         {
             case EnemyState.wander:
@@ -25,8 +21,6 @@ public class Chaser : Enemy
             // case enemyState.follow:
             //     follow();
             //     break;
-
-
         }
 
         // if (!IsPlayerInAttackRange() && currentState != enemyState.dead)
@@ -37,20 +31,11 @@ public class Chaser : Enemy
         // {
         //     currentState = enemyState.follow;
         // }
-
-
-
     }
 
-    private void Start()
+    protected override void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerManager = player.GetComponent<PlayerManager>();
-        currentHp = maxHp;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        normalSprite = _spriteRenderer.sprite;
-        _rb = GetComponent<Rigidbody2D>();
-        moveDirection = -transform.right;
+        base.Start();
         _destinationSetter = GetComponent<AIDestinationSetter>();
     }
 }

@@ -6,8 +6,7 @@ using UnityEngine;
         private Enemy _enemy;
         int _attackDamage;
         private float range;
-
-
+        
         public  void SetEnemyBullet(Vector2 shotDirection, float speed, int attackDamage, float range)
         {
             _shotDirection = shotDirection;

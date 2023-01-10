@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -566939667
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a4ac9186cf69f7a4daa3e2178582d8a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,9 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7560940694b74474084b46ab8a71bd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 0}
+  player: {fileID: 0}
+  isKnockback: 0
+  _currentState: 0
+  normalSprite: {fileID: 0}
   _hitSprite: {fileID: 21300000, guid: 55e52a4551f4a464ea0138ebb7660022, type: 3}
+  maxHp: 3
   rangeAttack: 5
+  attackDamage: 1
   speed: 1
   roomMask:
     serializedVersion: 2
@@ -109,7 +114,6 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 0
-  changingDirectionSpeed: 356.5
 --- !u!50 &4974706644610152211
 Rigidbody2D:
   serializedVersion: 4

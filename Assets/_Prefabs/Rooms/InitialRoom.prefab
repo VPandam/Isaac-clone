@@ -100,6 +100,7 @@ Transform:
   - {fileID: 7350138166645133076}
   - {fileID: 3100387944485266296}
   - {fileID: 6982793919197629465}
+  - {fileID: 3346363027978666755}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -193,7 +194,7 @@ MonoBehaviour:
   ID: 0
   isGold: 0
   minimapIcon: {fileID: 7628050975799635895}
-  activeRoomMinimapColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0.4627451}
+  roomLootGO: {fileID: 8391294433288216394}
 --- !u!1 &3955360465716139516
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +375,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6982793919197629465}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8391294433288216394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3346363027978666755}
+  m_Layer: 8
+  m_Name: LootRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3346363027978666755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391294433288216394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3321003733519010682}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8776427150315570186
 GameObject:
@@ -1151,6 +1183,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3100387944485266296}
     m_Modifications:
+    - target: {fileID: 1136086447721064687, guid: 55f47c0bb77a1c945a528defeb0234fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989648081397623084, guid: 55f47c0bb77a1c945a528defeb0234fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549165602196699161, guid: 55f47c0bb77a1c945a528defeb0234fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415859368572553238, guid: 55f47c0bb77a1c945a528defeb0234fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 6881616984876910690, guid: 55f47c0bb77a1c945a528defeb0234fe,
         type: 3}
       propertyPath: m_RootOrder
@@ -1229,7 +1281,7 @@ PrefabInstance:
     - target: {fileID: 6881616984876910691, guid: 55f47c0bb77a1c945a528defeb0234fe,
         type: 3}
       propertyPath: m_TagString
-      value: Room
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 6881616984876910694, guid: 55f47c0bb77a1c945a528defeb0234fe,
         type: 3}

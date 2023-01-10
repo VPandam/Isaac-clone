@@ -6,10 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/ShootingMousePos.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/ShootingOnMoving.unity
+    path: Assets/Scenes/Menu.unity
+    guid: 581b151b717532c41a73eba6e0d5cd7c
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
     guid: 46645ab1a69a90643a481df60fb10167
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 74bacb34c3b6a3b449dc895ce86bb9a4,

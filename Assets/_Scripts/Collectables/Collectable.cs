@@ -32,7 +32,7 @@ public class Collectable : MonoBehaviour, IShoppable
                 break;
             case CollectableType.Coin:
                 _playerManager.UpdateCoins(ammount);
-                if(playerAudioSource != null && coinClip != null) playerAudioSource.PlayOneShot(coinClip, 0.5f);
+                if(playerAudioSource != null && coinClip != null) playerAudioSource.PlayOneShot(coinClip, 0.2f);
                 Debug.Log(playerAudioSource != null && coinClip != null);
                 break;
             case CollectableType.Key:

@@ -7,10 +7,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 945954600369548844, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
         type: 3}
       propertyPath: m_Name
       value: BaseEnemyTear
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5315961047368399515, guid: 4e2a8d7965a83a7499158b1949f18343,
         type: 3}

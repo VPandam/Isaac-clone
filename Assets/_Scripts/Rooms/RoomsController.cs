@@ -314,7 +314,6 @@ enum ExitSite
                         roomLoaded = true;
                         return Instantiate(roomToInstantiate, Vector3.zero, roomToInstantiate.transform.rotation,
                             RoomsParent.transform);
-                        break;
                     case RoomType.Gold:
                         roomToInstantiate = goldRoomPrefab;
                         //There should be only one gold room per level.
@@ -350,7 +349,6 @@ enum ExitSite
                         roomLoaded = true;
                         return Instantiate(roomToInstantiate, Vector3.zero, roomToInstantiate.transform.rotation,
                             RoomsParent.transform);
-                        break;
                 }
             }
             return null;

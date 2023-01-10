@@ -9,7 +9,11 @@ using UnityEngine;
         {
             item = ItemManager.instance.GetRandomItem();
             spriteRenderer = GetComponent<SpriteRenderer>();
-            if (item) Instantiate(item, itemSpawn.transform.position, Quaternion.identity);
+            if (item)
+            {
+                Item itemInstance = Instantiate(item, itemSpawn.transform.position, Quaternion.identity);
+                itemInstance.transform.SetParent(itemSpawn.transform);
+            }
         }
  
 

@@ -15,25 +15,25 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     SpriteRenderer _spriteR;
     [HideInInspector] public AudioSource playerAudioSource;
 
-    [HideInInspector] public int currentHealth, currentHealthContainers, currentBlueHealth; 
-    [HideInInspector]  public GameObject currentTear;
-    
+    [HideInInspector] public int currentHealth, currentHealthContainers, currentBlueHealth;
+    [HideInInspector] public GameObject currentTear;
+
     //Collectables
     [HideInInspector] public int currentBombs, currentKeys, currentCoins;
-    
+
     //Stats
     [Header("Stats")]
     public int maxHealth;
     public float moveSpeed, fireRate, shotSpeed, attackRange;
     public int attackDamage;
 
-    
+
     [HideInInspector] public bool isInvincible;
 
     [Space(10)]
-    
+
     //Starting stats
-    [Header("Starting stats")] 
+    [Header("Starting stats")]
     public int startingBombs;
     public int startingKeys;
     public int startingCoins;
@@ -47,9 +47,9 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     [SerializeField] GameObject baseTear;
     Vector3 basicScaleBaseTear;
     Color basicColorBaseTear;
-    
+
     [HideInInspector] public Room currentRoom;
-   
+
 
 
     private void Awake()
@@ -62,7 +62,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     {
         _spriteR = GetComponent<SpriteRenderer>();
         playerAudioSource = GetComponent<AudioSource>();
-        
+
         if (currentTear == null)
             currentTear = baseTear;
 
@@ -70,9 +70,9 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         basicColorBaseTear = baseTear.GetComponent<SpriteRenderer>().color;
         basicScaleBaseTear = baseTear.transform.localScale;
 
-        currentHealth = startingHealthContainers*2;
-        currentBombs = startingBombs; 
-        currentKeys = startingKeys; 
+        currentHealth = startingHealthContainers * 2;
+        currentBombs = startingBombs;
+        currentKeys = startingKeys;
         currentCoins = startingCoins;
         currentHealthContainers = startingHealthContainers;
         onUIChangeCallback.Invoke();
@@ -111,7 +111,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 
     public void Explode(int damage)
     {
-      TakeDamage(damage);
+        TakeDamage(damage);
     }
 
     public IEnumerator StopMovingAfterDamage()
@@ -128,7 +128,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
             if (hpUpdate < 0 && currentHealth + hpUpdate < 0) currentHealth = 0;
             else currentHealth += hpUpdate;
         }
-        
+
         else if (hpType == HpType.Blue)
         {
             if (hpUpdate < 0 && currentBlueHealth + hpUpdate < 0) currentBlueHealth = 0;
@@ -139,7 +139,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         {
             onUIChangeCallback.Invoke();
         }
-    }    
+    }
     public void UpdateCoins(int coinsUpdate)
     {
         if (currentCoins <= maxCollectables)
@@ -151,7 +151,8 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
             }
         }
 
-    }  public void UpdateBombs(int bombsUpdate)
+    }
+    public void UpdateBombs(int bombsUpdate)
     {
         if (currentBombs <= maxCollectables)
         {
@@ -161,7 +162,8 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
                 onUIChangeCallback.Invoke();
             }
         }
-    }  public void UpdateKeys(int keysUpdate)
+    }
+    public void UpdateKeys(int keysUpdate)
     {
         if (currentKeys <= maxCollectables)
         {
@@ -177,9 +179,13 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     {
         isInvincible = true;
         yield return new WaitForSeconds(0.2f);
+        //Ignore collisions with enemies for a short time
+        //Layer 10 = Player, 11 = Enemy, 14 = FlyingEnemy
         Physics2D.IgnoreLayerCollision(10, 11, true);
+        Physics2D.IgnoreLayerCollision(10, 14, true);
         yield return new WaitForSeconds(time);
         Physics2D.IgnoreLayerCollision(10, 11, false);
+        Physics2D.IgnoreLayerCollision(10, 14, false);
         isInvincible = false;
     }
     public IEnumerator FlashOnInvincibility()
@@ -216,6 +222,6 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     }
 
 }
-    
+
 
 
