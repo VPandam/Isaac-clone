@@ -17,6 +17,7 @@ TagManager:
   - DoorDownSpawnPos
   - DoorRightSpawnPos
   - Obstacle
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

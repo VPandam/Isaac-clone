@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasePlayerTear
       objectReference: {fileID: 0}
+    - target: {fileID: 5315961047368399508, guid: 4e2a8d7965a83a7499158b1949f18343,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerBullet
+      objectReference: {fileID: 0}
     - target: {fileID: 5315961047368399512, guid: 4e2a8d7965a83a7499158b1949f18343,
         type: 3}
       propertyPath: _particleSystem

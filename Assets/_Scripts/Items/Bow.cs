@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Bow : Item
 {
-    [SerializeField] private float fireRateAmmount;
+    [SerializeField] private float attackSpeedAmount;
     public override void DoEffect()
     {
         base.DoEffect();
-        playerManager.fireRate -= fireRateAmmount;
+        playerManager.SetAttackSpeed(attackSpeedAmount);
     }
 }

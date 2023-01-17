@@ -107,8 +107,8 @@ MonoBehaviour:
   normalSprite: {fileID: 832129643, guid: b39d3c6ab6cae8f4fa71f7e0842f29df, type: 3}
   _hitSprite: {fileID: 21300000, guid: ca475db0d87cd9c4c8127dff865b5042, type: 3}
   maxHp: 30
-  rangeAttack: 5
   attackDamage: 2
+  rangeAttack: 5
   speed: 3
   roomMask:
     serializedVersion: 2
@@ -126,7 +126,7 @@ MonoBehaviour:
   bulletSpeed: 15
   angleBetweenBullets: 25
   numberOfBullets: 3
-  tackleSpeed: 120
+  tackleSpeed: 100
   angrySprite: {fileID: -1978814461, guid: aeeeba5d91b0a924ead5de3a44eca221, type: 3}
   tackleTime: 1.5
 --- !u!50 &3970157009664047975

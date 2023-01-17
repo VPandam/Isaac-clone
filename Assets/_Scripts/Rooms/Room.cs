@@ -38,8 +38,8 @@ using UnityEngine;
         public GameObject doorLeftPos;
         public GameObject doorDownPos;
 
-        [HideInInspector]public int x,y,ID;
-        public bool isGold;
+        public int x,y,ID;
+        public RoomType roomType;
 
         AstarPath pathfinder;
 

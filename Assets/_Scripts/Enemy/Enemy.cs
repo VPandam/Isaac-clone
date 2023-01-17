@@ -25,7 +25,8 @@ using UnityEngine;
         protected Animator _animator;
 
         //Stats
-        [SerializeField] public int maxHp = 3,  rangeAttack = 1, attackDamage = 1, speed = 1;
+        public int maxHp = 3, attackDamage = 1;
+        public float rangeAttack = 1, speed = 1;
         [HideInInspector] protected int currentHp = 3;
         [SerializeField] protected LayerMask roomMask, playerMask;
 
@@ -50,7 +51,6 @@ using UnityEngine;
         protected virtual void FixedUpdate()
         {
             if (isKnockback) return;
-            
         }
         protected virtual void Start()
         {

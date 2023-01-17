@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3346363027978666755, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2c1ced48f1fcfda4e8b613d6595b0a56, type: 3}
@@ -247,8 +252,9 @@ MonoBehaviour:
   x: 0
   y: 0
   ID: 0
-  isGold: 0
+  roomType: 3
   minimapIcon: {fileID: 5717843332795892971}
+  roomLootGO: {fileID: 0}
   stairsGO: {fileID: 5241733389623863178}
 --- !u!1 &1180462788650942112 stripped
 GameObject:

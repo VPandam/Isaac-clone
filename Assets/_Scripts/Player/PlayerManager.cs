@@ -8,11 +8,14 @@ public enum HpType
 {
     Red, Blue
 }
+
 public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 {
     public static PlayerManager sharedInstance;
 
-    SpriteRenderer _spriteR;
+    [SerializeField] private GameObject headGO;
+    private SpriteRenderer headSR;
+        
     [HideInInspector] public AudioSource playerAudioSource;
 
     [HideInInspector] public int currentHealth, currentHealthContainers, currentBlueHealth;
@@ -22,9 +25,13 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     [HideInInspector] public int currentBombs, currentKeys, currentCoins;
 
     //Stats
-    [Header("Stats")]
-    public int maxHealth;
-    public float moveSpeed, fireRate, shotSpeed, attackRange;
+    [Header("Stats")] public int maxHealth;
+    public float moveSpeed, shotSpeed, attackRange;
+
+    [SerializeField]private float attackSpeed;
+    //1 is the maximum time we will wait between shots.
+    public float AttackSpeed => 1f / attackSpeed;
+
     public int attackDamage;
 
 
@@ -60,7 +67,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 
     private void Start()
     {
-        _spriteR = GetComponent<SpriteRenderer>();
+        headSR = headGO.GetComponent<SpriteRenderer>();
         playerAudioSource = GetComponent<AudioSource>();
 
         if (currentTear == null)
@@ -77,7 +84,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         currentHealthContainers = startingHealthContainers;
         onUIChangeCallback.Invoke();
     }
-
+    
     private void OnApplicationQuit()
     {
         ResetTear();
@@ -192,9 +199,9 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     {
         while (isInvincible)
         {
-            _spriteR.enabled = false;
+            headSR.enabled = false;
             yield return new WaitForSeconds(0.05f);
-            _spriteR.enabled = true;
+            headSR.enabled = true;
             yield return new WaitForSeconds(0.05f);
         }
     }
@@ -219,6 +226,12 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
             return false;
         }
         else return true;
+    }
+    
+    public void SetAttackSpeed(float attSpeedAmount)
+    {
+        attackSpeed += attSpeedAmount;
+        attackSpeed = Mathf.Clamp(attackSpeed, 1, 3.5f);
     }
 
 }

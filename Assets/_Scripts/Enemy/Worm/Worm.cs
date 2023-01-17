@@ -135,7 +135,7 @@ public class Worm : Enemy
             if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Room"))
             {
                 Vector2 directionToCollider = collision.GetContact(0).point - (Vector2)transform.position;
-                directionToCollider = resources.GetCardinalDirection(directionToCollider);
+                directionToCollider = resources.GetVectorDirection(directionToCollider);
                 Debug.Log(directionToCollider.normalized);
                 StartCoroutine(ChangeDirectionCollision(directionToCollider.normalized));
             }

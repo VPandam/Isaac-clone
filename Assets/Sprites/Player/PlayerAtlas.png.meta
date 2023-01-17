@@ -1,0 +1,1411 @@
+fileFormatVersion: 2
+guid: aca9bc244abe4df4898d57eecdcfc069
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FrontFace1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 900
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a52acd6a11a374c8e2e96eb0436424
+      internalID: 113230810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrontFaceShoot
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 899
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1393b62ac12a6fd43a0337b1d3ce7b90
+      internalID: -1547986229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightFace
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 900
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6890003f1e0bc124eab93bf66ff65ce3
+      internalID: -1642058337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightFaceShoot
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 899
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7e7ad1e6d41fa41a82a51181874aa3
+      internalID: -1892490751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackFace
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 900
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1cf40af1efec5944aab9dff82e5e050
+      internalID: 354085694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackFaceShoot
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 899
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4af8d25c4b2b349967d3ac1619dd03
+      internalID: -2121835155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFace
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 900
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd0338f1c9d07d4fa4f4dc0d8115f27
+      internalID: 1617992123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftFaceShoot
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 899
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4164326564df8ce45b6e50188917ad36
+      internalID: 316453691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 857
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe619e10d22ce547a36e383fdeca5de
+      internalID: 490637321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp2
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 857
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61ba42ad78457a46857d720a56a6707
+      internalID: 1743586720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 857
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea1c049d25f2f749b2a9519f70cf943
+      internalID: -859003705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp4
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 855
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b63de397b7f9f1489d8c30bed572b16
+      internalID: -1153821609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp5
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 856
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c4ff4795014c14abd9c30d4b9a4e04
+      internalID: -320884385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp6
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 857
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a1fed7f6b56694d8d14159ee6d8779
+      internalID: -1572695044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp7
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 857
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb89be80bef6f84ab5c62abf6129456
+      internalID: -2083421266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp8
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 857
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce712a315f76a54d9b634f836f91241
+      internalID: 2138310878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp9
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 855
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be938c33921120f479aaa54a562b46ff
+      internalID: -1799731552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkUp10
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 856
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525a28289f62bd74bac0eb0728504c66
+      internalID: 1976392181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 814
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae8e2c8c707c764b97ce90013dabe65
+      internalID: 417030897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 814
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c37fe22b25c7846aa21074f77a7aba
+      internalID: -2006985150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 814
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25470ecd6d9cb4c44929d50a03cc31a2
+      internalID: 549336648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight4
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 814
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74716c01cdaeb24e842b6eb0f3414fc
+      internalID: 794924673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight5
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 814
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925ae2d65c911ad47be245e83a40e201
+      internalID: -408747688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight6
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 814
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38d98cacf53a854caa44bef82a2db19
+      internalID: 826770810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 814
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a906a76dff5263549a709cb5973a41dd
+      internalID: -681408359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight8
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 814
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab599e5b0ab3ac54a8a0e0cb0478088c
+      internalID: -1907384864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight9
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 814
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35ee0a805a69b9a409c7a9f8f45b13cc
+      internalID: -286667395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkRight10
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 814
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cdd79e10b7294e46a6fb881d100967e
+      internalID: 6639515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatUp1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 688
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c0f33ef17c3ee43b9c89165b299476
+      internalID: 603318207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatUp2
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 688
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aaf0a3caba4af947baa9140af02a76b
+      internalID: 1003988145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatDown
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 686
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99702e72ffd77ed4d8d95f577e794d4a
+      internalID: 166850708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemPickup
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 688
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc28391f2f79e0e45813d1fe194e1813
+      internalID: -1630416311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HurtDeath1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 627
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 912135335a1d8914895fd7827676ffd4
+      internalID: -2079991425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 629
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 745252edd55df96479ca98137347a8ee
+      internalID: 594961650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death3
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 623
+        width: 36
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6f6043ca3760d42ac706cad0042f12
+      internalID: -907283884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IsaacTitle
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 93
+        width: 98
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e5fd3a5bdb92f408487c6173fc4e97
+      internalID: 317842280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PC Computer - The Binding of Isaac Rebirth - Isaac_146: -1482406758
+      PC Computer - The Binding of Isaac Rebirth - Isaac_236: -173659036
+      PC Computer - The Binding of Isaac Rebirth - Isaac_386: -738293535
+      PC Computer - The Binding of Isaac Rebirth - Isaac_487: 1907576593
+      PC Computer - The Binding of Isaac Rebirth - Isaac_100: -1865723431
+      PC Computer - The Binding of Isaac Rebirth - Isaac_515: -1846489471
+      PC Computer - The Binding of Isaac Rebirth - Isaac_150: 1086788916
+      PC Computer - The Binding of Isaac Rebirth - Isaac_403: 1652076618
+      PC Computer - The Binding of Isaac Rebirth - Isaac_86: 289136156
+      PC Computer - The Binding of Isaac Rebirth - Isaac_516: -1153445254
+      PC Computer - The Binding of Isaac Rebirth - Isaac_452: -615418115
+      PC Computer - The Binding of Isaac Rebirth - Isaac_275: -980386375
+      PC Computer - The Binding of Isaac Rebirth - Isaac_367: 625041357
+      PC Computer - The Binding of Isaac Rebirth - Isaac_488: -1448495285
+      PC Computer - The Binding of Isaac Rebirth - Isaac_82: -131128102
+      PC Computer - The Binding of Isaac Rebirth - Isaac_229: -758996966
+      PC Computer - The Binding of Isaac Rebirth - Isaac_26: -337763753
+      PC Computer - The Binding of Isaac Rebirth - Isaac_181: 1344769247
+      PC Computer - The Binding of Isaac Rebirth - Isaac_329: -1011182627
+      PC Computer - The Binding of Isaac Rebirth - Isaac_359: 1785873144
+      WalkRight9: -286667395
+      PC Computer - The Binding of Isaac Rebirth - Isaac_119: 810450721
+      PC Computer - The Binding of Isaac Rebirth - Isaac_68: 2120312146
+      PC Computer - The Binding of Isaac Rebirth - Isaac_482: 374991525
+      PC Computer - The Binding of Isaac Rebirth - Isaac_214: -384219558
+      PC Computer - The Binding of Isaac Rebirth - Isaac_53: 311617097
+      PC Computer - The Binding of Isaac Rebirth - Isaac_22: -250275016
+      PC Computer - The Binding of Isaac Rebirth - Isaac_241: -1902075808
+      PC Computer - The Binding of Isaac Rebirth - Isaac_187: 1581125215
+      PC Computer - The Binding of Isaac Rebirth - Isaac_486: -1260209640
+      PC Computer - The Binding of Isaac Rebirth - Isaac_238: -598338014
+      PC Computer - The Binding of Isaac Rebirth - Isaac_305: -248787166
+      PC Computer - The Binding of Isaac Rebirth - Isaac_398: 1731869592
+      PC Computer - The Binding of Isaac Rebirth - Isaac_505: 912864324
+      PC Computer - The Binding of Isaac Rebirth - Isaac_227: -1814506768
+      PC Computer - The Binding of Isaac Rebirth - Isaac_55: -817786546
+      PC Computer - The Binding of Isaac Rebirth - Isaac_380: 196013537
+      WalkRight6: 826770810
+      PC Computer - The Binding of Isaac Rebirth - Isaac_340: 1011846555
+      PC Computer - The Binding of Isaac Rebirth - Isaac_129: 278018422
+      PC Computer - The Binding of Isaac Rebirth - Isaac_220: 300536686
+      PC Computer - The Binding of Isaac Rebirth - Isaac_496: -1230169544
+      WalkUp3: -859003705
+      PC Computer - The Binding of Isaac Rebirth - Isaac_1: -604333574
+      PC Computer - The Binding of Isaac Rebirth - Isaac_426: -1404877297
+      PC Computer - The Binding of Isaac Rebirth - Isaac_471: 966418610
+      PC Computer - The Binding of Isaac Rebirth - Isaac_106: -2008067939
+      PC Computer - The Binding of Isaac Rebirth - Isaac_262: -1045832078
+      PC Computer - The Binding of Isaac Rebirth - Isaac_35: -1199189758
+      PC Computer - The Binding of Isaac Rebirth - Isaac_353: -473161474
+      PC Computer - The Binding of Isaac Rebirth - Isaac_499: 833605692
+      PC Computer - The Binding of Isaac Rebirth - Isaac_441: -952567262
+      PC Computer - The Binding of Isaac Rebirth - Isaac_178: -66824561
+      PC Computer - The Binding of Isaac Rebirth - Isaac_153: -1021394728
+      PC Computer - The Binding of Isaac Rebirth - Isaac_333: 1533076660
+      PC Computer - The Binding of Isaac Rebirth - Isaac_242: 1653897353
+      PC Computer - The Binding of Isaac Rebirth - Isaac_321: 594707530
+      PC Computer - The Binding of Isaac Rebirth - Isaac_319: -603259545
+      PC Computer - The Binding of Isaac Rebirth - Isaac_446: 964920500
+      PC Computer - The Binding of Isaac Rebirth - Isaac_71: -250392788
+      PC Computer - The Binding of Isaac Rebirth - Isaac_173: 111318742
+      PC Computer - The Binding of Isaac Rebirth - Isaac_503: 2118516603
+      PC Computer - The Binding of Isaac Rebirth - Isaac_508: -1233359489
+      PC Computer - The Binding of Isaac Rebirth - Isaac_378: 714005795
+      PC Computer - The Binding of Isaac Rebirth - Isaac_399: 198943479
+      Death2: 594961650
+      PC Computer - The Binding of Isaac Rebirth - Isaac_450: -2121538048
+      PC Computer - The Binding of Isaac Rebirth - Isaac_218: 1321897836
+      PC Computer - The Binding of Isaac Rebirth - Isaac_422: 209590540
+      FrontFaceShoot: -1547986229
+      PC Computer - The Binding of Isaac Rebirth - Isaac_108: -294923796
+      PC Computer - The Binding of Isaac Rebirth - Isaac_191: 1148744506
+      PC Computer - The Binding of Isaac Rebirth - Isaac_2: 1785033729
+      PC Computer - The Binding of Isaac Rebirth - Isaac_311: 1231179323
+      PC Computer - The Binding of Isaac Rebirth - Isaac_264: 1646882134
+      PC Computer - The Binding of Isaac Rebirth - Isaac_67: -689352623
+      PC Computer - The Binding of Isaac Rebirth - Isaac_215: -1304325147
+      PC Computer - The Binding of Isaac Rebirth - Isaac_270: 501546054
+      PC Computer - The Binding of Isaac Rebirth - Isaac_341: 1959065043
+      PC Computer - The Binding of Isaac Rebirth - Isaac_457: -865793894
+      StatDown: 166850708
+      PC Computer - The Binding of Isaac Rebirth - Isaac_223: -1333818105
+      PC Computer - The Binding of Isaac Rebirth - Isaac_281: -564654533
+      PC Computer - The Binding of Isaac Rebirth - Isaac_421: -1936924315
+      PC Computer - The Binding of Isaac Rebirth - Isaac_445: -418588130
+      FrontFace1: 113230810
+      PC Computer - The Binding of Isaac Rebirth - Isaac_379: -891941013
+      WalkUp6: -1572695044
+      PC Computer - The Binding of Isaac Rebirth - Isaac_290: -1578427845
+      PC Computer - The Binding of Isaac Rebirth - Isaac_114: -438955656
+      PC Computer - The Binding of Isaac Rebirth - Isaac_37: 328649268
+      PC Computer - The Binding of Isaac Rebirth - Isaac_382: 1113842158
+      PC Computer - The Binding of Isaac Rebirth - Isaac_132: 1780075885
+      PC Computer - The Binding of Isaac Rebirth - Isaac_138: 1826532714
+      PC Computer - The Binding of Isaac Rebirth - Isaac_209: -866437271
+      PC Computer - The Binding of Isaac Rebirth - Isaac_252: 1562123130
+      PC Computer - The Binding of Isaac Rebirth - Isaac_405: 2105461452
+      PC Computer - The Binding of Isaac Rebirth - Isaac_23: -1033498514
+      PC Computer - The Binding of Isaac Rebirth - Isaac_4: -58417034
+      PC Computer - The Binding of Isaac Rebirth - Isaac_6: -8369741
+      PC Computer - The Binding of Isaac Rebirth - Isaac_93: -1599668902
+      PC Computer - The Binding of Isaac Rebirth - Isaac_520: -800050903
+      PC Computer - The Binding of Isaac Rebirth - Isaac_188: 502064975
+      PC Computer - The Binding of Isaac Rebirth - Isaac_418: -1549895907
+      PC Computer - The Binding of Isaac Rebirth - Isaac_339: 23378556
+      PC Computer - The Binding of Isaac Rebirth - Isaac_351: 1297782921
+      PC Computer - The Binding of Isaac Rebirth - Isaac_434: 724014510
+      PC Computer - The Binding of Isaac Rebirth - Isaac_217: 576913437
+      PC Computer - The Binding of Isaac Rebirth - Isaac_296: 1346427805
+      PC Computer - The Binding of Isaac Rebirth - Isaac_495: 1588296365
+      PC Computer - The Binding of Isaac Rebirth - Isaac_179: 279495417
+      PC Computer - The Binding of Isaac Rebirth - Isaac_419: -599021206
+      PC Computer - The Binding of Isaac Rebirth - Isaac_354: -274123831
+      PC Computer - The Binding of Isaac Rebirth - Isaac_506: 638368027
+      PC Computer - The Binding of Isaac Rebirth - Isaac_212: -1445183685
+      PC Computer - The Binding of Isaac Rebirth - Isaac_176: 2026040111
+      PC Computer - The Binding of Isaac Rebirth - Isaac_385: -221996009
+      PC Computer - The Binding of Isaac Rebirth - Isaac_49: -1017298768
+      PC Computer - The Binding of Isaac Rebirth - Isaac_85: -1582225647
+      PC Computer - The Binding of Isaac Rebirth - Isaac_157: -1682578375
+      PC Computer - The Binding of Isaac Rebirth - Isaac_436: 2093650176
+      PC Computer - The Binding of Isaac Rebirth - Isaac_248: -1157016459
+      PC Computer - The Binding of Isaac Rebirth - Isaac_309: 2044668534
+      PC Computer - The Binding of Isaac Rebirth - Isaac_295: -2147240706
+      PC Computer - The Binding of Isaac Rebirth - Isaac_513: 452850523
+      PC Computer - The Binding of Isaac Rebirth - Isaac_330: -1447678333
+      PC Computer - The Binding of Isaac Rebirth - Isaac_348: -738671204
+      PC Computer - The Binding of Isaac Rebirth - Isaac_213: 829660811
+      PC Computer - The Binding of Isaac Rebirth - Isaac_95: -978960092
+      PC Computer - The Binding of Isaac Rebirth - Isaac_292: -2136933856
+      PC Computer - The Binding of Isaac Rebirth - Isaac_326: 205354438
+      WalkRight2: -2006985150
+      PC Computer - The Binding of Isaac Rebirth - Isaac_324: -1551431756
+      PC Computer - The Binding of Isaac Rebirth - Isaac_364: 1850736500
+      PC Computer - The Binding of Isaac Rebirth - Isaac_113: 1706343888
+      PC Computer - The Binding of Isaac Rebirth - Isaac_199: -1753686014
+      PC Computer - The Binding of Isaac Rebirth - Isaac_320: 850428865
+      PC Computer - The Binding of Isaac Rebirth - Isaac_263: 623551645
+      PC Computer - The Binding of Isaac Rebirth - Isaac_517: 1681864850
+      PC Computer - The Binding of Isaac Rebirth - Isaac_96: 807957021
+      PC Computer - The Binding of Isaac Rebirth - Isaac_172: -201631026
+      PC Computer - The Binding of Isaac Rebirth - Isaac_109: 1012123040
+      PC Computer - The Binding of Isaac Rebirth - Isaac_211: 179840459
+      PC Computer - The Binding of Isaac Rebirth - Isaac_166: 507174943
+      PC Computer - The Binding of Isaac Rebirth - Isaac_489: -1846937683
+      PC Computer - The Binding of Isaac Rebirth - Isaac_431: 1151048573
+      LeftFace: 1617992123
+      PC Computer - The Binding of Isaac Rebirth - Isaac_145: 478574448
+      PC Computer - The Binding of Isaac Rebirth - Isaac_402: -2117124929
+      PC Computer - The Binding of Isaac Rebirth - Isaac_261: -2070172760
+      PC Computer - The Binding of Isaac Rebirth - Isaac_439: 804296337
+      PC Computer - The Binding of Isaac Rebirth - Isaac_288: 1646277597
+      PC Computer - The Binding of Isaac Rebirth - Isaac_374: -1102647109
+      PC Computer - The Binding of Isaac Rebirth - Isaac_410: -974377392
+      PC Computer - The Binding of Isaac Rebirth - Isaac_226: 1326209213
+      PC Computer - The Binding of Isaac Rebirth - Isaac_484: -358082493
+      PC Computer - The Binding of Isaac Rebirth - Isaac_345: 730436568
+      PC Computer - The Binding of Isaac Rebirth - Isaac_331: 523732991
+      PC Computer - The Binding of Isaac Rebirth - Isaac_483: -1260081148
+      PC Computer - The Binding of Isaac Rebirth - Isaac_291: -767673047
+      PC Computer - The Binding of Isaac Rebirth - Isaac_198: -731207966
+      PC Computer - The Binding of Isaac Rebirth - Isaac_336: 1715613677
+      PC Computer - The Binding of Isaac Rebirth - Isaac_453: -2053321962
+      PC Computer - The Binding of Isaac Rebirth - Isaac_466: -772450595
+      HurtDeath1: -2079991425
+      PC Computer - The Binding of Isaac Rebirth - Isaac_195: -1711455556
+      PC Computer - The Binding of Isaac Rebirth - Isaac_205: 806665718
+      PC Computer - The Binding of Isaac Rebirth - Isaac_98: -325327007
+      PC Computer - The Binding of Isaac Rebirth - Isaac_485: 150649783
+      PC Computer - The Binding of Isaac Rebirth - Isaac_475: -2074834527
+      PC Computer - The Binding of Isaac Rebirth - Isaac_477: 8672507
+      PC Computer - The Binding of Isaac Rebirth - Isaac_259: 2146750795
+      PC Computer - The Binding of Isaac Rebirth - Isaac_460: 1991650284
+      PC Computer - The Binding of Isaac Rebirth - Isaac_136: -1090726755
+      PC Computer - The Binding of Isaac Rebirth - Isaac_381: 692705404
+      PC Computer - The Binding of Isaac Rebirth - Isaac_148: 2064164642
+      PC Computer - The Binding of Isaac Rebirth - Isaac_139: 2097316468
+      PC Computer - The Binding of Isaac Rebirth - Isaac_160: -93017510
+      PC Computer - The Binding of Isaac Rebirth - Isaac_224: -577080817
+      PC Computer - The Binding of Isaac Rebirth - Isaac_235: -1031381445
+      PC Computer - The Binding of Isaac Rebirth - Isaac_56: -1988504866
+      PC Computer - The Binding of Isaac Rebirth - Isaac_279: -1708141898
+      PC Computer - The Binding of Isaac Rebirth - Isaac_50: 950978679
+      PC Computer - The Binding of Isaac Rebirth - Isaac_507: -917757308
+      PC Computer - The Binding of Isaac Rebirth - Isaac_147: 1046873928
+      PC Computer - The Binding of Isaac Rebirth - Isaac_158: -612748418
+      PC Computer - The Binding of Isaac Rebirth - Isaac_125: 1535958827
+      PC Computer - The Binding of Isaac Rebirth - Isaac_458: 1769378336
+      PC Computer - The Binding of Isaac Rebirth - Isaac_141: -225844590
+      PC Computer - The Binding of Isaac Rebirth - Isaac_156: 58231237
+      PC Computer - The Binding of Isaac Rebirth - Isaac_5: -442475689
+      WalkUp1: 490637321
+      PC Computer - The Binding of Isaac Rebirth - Isaac_70: 718000729
+      PC Computer - The Binding of Isaac Rebirth - Isaac_258: 313729343
+      PC Computer - The Binding of Isaac Rebirth - Isaac_25: 114889601
+      PC Computer - The Binding of Isaac Rebirth - Isaac_164: -1594996677
+      PC Computer - The Binding of Isaac Rebirth - Isaac_316: 966902065
+      PC Computer - The Binding of Isaac Rebirth - Isaac_432: -1717110718
+      PC Computer - The Binding of Isaac Rebirth - Isaac_369: 73103146
+      PC Computer - The Binding of Isaac Rebirth - Isaac_347: -1132090234
+      PC Computer - The Binding of Isaac Rebirth - Isaac_307: 338198616
+      PC Computer - The Binding of Isaac Rebirth - Isaac_397: -1570080361
+      PC Computer - The Binding of Isaac Rebirth - Isaac_479: -1391338497
+      PC Computer - The Binding of Isaac Rebirth - Isaac_511: -1742472588
+      PC Computer - The Binding of Isaac Rebirth - Isaac_228: -40989476
+      PC Computer - The Binding of Isaac Rebirth - Isaac_105: -968158277
+      PC Computer - The Binding of Isaac Rebirth - Isaac_363: 1525264953
+      PC Computer - The Binding of Isaac Rebirth - Isaac_62: -1635485773
+      PC Computer - The Binding of Isaac Rebirth - Isaac_447: 233722921
+      PC Computer - The Binding of Isaac Rebirth - Isaac_391: -1003822431
+      PC Computer - The Binding of Isaac Rebirth - Isaac_356: -2055813180
+      PC Computer - The Binding of Isaac Rebirth - Isaac_272: 2011067839
+      PC Computer - The Binding of Isaac Rebirth - Isaac_65: -914526130
+      PC Computer - The Binding of Isaac Rebirth - Isaac_134: 930146871
+      PC Computer - The Binding of Isaac Rebirth - Isaac_375: -17340793
+      PC Computer - The Binding of Isaac Rebirth - Isaac_383: -2032283218
+      PC Computer - The Binding of Isaac Rebirth - Isaac_155: -916613062
+      PC Computer - The Binding of Isaac Rebirth - Isaac_260: 1580762576
+      PC Computer - The Binding of Isaac Rebirth - Isaac_210: 2115416844
+      PC Computer - The Binding of Isaac Rebirth - Isaac_509: -698309115
+      PC Computer - The Binding of Isaac Rebirth - Isaac_126: -1334367152
+      WalkUp9: -1799731552
+      PC Computer - The Binding of Isaac Rebirth - Isaac_464: 433664363
+      PC Computer - The Binding of Isaac Rebirth - Isaac_11: 266308006
+      PC Computer - The Binding of Isaac Rebirth - Isaac_207: 1595417591
+      PC Computer - The Binding of Isaac Rebirth - Isaac_142: -687805343
+      PC Computer - The Binding of Isaac Rebirth - Isaac_111: -192929275
+      PC Computer - The Binding of Isaac Rebirth - Isaac_355: 1216604888
+      PC Computer - The Binding of Isaac Rebirth - Isaac_269: 817682774
+      PC Computer - The Binding of Isaac Rebirth - Isaac_52: -923250864
+      PC Computer - The Binding of Isaac Rebirth - Isaac_0: 782129739
+      PC Computer - The Binding of Isaac Rebirth - Isaac_234: 35204097
+      PC Computer - The Binding of Isaac Rebirth - Isaac_411: -1237996446
+      PC Computer - The Binding of Isaac Rebirth - Isaac_312: 904128167
+      PC Computer - The Binding of Isaac Rebirth - Isaac_69: 665423277
+      WalkRight7: -681408359
+      PC Computer - The Binding of Isaac Rebirth - Isaac_219: -398126417
+      Death3: -907283884
+      PC Computer - The Binding of Isaac Rebirth - Isaac_232: 1435705019
+      PC Computer - The Binding of Isaac Rebirth - Isaac_254: -2127639215
+      PC Computer - The Binding of Isaac Rebirth - Isaac_315: -1212804080
+      PC Computer - The Binding of Isaac Rebirth - Isaac_424: -767936248
+      PC Computer - The Binding of Isaac Rebirth - Isaac_107: 1288302375
+      PC Computer - The Binding of Isaac Rebirth - Isaac_285: -1449456660
+      PC Computer - The Binding of Isaac Rebirth - Isaac_32: -756795387
+      PC Computer - The Binding of Isaac Rebirth - Isaac_54: 1648042452
+      PC Computer - The Binding of Isaac Rebirth - Isaac_443: 1417881351
+      PC Computer - The Binding of Isaac Rebirth - Isaac_318: 853942565
+      PC Computer - The Binding of Isaac Rebirth - Isaac_243: 2096356791
+      PC Computer - The Binding of Isaac Rebirth - Isaac_368: 686928863
+      PC Computer - The Binding of Isaac Rebirth - Isaac_190: -1833947908
+      PC Computer - The Binding of Isaac Rebirth - Isaac_462: 1008578392
+      PC Computer - The Binding of Isaac Rebirth - Isaac_283: -1436055468
+      PC Computer - The Binding of Isaac Rebirth - Isaac_372: 1867685534
+      PC Computer - The Binding of Isaac Rebirth - Isaac_435: 1269397349
+      PC Computer - The Binding of Isaac Rebirth - Isaac_395: 354891068
+      PC Computer - The Binding of Isaac Rebirth - Isaac_448: 1453881790
+      PC Computer - The Binding of Isaac Rebirth - Isaac_280: 1989842679
+      PC Computer - The Binding of Isaac Rebirth - Isaac_313: -2125884181
+      PC Computer - The Binding of Isaac Rebirth - Isaac_175: -1615502180
+      PC Computer - The Binding of Isaac Rebirth - Isaac_518: 1441533017
+      PC Computer - The Binding of Isaac Rebirth - Isaac_469: 203635545
+      PC Computer - The Binding of Isaac Rebirth - Isaac_102: -442697421
+      PC Computer - The Binding of Isaac Rebirth - Isaac_510: 1477288511
+      BackFaceShoot: -2121835155
+      PC Computer - The Binding of Isaac Rebirth - Isaac_346: -612562736
+      PC Computer - The Binding of Isaac Rebirth - Isaac_24: 64207191
+      WalkUp7: -2083421266
+      PC Computer - The Binding of Isaac Rebirth - Isaac_10: -1751358451
+      PC Computer - The Binding of Isaac Rebirth - Isaac_406: -2140306457
+      PC Computer - The Binding of Isaac Rebirth - Isaac_201: 1056855197
+      PC Computer - The Binding of Isaac Rebirth - Isaac_332: -1488589489
+      PC Computer - The Binding of Isaac Rebirth - Isaac_246: -1039611024
+      PC Computer - The Binding of Isaac Rebirth - Isaac_225: 1283683904
+      PC Computer - The Binding of Isaac Rebirth - Isaac_433: -762161962
+      PC Computer - The Binding of Isaac Rebirth - Isaac_28: -43998049
+      PC Computer - The Binding of Isaac Rebirth - Isaac_481: 1445103065
+      PC Computer - The Binding of Isaac Rebirth - Isaac_350: -755217928
+      PC Computer - The Binding of Isaac Rebirth - Isaac_377: 2105630097
+      PC Computer - The Binding of Isaac Rebirth - Isaac_476: 1567952449
+      PC Computer - The Binding of Isaac Rebirth - Isaac_303: 2037328757
+      PC Computer - The Binding of Isaac Rebirth - Isaac_404: 713962914
+      PC Computer - The Binding of Isaac Rebirth - Isaac_20: 1423683352
+      PC Computer - The Binding of Isaac Rebirth - Isaac_430: -365773045
+      PC Computer - The Binding of Isaac Rebirth - Isaac_239: -286023121
+      PC Computer - The Binding of Isaac Rebirth - Isaac_189: 1400981219
+      PC Computer - The Binding of Isaac Rebirth - Isaac_202: -1610304978
+      PC Computer - The Binding of Isaac Rebirth - Isaac_7: 1189423248
+      PC Computer - The Binding of Isaac Rebirth - Isaac_376: -1562490440
+      PC Computer - The Binding of Isaac Rebirth - Isaac_370: 934461661
+      PC Computer - The Binding of Isaac Rebirth - Isaac_282: -34844420
+      PC Computer - The Binding of Isaac Rebirth - Isaac_221: -625179499
+      PC Computer - The Binding of Isaac Rebirth - Isaac_110: 916645740
+      PC Computer - The Binding of Isaac Rebirth - Isaac_451: -1088956376
+      PC Computer - The Binding of Isaac Rebirth - Isaac_256: -1254035144
+      PC Computer - The Binding of Isaac Rebirth - Isaac_414: -2023525852
+      PC Computer - The Binding of Isaac Rebirth - Isaac_304: 2112406862
+      PC Computer - The Binding of Isaac Rebirth - Isaac_266: -189743085
+      PC Computer - The Binding of Isaac Rebirth - Isaac_97: 1485172224
+      PC Computer - The Binding of Isaac Rebirth - Isaac_344: 106160685
+      PC Computer - The Binding of Isaac Rebirth - Isaac_58: 1445473007
+      PC Computer - The Binding of Isaac Rebirth - Isaac_87: 1274297351
+      PC Computer - The Binding of Isaac Rebirth - Isaac_117: 882536899
+      WalkUp10: 1976392181
+      PC Computer - The Binding of Isaac Rebirth - Isaac_274: -123424068
+      PC Computer - The Binding of Isaac Rebirth - Isaac_30: -898832008
+      PC Computer - The Binding of Isaac Rebirth - Isaac_88: -2001580007
+      BackFace: 354085694
+      PC Computer - The Binding of Isaac Rebirth - Isaac_335: 1876795707
+      PC Computer - The Binding of Isaac Rebirth - Isaac_358: -771767966
+      PC Computer - The Binding of Isaac Rebirth - Isaac_121: 821888038
+      PC Computer - The Binding of Isaac Rebirth - Isaac_461: -428360676
+      PC Computer - The Binding of Isaac Rebirth - Isaac_417: 2056869994
+      RightFaceShoot: -1892490751
+      PC Computer - The Binding of Isaac Rebirth - Isaac_449: 1844436211
+      PC Computer - The Binding of Isaac Rebirth - Isaac_468: 1882749270
+      PC Computer - The Binding of Isaac Rebirth - Isaac_84: 1721395449
+      PC Computer - The Binding of Isaac Rebirth - Isaac_127: 179554809
+      PC Computer - The Binding of Isaac Rebirth - Isaac_440: -1430438791
+      PC Computer - The Binding of Isaac Rebirth - Isaac_278: 1978565339
+      PC Computer - The Binding of Isaac Rebirth - Isaac_365: 700905732
+      PC Computer - The Binding of Isaac Rebirth - Isaac_314: -553606053
+      RightFace: -1642058337
+      PC Computer - The Binding of Isaac Rebirth - Isaac_301: 1679796644
+      PC Computer - The Binding of Isaac Rebirth - Isaac_357: -213178177
+      PC Computer - The Binding of Isaac Rebirth - Isaac_27: -2138417351
+      PC Computer - The Binding of Isaac Rebirth - Isaac_387: -1806084695
+      PC Computer - The Binding of Isaac Rebirth - Isaac_416: -1353805919
+      PC Computer - The Binding of Isaac Rebirth - Isaac_249: 1780372663
+      PC Computer - The Binding of Isaac Rebirth - Isaac_293: -1139933001
+      PC Computer - The Binding of Isaac Rebirth - Isaac_133: 1426240644
+      PC Computer - The Binding of Isaac Rebirth - Isaac_302: -2084787238
+      PC Computer - The Binding of Isaac Rebirth - Isaac_491: 1171621318
+      PC Computer - The Binding of Isaac Rebirth - Isaac_429: -1731304939
+      PC Computer - The Binding of Isaac Rebirth - Isaac_392: 1907719667
+      PC Computer - The Binding of Isaac Rebirth - Isaac_194: -908441639
+      PC Computer - The Binding of Isaac Rebirth - Isaac_289: -220246840
+      PC Computer - The Binding of Isaac Rebirth - Isaac_149: -2060890354
+      PC Computer - The Binding of Isaac Rebirth - Isaac_338: -985012827
+      PC Computer - The Binding of Isaac Rebirth - Isaac_394: -1481877957
+      PC Computer - The Binding of Isaac Rebirth - Isaac_504: 631272022
+      PC Computer - The Binding of Isaac Rebirth - Isaac_64: -1480555471
+      PC Computer - The Binding of Isaac Rebirth - Isaac_253: 1226967076
+      PC Computer - The Binding of Isaac Rebirth - Isaac_298: -2000692342
+      PC Computer - The Binding of Isaac Rebirth - Isaac_474: 85379033
+      PC Computer - The Binding of Isaac Rebirth - Isaac_123: -1986385689
+      PC Computer - The Binding of Isaac Rebirth - Isaac_415: -356492985
+      PC Computer - The Binding of Isaac Rebirth - Isaac_420: -536717412
+      PC Computer - The Binding of Isaac Rebirth - Isaac_203: 342539747
+      PC Computer - The Binding of Isaac Rebirth - Isaac_490: -1211248186
+      PC Computer - The Binding of Isaac Rebirth - Isaac_459: -1197942161
+      PC Computer - The Binding of Isaac Rebirth - Isaac_143: 36675888
+      PC Computer - The Binding of Isaac Rebirth - Isaac_277: 2061502414
+      PC Computer - The Binding of Isaac Rebirth - Isaac_161: 2140162521
+      PC Computer - The Binding of Isaac Rebirth - Isaac_437: 1290237780
+      PC Computer - The Binding of Isaac Rebirth - Isaac_427: -55469255
+      PC Computer - The Binding of Isaac Rebirth - Isaac_90: -939832976
+      PC Computer - The Binding of Isaac Rebirth - Isaac_137: -563075256
+      PC Computer - The Binding of Isaac Rebirth - Isaac_384: -1731036499
+      PC Computer - The Binding of Isaac Rebirth - Isaac_94: 1871062382
+      PC Computer - The Binding of Isaac Rebirth - Isaac_373: 1373131587
+      PC Computer - The Binding of Isaac Rebirth - Isaac_294: 1548426117
+      WalkUp4: -1153821609
+      PC Computer - The Binding of Isaac Rebirth - Isaac_140: -935268237
+      PC Computer - The Binding of Isaac Rebirth - Isaac_342: 316059354
+      PC Computer - The Binding of Isaac Rebirth - Isaac_322: 305828638
+      PC Computer - The Binding of Isaac Rebirth - Isaac_206: -2046644316
+      PC Computer - The Binding of Isaac Rebirth - Isaac_34: 1875386476
+      PC Computer - The Binding of Isaac Rebirth - Isaac_103: -562912267
+      PC Computer - The Binding of Isaac Rebirth - Isaac_177: -497964849
+      PC Computer - The Binding of Isaac Rebirth - Isaac_300: -1554968502
+      PC Computer - The Binding of Isaac Rebirth - Isaac_388: 52946091
+      PC Computer - The Binding of Isaac Rebirth - Isaac_438: -1228423191
+      PC Computer - The Binding of Isaac Rebirth - Isaac_442: 579432656
+      WalkUp5: -320884385
+      PC Computer - The Binding of Isaac Rebirth - Isaac_444: 142179427
+      PC Computer - The Binding of Isaac Rebirth - Isaac_193: -4044797
+      PC Computer - The Binding of Isaac Rebirth - Isaac_454: -247534965
+      PC Computer - The Binding of Isaac Rebirth - Isaac_61: -305891084
+      PC Computer - The Binding of Isaac Rebirth - Isaac_470: 359351839
+      WalkRight1: 417030897
+      PC Computer - The Binding of Isaac Rebirth - Isaac_163: -694424293
+      IsaacTitle: 317842280
+      PC Computer - The Binding of Isaac Rebirth - Isaac_284: 831931317
+      PC Computer - The Binding of Isaac Rebirth - Isaac_409: -1199609592
+      PC Computer - The Binding of Isaac Rebirth - Isaac_154: 1255825618
+      PC Computer - The Binding of Isaac Rebirth - Isaac_325: 1185342455
+      PC Computer - The Binding of Isaac Rebirth - Isaac_135: 1048143691
+      PC Computer - The Binding of Isaac Rebirth - Isaac_237: 1061887379
+      PC Computer - The Binding of Isaac Rebirth - Isaac_480: -1076030673
+      PC Computer - The Binding of Isaac Rebirth - Isaac_501: 1146555147
+      PC Computer - The Binding of Isaac Rebirth - Isaac_334: -535149865
+      PC Computer - The Binding of Isaac Rebirth - Isaac_492: -41082771
+      WalkRight8: -1907384864
+      PC Computer - The Binding of Isaac Rebirth - Isaac_306: 1763203857
+      PC Computer - The Binding of Isaac Rebirth - Isaac_456: 2119980104
+      PC Computer - The Binding of Isaac Rebirth - Isaac_230: 1910849762
+      PC Computer - The Binding of Isaac Rebirth - Isaac_59: 147231802
+      PC Computer - The Binding of Isaac Rebirth - Isaac_423: -509528603
+      PC Computer - The Binding of Isaac Rebirth - Isaac_36: -1873043984
+      PC Computer - The Binding of Isaac Rebirth - Isaac_361: 378403311
+      PC Computer - The Binding of Isaac Rebirth - Isaac_151: -24387397
+      PC Computer - The Binding of Isaac Rebirth - Isaac_165: 1375956840
+      PC Computer - The Binding of Isaac Rebirth - Isaac_196: -1012233160
+      PC Computer - The Binding of Isaac Rebirth - Isaac_337: 238649642
+      PC Computer - The Binding of Isaac Rebirth - Isaac_120: -1181822100
+      PC Computer - The Binding of Isaac Rebirth - Isaac_245: -1752533649
+      PC Computer - The Binding of Isaac Rebirth - Isaac_159: -437067395
+      PC Computer - The Binding of Isaac Rebirth - Isaac_122: -417928848
+      PC Computer - The Binding of Isaac Rebirth - Isaac_144: 1509435485
+      PC Computer - The Binding of Isaac Rebirth - Isaac_112: 830885854
+      PC Computer - The Binding of Isaac Rebirth - Isaac_33: 168209090
+      StatUp1: 603318207
+      PC Computer - The Binding of Isaac Rebirth - Isaac_9: 600781594
+      PC Computer - The Binding of Isaac Rebirth - Isaac_425: -1980320893
+      PC Computer - The Binding of Isaac Rebirth - Isaac_502: -1007363200
+      PC Computer - The Binding of Isaac Rebirth - Isaac_63: 2034108319
+      PC Computer - The Binding of Isaac Rebirth - Isaac_465: 561840786
+      PC Computer - The Binding of Isaac Rebirth - Isaac_66: 1992085050
+      PC Computer - The Binding of Isaac Rebirth - Isaac_400: -1520956256
+      PC Computer - The Binding of Isaac Rebirth - Isaac_130: -78519256
+      PC Computer - The Binding of Isaac Rebirth - Isaac_498: -2072414320
+      PC Computer - The Binding of Isaac Rebirth - Isaac_152: -1520610288
+      PC Computer - The Binding of Isaac Rebirth - Isaac_244: -101809793
+      PC Computer - The Binding of Isaac Rebirth - Isaac_494: -58536651
+      PC Computer - The Binding of Isaac Rebirth - Isaac_124: 2138692954
+      WalkRight10: 6639515
+      PC Computer - The Binding of Isaac Rebirth - Isaac_328: 2072372271
+      PC Computer - The Binding of Isaac Rebirth - Isaac_412: -1751557180
+      PC Computer - The Binding of Isaac Rebirth - Isaac_393: -1584759265
+      StatUp2: 1003988145
+      PC Computer - The Binding of Isaac Rebirth - Isaac_323: -649606072
+      PC Computer - The Binding of Isaac Rebirth - Isaac_104: -887015122
+      PC Computer - The Binding of Isaac Rebirth - Isaac_180: -843864829
+      PC Computer - The Binding of Isaac Rebirth - Isaac_192: -179712251
+      PC Computer - The Binding of Isaac Rebirth - Isaac_131: 1813865271
+      WalkRight4: 794924673
+      PC Computer - The Binding of Isaac Rebirth - Isaac_162: 812905179
+      PC Computer - The Binding of Isaac Rebirth - Isaac_167: -1344769320
+      PC Computer - The Binding of Isaac Rebirth - Isaac_497: 2109603988
+      PC Computer - The Binding of Isaac Rebirth - Isaac_317: 1336223356
+      PC Computer - The Binding of Isaac Rebirth - Isaac_115: 860901829
+      PC Computer - The Binding of Isaac Rebirth - Isaac_396: 1164443535
+      PC Computer - The Binding of Isaac Rebirth - Isaac_21: -2028607242
+      PC Computer - The Binding of Isaac Rebirth - Isaac_222: 1459057636
+      PC Computer - The Binding of Isaac Rebirth - Isaac_455: -259271248
+      PC Computer - The Binding of Isaac Rebirth - Isaac_57: 109210689
+      PC Computer - The Binding of Isaac Rebirth - Isaac_231: 848122063
+      PC Computer - The Binding of Isaac Rebirth - Isaac_128: -217871115
+      PC Computer - The Binding of Isaac Rebirth - Isaac_247: 27743608
+      PC Computer - The Binding of Isaac Rebirth - Isaac_233: -471857422
+      PC Computer - The Binding of Isaac Rebirth - Isaac_371: 1367747949
+      PC Computer - The Binding of Isaac Rebirth - Isaac_467: 700796766
+      PC Computer - The Binding of Isaac Rebirth - Isaac_3: 1514993227
+      PC Computer - The Binding of Isaac Rebirth - Isaac_240: 1866162531
+      PC Computer - The Binding of Isaac Rebirth - Isaac_255: -1070914640
+      PC Computer - The Binding of Isaac Rebirth - Isaac_473: -1235594062
+      PC Computer - The Binding of Isaac Rebirth - Isaac_343: -1260672340
+      PC Computer - The Binding of Isaac Rebirth - Isaac_401: 1353756361
+      PC Computer - The Binding of Isaac Rebirth - Isaac_204: 1350526690
+      PC Computer - The Binding of Isaac Rebirth - Isaac_276: -1265122182
+      PC Computer - The Binding of Isaac Rebirth - Isaac_60: 1700790236
+      PC Computer - The Binding of Isaac Rebirth - Isaac_519: 646331277
+      PC Computer - The Binding of Isaac Rebirth - Isaac_413: 204394202
+      PC Computer - The Binding of Isaac Rebirth - Isaac_31: 2035179076
+      PC Computer - The Binding of Isaac Rebirth - Isaac_200: -849828913
+      LeftFaceShoot: 316453691
+      WalkUp8: 2138310878
+      PC Computer - The Binding of Isaac Rebirth - Isaac_267: 751413594
+      PC Computer - The Binding of Isaac Rebirth - Isaac_257: -2021940104
+      PC Computer - The Binding of Isaac Rebirth - Isaac_265: 1318175675
+      PC Computer - The Binding of Isaac Rebirth - Isaac_349: -1835934898
+      PC Computer - The Binding of Isaac Rebirth - Isaac_268: -1783658113
+      PC Computer - The Binding of Isaac Rebirth - Isaac_286: 2059293922
+      PC Computer - The Binding of Isaac Rebirth - Isaac_366: 1954001971
+      PC Computer - The Binding of Isaac Rebirth - Isaac_186: 725384568
+      PC Computer - The Binding of Isaac Rebirth - Isaac_273: -783407427
+      WalkRight5: -408747688
+      ItemPickup: -1630416311
+      PC Computer - The Binding of Isaac Rebirth - Isaac_8: 905028547
+      PC Computer - The Binding of Isaac Rebirth - Isaac_493: -1241521809
+      PC Computer - The Binding of Isaac Rebirth - Isaac_297: 963232362
+      PC Computer - The Binding of Isaac Rebirth - Isaac_408: 653846655
+      PC Computer - The Binding of Isaac Rebirth - Isaac_251: 1499209441
+      PC Computer - The Binding of Isaac Rebirth - Isaac_310: -1452278331
+      PC Computer - The Binding of Isaac Rebirth - Isaac_327: 1896854195
+      PC Computer - The Binding of Isaac Rebirth - Isaac_352: -540076558
+      PC Computer - The Binding of Isaac Rebirth - Isaac_29: -1708092007
+      PC Computer - The Binding of Isaac Rebirth - Isaac_362: -684126590
+      PC Computer - The Binding of Isaac Rebirth - Isaac_197: -1723877942
+      PC Computer - The Binding of Isaac Rebirth - Isaac_287: -1554807539
+      PC Computer - The Binding of Isaac Rebirth - Isaac_299: 1678398957
+      PC Computer - The Binding of Isaac Rebirth - Isaac_389: -512729130
+      PC Computer - The Binding of Isaac Rebirth - Isaac_428: 1555428366
+      PC Computer - The Binding of Isaac Rebirth - Isaac_514: 445654956
+      PC Computer - The Binding of Isaac Rebirth - Isaac_91: 1258903229
+      WalkUp2: 1743586720
+      PC Computer - The Binding of Isaac Rebirth - Isaac_116: 1793039930
+      PC Computer - The Binding of Isaac Rebirth - Isaac_83: -1325443784
+      PC Computer - The Binding of Isaac Rebirth - Isaac_101: 794065092
+      WalkRight3: 549336648
+      PC Computer - The Binding of Isaac Rebirth - Isaac_38: 708073310
+      PC Computer - The Binding of Isaac Rebirth - Isaac_89: 1670754559
+      PC Computer - The Binding of Isaac Rebirth - Isaac_99: -692030976
+      PC Computer - The Binding of Isaac Rebirth - Isaac_250: -697298761
+      PC Computer - The Binding of Isaac Rebirth - Isaac_118: 44364294
+      PC Computer - The Binding of Isaac Rebirth - Isaac_512: -1927126521
+      PC Computer - The Binding of Isaac Rebirth - Isaac_308: 225597303
+      PC Computer - The Binding of Isaac Rebirth - Isaac_390: 2086148759
+      PC Computer - The Binding of Isaac Rebirth - Isaac_472: 275989784
+      PC Computer - The Binding of Isaac Rebirth - Isaac_208: 1015934955
+      PC Computer - The Binding of Isaac Rebirth - Isaac_216: -1760333796
+      PC Computer - The Binding of Isaac Rebirth - Isaac_271: 1470078322
+      PC Computer - The Binding of Isaac Rebirth - Isaac_92: 1275103215
+      PC Computer - The Binding of Isaac Rebirth - Isaac_360: 2058053771
+      PC Computer - The Binding of Isaac Rebirth - Isaac_478: -1304839637
+      PC Computer - The Binding of Isaac Rebirth - Isaac_182: 542868539
+      PC Computer - The Binding of Isaac Rebirth - Isaac_407: 2096723057
+      PC Computer - The Binding of Isaac Rebirth - Isaac_463: -1586755353
+      PC Computer - The Binding of Isaac Rebirth - Isaac_174: 688672075
+      PC Computer - The Binding of Isaac Rebirth - Isaac_51: -1766278676
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

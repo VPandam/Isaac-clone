@@ -78,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 1076033074425326277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 125213330987723284}
@@ -213,9 +213,9 @@ MonoBehaviour:
   normalSprite: {fileID: 0}
   _hitSprite: {fileID: 0}
   maxHp: 3
-  rangeAttack: 1
   attackDamage: 1
-  speed: 1
+  rangeAttack: 1
+  speed: 1.7
   roomMask:
     serializedVersion: 2
     m_Bits: 832

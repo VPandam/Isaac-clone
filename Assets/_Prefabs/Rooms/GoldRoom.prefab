@@ -96,6 +96,11 @@ PrefabInstance:
       propertyPath: isGold
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+        type: 3}
+      propertyPath: roomType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3321003733519010681, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}
       propertyPath: m_Sprite
@@ -160,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 6982793919197629465, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c1ced48f1fcfda4e8b613d6595b0a56, type: 3}

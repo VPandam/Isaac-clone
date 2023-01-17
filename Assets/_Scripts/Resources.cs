@@ -1,32 +1,33 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public enum CardinalDirections
+public enum CardinalDirection
 {
-    up, down, left, right
+    up, down, left, right, nul
 }
 public class Resources : MonoBehaviour
 {
     public static Resources sharedInstance;
-    public Dictionary<CardinalDirections, Vector2> cardinalDirections;
+    public Dictionary<CardinalDirection, Vector2> cardinalDirections;
 
     private void Awake()
     {
         if (sharedInstance == null) sharedInstance = this;
         else Destroy(this);
-        cardinalDirections = new Dictionary<CardinalDirections, Vector2>();
-        cardinalDirections.Add(CardinalDirections.up, Vector2.up);
-        cardinalDirections.Add(CardinalDirections.right, Vector2.right);
-        cardinalDirections.Add(CardinalDirections.left, Vector2.left);
-        cardinalDirections.Add(CardinalDirections.down, Vector2.down);
+        cardinalDirections = new Dictionary<CardinalDirection, Vector2>();
+        cardinalDirections.Add(CardinalDirection.up, Vector2.up);
+        cardinalDirections.Add(CardinalDirection.right, Vector2.right);
+        cardinalDirections.Add(CardinalDirection.left, Vector2.left);
+        cardinalDirections.Add(CardinalDirection.down, Vector2.down);
     }
     public Vector2 GetRandomCardinalDirection()
     {
         int nextDirectionIndex = Random.Range(0, cardinalDirections.Count);
-        Vector2 randomCardinalDirection = cardinalDirections[(CardinalDirections)nextDirectionIndex];
+        Vector2 randomCardinalDirection = cardinalDirections[(CardinalDirection)nextDirectionIndex];
         return randomCardinalDirection;
     }    
     
@@ -46,10 +47,10 @@ public class Resources : MonoBehaviour
         return new Vector2(mid.x, f(t) + Mathf.Lerp(start.y, end.y, t));
     }
 
-    //Convert a vector into a cardinal direction.
-    public Vector2 GetCardinalDirection(Vector2 direction)
+    //Convert a vector into a cardinal direction vector.
+    public Vector2 GetVectorDirection(Vector2 direction)
     {
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))
         {
             if (direction.x > 0)
                 return Vector2.right;
@@ -62,6 +63,24 @@ public class Resources : MonoBehaviour
                 return Vector2.up;
             else
                 return Vector2.down;
+        }
+    }
+    //Converts a vector into a cardinal direction.
+    public CardinalDirection GetCardinalDirection(Vector2 direction)
+    {
+        if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))
+        {
+            if (direction.x > 0)
+                return cardinalDirections.FirstOrDefault(x => x.Value == Vector2.right).Key;
+            else
+                return cardinalDirections.FirstOrDefault(x => x.Value == Vector2.left).Key;
+        }
+        else
+        {
+            if (direction.y > 0)
+                return cardinalDirections.FirstOrDefault(x => x.Value == Vector2.up).Key;
+            else
+                return cardinalDirections.FirstOrDefault(x => x.Value == Vector2.down).Key;
         }
     }
 }

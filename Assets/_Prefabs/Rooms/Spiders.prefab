@@ -42,7 +42,7 @@ PrefabInstance:
     - target: {fileID: 3321003733519010663, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}
       propertyPath: m_Name
-      value: _ProveRoom
+      value: Spiders
       objectReference: {fileID: 0}
     - target: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}

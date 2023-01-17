@@ -119,4 +119,4 @@ MonoBehaviour:
   id: 0
   shopPrice: 15
   _shopSlot: {fileID: 0}
-  fireRateAmmount: 0.2
+  attackSpeedAmount: 0.8

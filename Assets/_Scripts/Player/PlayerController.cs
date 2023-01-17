@@ -4,17 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-    public enum FacingDirection
-    {
-        up, down, right, left
-    }
     public class PlayerController : MonoBehaviour
     {
         //Components
-        public Animator _animator;
         Rigidbody2D _rb;
-
+        [SerializeField]private Animator bodyAnimator;
         public static PlayerController _instance;
         CameraController _cam;
         private GameManager gameManager;
@@ -74,7 +68,6 @@ using UnityEngine.UI;
         }
         private void Start()
         {
-            _animator = gameObject.GetComponent<Animator>();
             _cam = Camera.main.GetComponent<CameraController>();
             _rb = gameObject.GetComponent<Rigidbody2D>();
             relocateAStarPath = RelocateAStarPath.instance;
@@ -85,40 +78,15 @@ using UnityEngine.UI;
         {
             if (GameManager._instance.pause || isKnockback)
             {
-                _animator.SetBool(MOVING, false);
+                bodyAnimator.SetBool(MOVING, false);
                 return;
             }
 
             movementInput = controls.Player.Move.ReadValue<Vector2>();
 
-            bool movingRightInput = (movementInput.x > sensibility);
-            bool movingLeftInput = (movementInput.x < -sensibility);
-            bool movingUpInput = (movementInput.y < -sensibility);
-            bool movingDownInput = (movementInput.y > sensibility);
-
-            /// There are 4 different IDLE aniamtions.
-            /// Last moving direction is a parameter used in the player animator to activate each animation.
-            if (movingRightInput)
-            {
-                _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.right);
-            }
-            if (movingLeftInput)
-            {
-                _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.left);
-            }
-            if (movingUpInput)
-            {
-                _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.down);
-            }
-            if (movingDownInput)
-            {
-                _animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.up);
-            }
-
-
             if (!moving)
             {
-                _animator.SetBool(MOVING, false);
+                bodyAnimator.SetBool(MOVING, false);
                 _rb.velocity = Vector2.zero;
             }
 
@@ -128,7 +96,7 @@ using UnityEngine.UI;
         {
             if (GameManager._instance.pause || isKnockback)
             {
-                _animator.SetBool(MOVING, false);
+                bodyAnimator.SetBool(MOVING, false);
                 return;
             }
 
@@ -140,10 +108,13 @@ using UnityEngine.UI;
         void Move()
         {
             float movementSpeed = PlayerManager.sharedInstance.moveSpeed;
-            _animator.SetFloat(HORIZONTAL, movementInput.x);
-            _animator.SetFloat(VERTICAL, movementInput.y);
-            _animator.SetBool(MOVING, true);
+            bodyAnimator.SetFloat(HORIZONTAL, movementInput.x);
+            bodyAnimator.SetFloat(VERTICAL, movementInput.y);
+            bodyAnimator.SetBool(MOVING, true);
             _rb.MovePosition(_rb.position + movementInput * (movementSpeed * Time.fixedDeltaTime));
+            CardinalDirection lastMovingDirection = Resources.sharedInstance.GetCardinalDirection(movementInput);
+            bodyAnimator.SetInteger(LAST_MOVING_DIRECTION, (int)lastMovingDirection);
+            Debug.Log("Last moving direction = " + lastMovingDirection + " int of lastMoving direction =  " + (int)lastMovingDirection);
         }
 
 

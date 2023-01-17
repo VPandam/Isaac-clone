@@ -28,7 +28,6 @@ public class Bomb : MonoBehaviour
         {
             while (actualScale < targetScale)
             {
-                Debug.Log("Growing actualScale = " + actualScale + " localScale = " + transform.localScale);
                 actualScale += actualScale * Time.deltaTime * 0.4f;
                 transform.localScale = new Vector3(1,1,1) * actualScale;
                 yield return null;
@@ -36,7 +35,6 @@ public class Bomb : MonoBehaviour
 
             while (actualScale > 1)
             {
-                Debug.Log("Lowering actualScale = " + actualScale + " localScale = " + transform.localScale);
                 actualScale -= actualScale * Time.deltaTime * 0.4f;
                 transform.localScale = new Vector3(1,1,1) * actualScale;
                 yield return null;

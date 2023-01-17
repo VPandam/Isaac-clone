@@ -94,7 +94,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6066584706993986942}
   - {fileID: 7350138166645133076}
@@ -192,7 +192,7 @@ MonoBehaviour:
   x: 0
   y: 0
   ID: 0
-  isGold: 0
+  roomType: 1
   minimapIcon: {fileID: 7628050975799635895}
   roomLootGO: {fileID: 8391294433288216394}
 --- !u!1 &3955360465716139516

@@ -176,6 +176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}
+      propertyPath: roomType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+        type: 3}
       propertyPath: enemies.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -234,6 +239,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3346363027978666755, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982793919197629465, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c1ced48f1fcfda4e8b613d6595b0a56, type: 3}
 --- !u!4 &137932936243844996 stripped
@@ -260,10 +275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8b21e66f5a1e641874febe4268ede5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allShopItems:
-  - {fileID: 5031968935331864164, guid: 74ade05bea24964429d8f532b586bb88, type: 3}
-  - {fileID: 500493407045441845, guid: d4f541381a6d7574e82582ca232039bf, type: 3}
-  - {fileID: 187507378053862348, guid: fcf45b67b360e4f4aa9e936cfadbeab1, type: 3}
   shopSlots:
   - {fileID: 1162051348827380142}
   - {fileID: 4276736529815914688}

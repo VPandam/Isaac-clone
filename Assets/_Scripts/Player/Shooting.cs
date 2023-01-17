@@ -1,31 +1,34 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 
     public class Shooting : MonoBehaviour
     {
-        enum ShootingDirection
-        {
-            up, down, left, right, nul
-        }
         //Gameobject with the position where we will start shooting.
         public GameObject ShotInit;
         //Time between shots
         private float shotDelay;
         //Time when we will be able to shoot again.
         float nextShotTime;
-        Animator animator;
+        Animator headAnimator;
+        [SerializeField] GameObject headGO;
 
         bool isShootInput;
 
         //Animation names
-        const int SHOOTING_LAYER_INDEX = 1;
-        const string SHOOTING = "Shooting";
-        const string SHOOT_DIRECTION = "ShootDirection";
+        const string SHOOTING_RIGHT = "ShootingRight";
+        const string SHOOTING_LEFT = "ShootingLeft";
+        const string SHOOTING_UP = "ShootingUp";
+        const string SHOOTING_DOWN = "ShootingDown";
+        const string SHOOT_DIRECTION = "LookDirection";
+        const string SHOOT_TRIGGER = "Shoot";
+        const string IDLE = "IDLE";
 
         const string LAST_MOVING_DIRECTION = "LastMoving";
 
 
         PlayerController playerController;
+        private PlayerManager _playerManager;
 
         //Direction of the next shot if we are using a joystick.
         Vector2 shootInput;
@@ -36,18 +39,16 @@
         Vector2 shootDirection;
       
         public AudioClip tearSound;
-
-
+        
+        CardinalDirection lastShootDirection;
+        
         void Start()
         {
-            animator = gameObject.GetComponent<Animator>();
+            _playerManager = PlayerManager.sharedInstance;
+            headAnimator = headGO.GetComponent<Animator>();
             playerController = gameObject.GetComponent<PlayerController>();
             playerAudioSource = PlayerManager.sharedInstance.playerAudioSource;
-            shotDelay = PlayerManager.sharedInstance.fireRate;
-            if (shotDelay == 0)
-            {
-                shotDelay = 0.5f;
-            }
+            lastShootDirection = CardinalDirection.down;
         }
 
         // Update is called once per frame
@@ -55,8 +56,6 @@
         {
             if (GameManager._instance.pause)
             {
-                animator.SetBool(SHOOTING, false);
-                animator.SetLayerWeight(SHOOTING_LAYER_INDEX, 0);
                 return;
             }
             //Gets the input in the shotDirection vector2.
@@ -64,23 +63,20 @@
 
             isShootInput = shootInput.magnitude > sensibility;
 
-
-
             if (isShootInput)
             {
-                ShootingDirection shootingDirection = GetShootDirection();
+                CardinalDirection shootingDirection = GetShootDirection();
                 Shoot(shootingDirection);
             }
             else
             //If we are not shooting, changes the animation parameter shooting to false
             //Set the shooting layer weight to 0. 
             {
-                animator.SetBool(SHOOTING, false);
-                animator.SetLayerWeight(SHOOTING_LAYER_INDEX, 0);
+                // headAnimator.SetBool(IDLE, true);
             }
 
         }
-        ShootingDirection GetShootDirection()
+        CardinalDirection GetShootDirection()
         {
             //Checks which absolute value is bigger between x and y.
             //We use this when using joystick to know if the input is more sided horizontaly or verticaly
@@ -90,79 +86,83 @@
 
 
             //Gets the direction of the input.
-
-            ShootingDirection shootingDirection = ShootingDirection.nul;
+            CardinalDirection shootingDirection = CardinalDirection.nul;
 
             if ((shootInput.x > sensibility && shootDirectionHorizontal))
-                shootingDirection = ShootingDirection.right;
-
-            if ((shootInput.x < -sensibility && shootDirectionHorizontal))
-                shootingDirection = ShootingDirection.left;
-
-            if (shootInput.y < -sensibility && shootDirectionVertical)
-                shootingDirection = ShootingDirection.down;
-
-            if (shootInput.y > sensibility && shootDirectionVertical)
-                shootingDirection = ShootingDirection.up;
-
+                shootingDirection = CardinalDirection.right;
+            else if ((shootInput.x < -sensibility && shootDirectionHorizontal))
+                shootingDirection = CardinalDirection.left;
+            else if (shootInput.y < -sensibility && shootDirectionVertical)
+                shootingDirection =  CardinalDirection.down;
+            else if (shootInput.y > sensibility && shootDirectionVertical)
+                shootingDirection = CardinalDirection.up;
+            else
+            {
+                shootingDirection = lastShootDirection;
+            }
+            
             return shootingDirection;
         }
-        void Shoot(ShootingDirection shootingDirection)
+        void Shoot(CardinalDirection shootingDirection)
         {
-            //We want the shoot animation to prioritize shooting animation over movement.
-            //If we are shooting change the layer to the shooting animation
-            animator.SetLayerWeight(SHOOTING_LAYER_INDEX, 1);
-            animator.SetBool(SHOOTING, true);
-            animator.SetInteger(SHOOT_DIRECTION, (int)shootingDirection);
-
-
-            //Change the bullet angle depending on the direction of the input.
-            //Sets the lastMovingDirection parameter of the animator, this determines the
-            //IDLE animation to run if we are not shooting or moving.
-            switch (shootingDirection)
-            {
-
-                default:
-                    break;
-                case ShootingDirection.up:
-                    shootDirection = Vector2.up;
-                    animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.up);
-                    break;
-
-                case ShootingDirection.down:
-                    shootDirection = Vector2.down;
-                    animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.down);
-                    break;
-
-                case ShootingDirection.left:
-                    shootDirection = Vector2.left;
-                    animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.left);
-                    break;
-
-                case ShootingDirection.right:
-                    shootDirection = Vector2.right;
-                    animator.SetInteger(LAST_MOVING_DIRECTION, (int)FacingDirection.right);
-                    break;
-                case ShootingDirection.nul:
-                    return;
-
-            }
-
+            if (shootingDirection == CardinalDirection.nul) return;
+            
+            shootDirection = Resources.sharedInstance.cardinalDirections[shootingDirection];
+            
+            //Reset the animation parameters everytime we change direction
+            if(lastShootDirection != shootingDirection)
+                ResetAnimationValues();
+            
+            //Changes the animation to face the shooting direction
+            headAnimator.SetInteger(SHOOT_DIRECTION, (int)shootingDirection);
+            
 
             //If there is input, check if the time between shots has elapsed.
             //If so, instantiate a bullet.
             //Reset the nextShotTime
             if (Time.time >= nextShotTime)
             {
-                GameObject tear = Instantiate(PlayerManager.sharedInstance.currentTear, ShotInit.transform.position, Quaternion.identity);
-                tear.GetComponent<Tear>().SetBullet(shootDirection, PlayerManager.sharedInstance.shotSpeed);
-                nextShotTime = Time.time + shotDelay;
+                StartCoroutine(InstantiateBullet(shootingDirection));
             }
+        }
 
+        IEnumerator InstantiateBullet(CardinalDirection shootingDirection)
+        {
+            yield return new WaitForEndOfFrame();
+            switch (shootingDirection)
+            {
+                //Those parameters activate the shooting animation.
+                //We need to wait until end of frame to activate them because the facing direction animation uses the same parameter.
+                case CardinalDirection.down:
+                    headAnimator.SetBool(SHOOTING_DOWN, true);
+                    break;
+                case CardinalDirection.up:
+                    headAnimator.SetBool(SHOOTING_UP, true);
+                    break;
+                case CardinalDirection.right:
+                    headAnimator.SetBool(SHOOTING_RIGHT, true);
+                    break;
+                case CardinalDirection.left:
+                    headAnimator.SetBool(SHOOTING_LEFT, true);
+                    break;
+                case CardinalDirection.nul:
+                    yield return null;
+                    break;
+            }
+            
+            GameObject tear = Instantiate(PlayerManager.sharedInstance.currentTear, ShotInit.transform.position, Quaternion.identity);
+            tear.GetComponent<Tear>().SetBullet(shootDirection, PlayerManager.sharedInstance.shotSpeed);
+            lastShootDirection = shootingDirection;
+            shotDelay = _playerManager.AttackSpeed;
+            nextShotTime = Time.time + shotDelay;
+        }
 
-
-
-
+        void ResetAnimationValues()
+        {
+            headAnimator.SetBool(SHOOTING_LEFT, false);
+            headAnimator.SetBool(SHOOTING_UP, false);
+            headAnimator.SetBool(SHOOTING_DOWN, false);
+            headAnimator.SetBool(SHOOTING_RIGHT, false);
         }
     }
 

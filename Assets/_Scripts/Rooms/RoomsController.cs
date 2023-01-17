@@ -14,12 +14,15 @@ enum ExitSite
         Gold, DefaultRoom, Shop, Boss
     }
 
+public enum NewRoomDirection
+{
+    Up, Down, Right, Left
+}
     public class RoomsController : MonoBehaviour
     {
         //Singleton
-        static public RoomsController _instance;
-        //The ammount of rooms created per level
-        [SerializeField] int ammountOfInitialRooms = 10;
+        public static RoomsController _instance;
+        [SerializeField] int amountOfInitialRooms = 10;
        
         //Prefabs of the rooms and doors
         [Header("Prefabs of the rooms and doors")]
@@ -33,15 +36,14 @@ enum ExitSite
         private List<Room> roomsLoaded = new List<Room>();
         //The room we are working with
         private Room currentRoom;
-       
-
+        
         public GameObject RoomsParent;
 
-      
         //Used on NewRoom method
         Room newRoom;
         //Used on NewRoom method
         Vector3 startNewRoom;
+        
         //Used on NewRoom method
         //Position were we will move the new room
         Vector3 correction;
@@ -49,11 +51,9 @@ enum ExitSite
         
         //The farthest room from the initial one.
         private Room farthestRoom;
-
-
+        
         CameraController cam;
         
-
         private void Awake()
         {
             if (_instance == null)
@@ -72,7 +72,11 @@ enum ExitSite
         {
             currentRoom = Instantiate(initialRoom, gameObject.transform);
             roomsLoaded.Add(currentRoom);
+            
+            //Activates the minimap icon
+            //This happens every time we enter in a room
             currentRoom.SetVisibleOnMinimap();
+            
             PlayerManager.sharedInstance.currentRoom = currentRoom;
             currentRoom.SetX(0); currentRoom.setY(0);
 
@@ -86,6 +90,31 @@ enum ExitSite
             ConenctDoors();
         }
 
+        void InstantiateAllRooms()
+        {
+            for (int i = 0; i < amountOfInitialRooms; i++)
+            {
+                //Create a random room except boss room.
+                Array values = Enum.GetValues(typeof(RoomType));
+                RoomType randomRoomType = (RoomType)values.GetValue(Random.Range(0, values.Length-1));
+                NewRoom(randomRoomType);
+            }
+            if (!currentLevel.isGoldRoomLoaded)
+            {
+                NewRoom(RoomType.Gold);
+            }
+            if (!currentLevel.isShopRoomLoaded)
+            {
+                NewRoom(RoomType.Shop);
+            }
+            
+            //Checks the farthest room position from the initial
+            farthestRoom = CheckFarthestRoom();
+            //Instantiate the boss room at the farthest position
+            NewRoom(RoomType.Boss);
+
+        }
+        
         /// <summary>
         /// //Instantiate a room with a random prefab next to one of the loaded rooms. 
         /// </summary>
@@ -98,33 +127,53 @@ enum ExitSite
 
             while (!isRoomInPosition)
             {
-
                 //Get the reference of a random room already loaded in the level.
                 Room randomLoadedRoom = roomsLoaded[Random.Range(0, roomsLoaded.Count)];
 
-                //0 = up, 1 = down, 2 = right, 3 = left
-                int direction = Random.Range(0, 3);
+                //0 = up, 1 = down, 2 = right, 3 = left.
+                NewRoomDirection roomDirection = (NewRoomDirection)Random.Range(0, 3);
 
+                //Gets a random room from the list of the specific type.
+                Room randomRoom = SelectRandomRoom(roomType);
+                
                 //InstantiateRoom[Direction] checks if there is a room in the coordinate pointed by direction.
                 //If there is not a room instantiates a new room. If there is a room returns false.
                 //We iterate over random directions until the room is created.
-                switch (direction)
+                switch (roomDirection)
                 {
-                    case 0:
-                        if(roomType == RoomType.Boss) isRoomCreated = InstantiateRoomTop(farthestRoom, roomType);
-                        else isRoomCreated = InstantiateRoomTop(randomLoadedRoom, roomType);
+                    case NewRoomDirection.Up:
+                        //There are some rooms that can't be spawned at certain directions.
+                        //If the room can't be spawned up, it won't have a doorDownPos.
+                        if (randomRoom.doorDownPos != null)
+                        {
+                            newRoom = randomRoom;
+                            if(roomType == RoomType.Boss) isRoomCreated = InstantiateRoomTop(farthestRoom);
+                            else isRoomCreated = InstantiateRoomTop(randomLoadedRoom);
+                        }
                         break;
-                    case 1:
-                        if(roomType == RoomType.Boss) isRoomCreated = InstantiateRoomDown(farthestRoom, roomType);
-                        else isRoomCreated = InstantiateRoomDown(randomLoadedRoom, roomType);
+                    case NewRoomDirection.Down:
+                        if (randomRoom.doorUpPos != null)
+                        {
+                            newRoom = randomRoom;
+                            if(roomType == RoomType.Boss) isRoomCreated = InstantiateRoomDown(farthestRoom);
+                            else isRoomCreated = InstantiateRoomDown(randomLoadedRoom);
+                        }
                         break;
-                    case 2:
-                        if(roomType == RoomType.Boss) isRoomCreated = InstantiateRoomRight(farthestRoom, roomType);
-                        else isRoomCreated = InstantiateRoomRight(randomLoadedRoom, roomType);
+                    case NewRoomDirection.Right:
+                        if (randomRoom.doorLeftPos != null)
+                        {
+                            newRoom = randomRoom;
+                            if(roomType == RoomType.Boss) isRoomCreated = InstantiateRoomRight(farthestRoom);
+                            else isRoomCreated = InstantiateRoomRight(randomLoadedRoom);
+                        }
                         break;
-                    case 3:
-                        if(roomType == RoomType.Boss) isRoomCreated = InstantiateRoomLeft(farthestRoom, roomType);
-                        else isRoomCreated = InstantiateRoomLeft(randomLoadedRoom, roomType);
+                    case NewRoomDirection.Left:
+                        if (randomRoom.doorRightPos != null)
+                        {
+                            newRoom = randomRoom;
+                            if(roomType == RoomType.Boss) isRoomCreated = InstantiateRoomLeft(farthestRoom);
+                            else isRoomCreated = InstantiateRoomLeft(randomLoadedRoom);
+                        }
                         break;
                 }
 
@@ -140,6 +189,56 @@ enum ExitSite
             }
         }
 
+
+        /// <summary>
+        /// Selects a random room from the specified room type list.
+        /// </summary>
+        /// <param name="roomType"> The type of the room </param>
+        /// <returns> A reference to a random room from the specified roomType list </returns>
+        Room SelectRandomRoom(RoomType roomType)
+        {
+            Room roomToInstantiate = null;
+            while (roomToInstantiate == null)
+            {
+                switch (roomType)
+                {
+                    case RoomType.Boss:
+                        var bossRoomList = currentLevel.BossRoomPrefabs;
+                        roomToInstantiate = bossRoomList[Random.Range(0, bossRoomList.Count)];
+                        return roomToInstantiate;
+                    
+                    case RoomType.Gold:
+                        //There should be only one gold room per level.
+                        //If the gold room is been not loaded yet, instantiate the gold room. 
+                        //Else restart the loop.
+                        if (!currentLevel.isGoldRoomLoaded)
+                        {
+                            roomToInstantiate = goldRoomPrefab;
+                            currentLevel.isGoldRoomLoaded = true;
+                            return roomToInstantiate;
+                        }else roomType = RoomType.DefaultRoom;
+                        break;
+                    
+                    case RoomType.Shop:
+                        //There should be only one shop room per level.
+                        //If the shop room is been not loaded yet, instantiate the shop room. 
+                        //Else restart the loop.
+                        if (!currentLevel.isShopRoomLoaded)
+                        {
+                            roomToInstantiate = shopRoomPrefab;
+                            currentLevel.isShopRoomLoaded = true;
+                            return roomToInstantiate;
+                        } else roomType = RoomType.DefaultRoom;
+                        break;
+                    case RoomType.DefaultRoom:
+                        //Instantiate a normal room.
+                        var roomsList = currentLevel.roomList;
+                        roomToInstantiate = roomsList[Random.Range(0, roomsList.Count)];
+                        return roomToInstantiate;
+                }
+            }
+            return null;
+        }
         #region "Methods for checking coordinates up, down, right and left."
 
         /// <summary>
@@ -151,7 +250,7 @@ enum ExitSite
         /// <param name="baseRoom"> The base room </param>
         /// <param name="isGoldRoom"> If true, the room will be gold. </param>
         /// <returns>True if the room is created or false if the coordinate is not free</returns>
-        bool InstantiateRoomTop(Room baseRoom, RoomType roomType)
+        bool  InstantiateRoomTop(Room baseRoom )
         {
             //Get the base room coordinates
             int baseRoomX = baseRoom.getX();
@@ -164,11 +263,10 @@ enum ExitSite
             //If there is not a room in the given coordinate
             if (!CheckCoordinate(newRoomX, newRoomY)[0])
             {
-                newRoom = InstantiateRoom(roomType);
-
+                newRoom = Instantiate(newRoom, Vector3.zero, newRoom.transform.rotation,
+                    RoomsParent.transform);
                 //Set the coordinates of the new room.
                 setNewRoomXY(newRoom, newRoomX, newRoomY);
-
 
                 startNewRoom = baseRoom.roomSpawnTop.transform.position;
                 correction = new Vector3(
@@ -189,7 +287,7 @@ enum ExitSite
         /// <param name="baseRoom"> The base room </param>
         /// <param name="isGoldRoom"> If true, the room will be gold. </param>
         /// <returns>True if the room is created or false if the coordinate is not free</returns>
-        bool InstantiateRoomDown(Room baseRoom, RoomType roomType)
+        bool InstantiateRoomDown(Room baseRoom)
         {
             //Get the base room coordinates
             int baseRoomX = baseRoom.getX();
@@ -201,8 +299,8 @@ enum ExitSite
 
             if (!CheckCoordinate(newRoomX, newRoomY)[0])
             {
-                newRoom = InstantiateRoom(roomType);
-
+                newRoom = Instantiate(newRoom, Vector3.zero, newRoom.transform.rotation,
+                    RoomsParent.transform);
                 //Set the coordinates of the new room.
                 setNewRoomXY(newRoom, newRoomX, newRoomY);
 
@@ -226,7 +324,7 @@ enum ExitSite
         /// <param name="baseRoom"> The base room </param>
         /// <param name="isGoldRoom"> If true, the room will be gold. </param>
         /// <returns>True if the room is created or false if the coordinate is not free</returns>
-        bool InstantiateRoomRight(Room baseRoom, RoomType roomType)
+        bool InstantiateRoomRight(Room baseRoom)
         {
             //Get the base room coordinates
             int baseRoomX = baseRoom.getX();
@@ -238,7 +336,8 @@ enum ExitSite
 
             if (!CheckCoordinate(newRoomX, newRoomY)[0])
             {
-                newRoom = InstantiateRoom(roomType);
+                newRoom = Instantiate(newRoom, Vector3.zero, newRoom.transform.rotation,
+                    RoomsParent.transform);
                 //Set the coordinates of the new room.
                 setNewRoomXY(newRoom, newRoomX, newRoomY);
 
@@ -262,7 +361,7 @@ enum ExitSite
         /// <param name="baseRoom"> The base room </param>
         /// <param name="isGoldRoom"> If true, the room will be gold. </param>
         /// <returns>True if the room is created or false if the coordinate is not free</returns>
-        bool InstantiateRoomLeft(Room baseRoom, RoomType roomType)
+        bool InstantiateRoomLeft(Room baseRoom)
         {
             //Get the base room coordinates
             int baseRoomX = baseRoom.getX();
@@ -274,8 +373,8 @@ enum ExitSite
 
             if (!CheckCoordinate(newRoomX, newRoomY)[0])
             {
-                newRoom = InstantiateRoom(roomType);
-
+                newRoom = Instantiate(newRoom, Vector3.zero, newRoom.transform.rotation,
+                    RoomsParent.transform);
                 //Set the coordinates of the new room.
                 setNewRoomXY(newRoom, newRoomX, newRoomY);
 
@@ -291,69 +390,8 @@ enum ExitSite
                 return false;
 
         }
-
         #endregion
 
-        /// <summary>
-        /// Instantiate a random room from the allRooms list.
-        /// </summary>
-        /// <param name="isGoldRoom"> If true the room will be gold </param>
-        /// <returns> An instance of the new room </returns>
-        Room InstantiateRoom(RoomType roomType)
-        {
-            bool roomLoaded = false;
-            while (roomLoaded == false)
-            {
-                Room roomToInstantiate;
-
-                switch (roomType)
-                {
-                    case RoomType.Boss:
-                        var bossRoomList = currentLevel.BossRoomPrefabs;
-                        roomToInstantiate = bossRoomList[Random.Range(0, bossRoomList.Count)];
-                        roomLoaded = true;
-                        return Instantiate(roomToInstantiate, Vector3.zero, roomToInstantiate.transform.rotation,
-                            RoomsParent.transform);
-                    case RoomType.Gold:
-                        roomToInstantiate = goldRoomPrefab;
-                        //There should be only one gold room per level.
-                        //If the gold room is been not loaded yet, instantiate the gold room. 
-                        //Else restart the loop.
-                        if (!currentLevel.isGoldRoomLoaded)
-                        {
-                            currentLevel.isGoldRoomLoaded = true;
-                            roomLoaded = true;
-                            return Instantiate(roomToInstantiate, Vector3.zero, roomToInstantiate.transform.rotation,
-                                RoomsParent.transform);
-                        }else roomType = RoomType.DefaultRoom;
-                        break;
-                    case RoomType.Shop:
-                        roomToInstantiate = shopRoomPrefab;
-                        //There should be only one shop room per level.
-                        //If the shop room is been not loaded yet, instantiate the shop room. 
-                        //Else restart the loop.
-                        Debug.Log("Is shop room loaded " + currentLevel.isShopRoomLoaded);
-                        if (!currentLevel.isShopRoomLoaded)
-                        {
-                            Debug.Log("After el if");
-                            currentLevel.isShopRoomLoaded = true;
-                            roomLoaded = true;
-                            return Instantiate(roomToInstantiate, Vector3.zero, roomToInstantiate.transform.rotation,
-                                RoomsParent.transform);
-                        } else roomType = RoomType.DefaultRoom;
-                        break;
-                    case RoomType.DefaultRoom:
-                        //Instantiate a normal room.
-                        var roomsList = currentLevel.roomList;
-                        roomToInstantiate = roomsList[Random.Range(0, roomsList.Count)];
-                        roomLoaded = true;
-                        return Instantiate(roomToInstantiate, Vector3.zero, roomToInstantiate.transform.rotation,
-                            RoomsParent.transform);
-                }
-            }
-            return null;
-
-        }
         /// <summary>
         ///Checks if the given coordinate is taken and tells if it is a gold room.
         /// </summary>
@@ -369,18 +407,16 @@ enum ExitSite
             bool isGold = false;
             foreach (Room room in roomsLoaded)
             {
-
                 if (room.getX() == newRoomX && room.getY() == newRoomY)
                 {
                     coordinateTaken = true;
-                    if (room.isGold)
+                    if (room.roomType == RoomType.Gold)
                     {
                         isGold = true;
                     }
-
-
                 }
             }
+            Debug.Log("coordinateTaken " + coordinateTaken + " Coordinate " + newRoomX + " " + newRoomY);
             bool[] values = { coordinateTaken, isGold };
             return values;
         }
@@ -428,23 +464,26 @@ enum ExitSite
             GameObject doorPosition = room.doorRightPos;
 
             //Disable the collider used as a substitute of the door. 
-            doorPosition.GetComponent<BoxCollider2D>().enabled = false;
+            var doorCollider = doorPosition.GetComponent<BoxCollider2D>();
+            doorCollider.enabled = false;
 
             //If the door is in a side of the room, rotates the door prefab 90 degrees.
             Quaternion doorAngle = Quaternion.AngleAxis(90f, Vector3.forward);
 
             Door door;
-
-            //If the room is a gold one, instantiate a goldDoor prefab, else instantiate a normal door prefab. 
-            if (isGoldRoom)
+            if (doorPosition)
             {
-                door = Instantiate(goldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform);
-                door.doorPos = DoorPos.Right;
-            }
-            else
-            {
-                door = Instantiate(doorPrefab, doorPosition.transform.position, doorAngle, room.transform);
-                door.doorPos = DoorPos.Right;
+                //If the room is a gold one, instantiate a goldDoor prefab, else instantiate a normal door prefab. 
+                if (isGoldRoom)
+                {
+                    door = Instantiate(goldDoorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+                    door.doorPos = DoorPos.Right;
+                }
+                else
+                {
+                    door = Instantiate(doorPrefab, doorPosition.transform.position, doorAngle, room.transform);
+                    door.doorPos = DoorPos.Right;
+                }
             }
         }
         void InstantiateLeftDoor(Room room, bool isGoldRoom)
@@ -567,32 +606,6 @@ enum ExitSite
                 default:
                     break;
             }
-        }
-
-        void InstantiateAllRooms()
-        {
-            for (int i = 0; i < ammountOfInitialRooms; i++)
-            {
-                //Create a random room except boss room.
-                Array values = Enum.GetValues(typeof(RoomType));
-                RoomType randomRoomType = (RoomType)values.GetValue(Random.Range(0, values.Length-1));
-                Debug.Log(randomRoomType);
-                NewRoom(randomRoomType);
-            }
-
-            if (!currentLevel.isGoldRoomLoaded)
-            {
-                NewRoom(RoomType.Gold);
-            }
-            if (!currentLevel.isShopRoomLoaded)
-            {
-                NewRoom(RoomType.Shop);
-            }
-            
-            farthestRoom = CheckFarthestRoom();
-            //Instantiate the boss room
-            NewRoom(RoomType.Boss);
-
         }
 
         Room CheckFarthestRoom()
