@@ -163,9 +163,9 @@ MonoBehaviour:
   normalSprite: {fileID: 0}
   _hitSprite: {fileID: 0}
   maxHp: 3
-  rangeAttack: 5
   attackDamage: 1
-  speed: 8
+  rangeAttack: 5
+  speed: 5
   roomMask:
     serializedVersion: 2
     m_Bits: 832

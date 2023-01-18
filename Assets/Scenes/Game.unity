@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7aecaa198fb544e806a5bf691d51ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammountOfInitialRooms: 10
+  amountOfInitialRooms: 10
   initialRoom: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
     type: 3}
   goldRoomPrefab: {fileID: 6719536954886476543, guid: 8c41c06a64226d54192f4ace60d67121,
@@ -2048,7 +2048,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.55
+  orthographic size: 4.79
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2600,7 +2600,7 @@ RectTransform:
   - {fileID: 12586926}
   - {fileID: 1930408773}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2651,7 +2651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIezv0XGuegIAADIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK54UyD8ewt12HkD0koUK2cvFFyGOsQkguPQIkxb/vSLaxw8IB0TPT6ukZ+4twaSpgVumV5vmTyoH8HBB/Jj8GXfARTnSn5IZ/QpvzznNb+iQacl6p5QrxsS8z6gBWc/ZL7oRPjhB0khdKH5b5DlJlrEG4oMIAhrSyvloi9DUgJ/wZLnzJGU+TxJ8+8bSIBhc8MpAWdD91FE/vktl0OYySpmgYjeLIf6ZN7XA+WsyiZBJj0jzQOMkEPVSQ+546tsm8oRgnIU1it02G74wpIbhppBJ7roIVKa2Mw0YxIecUWw/6fH4JfFdaz9svfikKA7bxRdPzPdfoYM1Kfqva1gM1+1rXBxXO3zOfToKmmvTpv/hwHMKFVofH9t5x5O+wJWf7V3pm1Nie7334/rtwJ49U7OlWwHsJ8lmttHIyx6DVzpc6A5P77u+1tbQEtu/wWuoN6KrO73bM7ZBxxpfQ/CkV/LD1yGhWAxuhgt1hNUDjYP6g3rA4pmFA1Iv4a+CN7vob1gQeuDYWQ02T0qvbKqd9KlkGy3wzzqZKSwhwo7kCSYU9r5HG3k7wJta79ibyQP2z1FzexNpH5KYkwF1+FN2E1up4nZUp1fEJTPnirOASOtE+8Iw+pUrKesH6nrRlG6cLynplO8fz75tFYFIw/G4ZjRc0n8fDYkrnyV2RxHEyi9ndgoTV4xL7pGJdC23swanJjlzimrWvmMFK0yose67pccU/D6pnOZeF2jANIF9qhqtw0HgJPpT5Mudo0Aas5TLMm3xlRCi2hzy7EmWh0+XJapp1LBmp+IeyHslIGt4pGfHwdZXXGj44HP3lLdmFXP4BUEsDBBQAAAgIAAAIIezHQyjCbAAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSqlFaMhAmJSeaWiamWJjqphknWpibpZmbmpqbmCabWSrFAtWXVBak+iXmpkL0BCSWZKRl5qVk5qXruRdlpriDjFaKrQUAUEsBAi0AFAAACAgAAAgh7O/Rca56AgAAMgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7MdDKMJsAAAAeAAAAAkAJAAAAAAAAAAAAAAAxwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB+AwAAAAA=
+    dataString: UEsDBBQAAAgIAAAIIez8D1A7hQIAAEMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMGSojAQ/RUr59UChAH2touOs4eZscbdmguXCI2khIRKwqgz5b9vJ4Cwrh6Mr7tfXr9u+CKMqwYyLeRGsvxZ5EC+z4g5k2+zMfgEZ3oQfMc+Ych5Z7kuTRK1OW9UM4G4a8qUqEFLlv3gh8okOwi2nBVC1uv8AIlQWiFc0EoBhqTQppoj9DUjZ/yZx6bkgicvNKdPPMXO7IrHDLgGOab6i/AhWoZuEK3nTthXzb3FMvLdKAjjHjUMc8yNQs83kOVqeVbRuoHcNDZSuv4itp+eLbbJHBvv85xFYJSIqmKq1030pbG+JLRRLXaNCTmj6IMV6y58D5ES2KHUpq1p/WtRKNC9T5JeVkyiox0x+Sk6m2uqjp3ED1q15qpo6VlhHenzf/G5a8OFFPXTcK/rmDt0ybLjG71kVOnJHKbwaqLdOnWi1ZHuK3gvgb+IjRQtzzGoZWtKWwXeavx7ay0pITuOeCf1Dmyb0fph7MPQTQ9X2/05qVi9t+b7HbCrhLXc7gpIHM8vFGw3SfUUiBoVfxT8pofpyvWBRyaVxlDfJTfy9qKVJpWsrWemm1YnQnKwcC+6AU4rfdkijb4f4V1scu1d5JGah6u/vI8Nz8xdiYXHfMe5C23F6TYsVYrTM6jytdUV4zCKNoEX9CkRnHcbNvVkKNu1sqDZpOzQsvzf1SLgFRl+9xkNYppHwbxY0ih8KMIgCP0ge4iJ3T3GsU9abTuhvT04NT6Sc9yz4Z0z20ja2G3PJT1t2GctJpYzXohdJgH4a8dwEw4SL8FHM1/nDA3agdaM23mTr5RUIjtCnt6IUtvp+qwlTUeWlDTsQ2iDpCSxL5mUGPi2y1sJHwxO5vKB7EqufwFQSwMEFAAACAgAAAgh7MdDKMJsAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKqUVoyECYlJ5paJqZYmOqmGSdamJulmZuampuYJptZKsUC1ZdUFqT6JeamQvQEJJZkpGXmpWTmpeu5F2WmuIOMVoqtBQBQSwECLQAUAAAICAAACCHs/A9QO4UCAABDBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsx0MowmwAAAB4AAAACQAkAAAAAAAAAAAAAADSAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAIkDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -2732,7 +2732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989473775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.191292, y: 0.7675691, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2968,7 +2968,7 @@ PrefabInstance:
     - target: {fileID: 2608228676268484413, guid: 1d348248d59be8043947e50f05b14f03,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2608228676268484413, guid: 1d348248d59be8043947e50f05b14f03,
         type: 3}

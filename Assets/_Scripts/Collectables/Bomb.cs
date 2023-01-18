@@ -11,14 +11,16 @@ public class Bomb : MonoBehaviour
     [SerializeField] private GameObject explosionGO;
     [SerializeField] private AudioClip explosionSound;
     [SerializeField]int bombDamage;
-    private float actualScale, targetScale; 
+    private float actualScaleMultiplier, targetScaleMultiplier;
+    private Vector3 actualScale;
     
     
     private void Start()
     {
         Invoke("Explode", exploteTime);
-        actualScale = 1;
-        targetScale = actualScale * 1.2f;
+         actualScale = transform.localScale;
+        actualScaleMultiplier = 1;
+        targetScaleMultiplier = actualScaleMultiplier * 1.2f;
         StartCoroutine(nameof(GrowScale));
     }
 
@@ -26,17 +28,17 @@ public class Bomb : MonoBehaviour
     {
         while (true)
         {
-            while (actualScale < targetScale)
+            while (actualScaleMultiplier < targetScaleMultiplier)
             {
-                actualScale += actualScale * Time.deltaTime * 0.4f;
-                transform.localScale = new Vector3(1,1,1) * actualScale;
+                actualScaleMultiplier += actualScaleMultiplier * Time.deltaTime * 0.4f;
+                transform.localScale =  actualScale * actualScaleMultiplier;
                 yield return null;
             }
 
-            while (actualScale > 1)
+            while (actualScaleMultiplier > 1)
             {
-                actualScale -= actualScale * Time.deltaTime * 0.4f;
-                transform.localScale = new Vector3(1,1,1) * actualScale;
+                actualScaleMultiplier -= actualScaleMultiplier * Time.deltaTime * 0.4f;
+                transform.localScale = actualScale * actualScaleMultiplier;
                 yield return null;
             }
         }

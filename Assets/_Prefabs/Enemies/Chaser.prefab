@@ -55,9 +55,9 @@ MonoBehaviour:
   normalSprite: {fileID: 0}
   _hitSprite: {fileID: 21300000, guid: 1ce6d5ddfba2ecf459f3ca5abf0a85c6, type: 3}
   maxHp: 3
-  rangeAttack: 0
   attackDamage: 2
-  speed: 5
+  rangeAttack: 0
+  speed: 2
   roomMask:
     serializedVersion: 2
     m_Bits: 832
@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.26
-  height: 0.92
+  radius: 0.29
+  height: 0.03
   canMove: 1
   maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
@@ -194,7 +194,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 0.8
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1

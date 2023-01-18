@@ -114,7 +114,6 @@ using UnityEngine.UI;
             _rb.MovePosition(_rb.position + movementInput * (movementSpeed * Time.fixedDeltaTime));
             CardinalDirection lastMovingDirection = Resources.sharedInstance.GetCardinalDirection(movementInput);
             bodyAnimator.SetInteger(LAST_MOVING_DIRECTION, (int)lastMovingDirection);
-            Debug.Log("Last moving direction = " + lastMovingDirection + " int of lastMoving direction =  " + (int)lastMovingDirection);
         }
 
 
@@ -176,7 +175,7 @@ using UnityEngine.UI;
         void PlaceBomb()
         {
             PlayerManager playerManager = PlayerManager.sharedInstance;
-            if (playerManager.currentBombs >= 1 && !playerManager.isInvincible)
+            if (playerManager.currentBombs >= 1)
             { 
                 playerManager.currentBombs--;
                 if (playerManager.onUIChangeCallback != null)

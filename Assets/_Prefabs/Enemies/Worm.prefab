@@ -55,9 +55,9 @@ MonoBehaviour:
   normalSprite: {fileID: 0}
   _hitSprite: {fileID: 21300000, guid: 55e52a4551f4a464ea0138ebb7660022, type: 3}
   maxHp: 3
-  rangeAttack: 3
   attackDamage: 1
-  speed: 2
+  rangeAttack: 3
+  speed: 0.5
   roomMask:
     serializedVersion: 2
     m_Bits: 576
@@ -66,10 +66,10 @@ MonoBehaviour:
     m_Bits: 1024
   minFireRate: 2
   maxFireRate: 4
-  shootSpeed: 5
+  shootSpeed: 3
   rightShootingStart: {fileID: 8923762360693402452}
   leftShootingStart: {fileID: 8665037962976106825}
-  bulletPrefab: {fileID: 5315961047368399508, guid: 2f7f492ad4c3fdb4d8967f1c69ebe341,
+  bulletPrefab: {fileID: 7060779684141848338, guid: 6f807ef1dd72ba74082e9931a36815ae,
     type: 3}
 --- !u!212 &7901204801877516244
 SpriteRenderer:

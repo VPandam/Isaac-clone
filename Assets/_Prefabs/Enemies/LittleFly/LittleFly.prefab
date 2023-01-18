@@ -68,7 +68,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8636619162430678776
 Transform:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   maxHp: 3
   attackDamage: 1
   rangeAttack: 1
-  speed: 1.7
+  speed: 1
   roomMask:
     serializedVersion: 2
     m_Bits: 832

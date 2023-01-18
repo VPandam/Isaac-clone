@@ -9,7 +9,7 @@ public enum CollectableType
 }
 public class Collectable : MonoBehaviour, IShoppable
 {
-    [SerializeField] int ammount;
+    [SerializeField] int amount;
     public CollectableType _collectableType;
     public int shopPrice;
     public GameObject _shopSlot;
@@ -28,23 +28,23 @@ public class Collectable : MonoBehaviour, IShoppable
         switch (_collectableType)
         {
             case CollectableType.Bomb:
-                _playerManager.UpdateBombs(ammount);
+                _playerManager.UpdateBombs(amount);
                 break;
             case CollectableType.Coin:
-                _playerManager.UpdateCoins(ammount);
+                _playerManager.UpdateCoins(amount);
                 if(playerAudioSource != null && coinClip != null) playerAudioSource.PlayOneShot(coinClip, 0.2f);
                 Debug.Log(playerAudioSource != null && coinClip != null);
                 break;
             case CollectableType.Key:
-                _playerManager.UpdateKeys(ammount);
+                _playerManager.UpdateKeys(amount);
                 break;
             case CollectableType.Heart:
-                if (!_playerManager.CheckIfWeCanGetMoreHp(ammount)) return;
-                _playerManager.UpdateHp(ammount, HpType.Red);
+                if (!_playerManager.CheckIfWeCanGetMoreHp(amount)) return;
+                _playerManager.UpdateHp(amount, HpType.Red);
                 break;
             case CollectableType.BlueHeart:
-                if (!_playerManager.CheckIfWeCanGetMoreBlueHp(ammount)) return;
-                _playerManager.UpdateHp(ammount, HpType.Blue);
+                if (!_playerManager.CheckIfWeCanGetMoreBlueHp(amount)) return;
+                _playerManager.UpdateHp(amount, HpType.Blue);
                 break;
         }
         if (_playerManager.onUIChangeCallback != null)
@@ -66,9 +66,9 @@ public class Collectable : MonoBehaviour, IShoppable
 
     public void BuyItem()
     {
-        if (_collectableType == CollectableType.Heart && !_playerManager.CheckIfWeCanGetMoreHp(ammount)) return;
+        if (_collectableType == CollectableType.Heart && !_playerManager.CheckIfWeCanGetMoreHp(amount)) return;
         
-        if (_collectableType == CollectableType.BlueHeart && !_playerManager.CheckIfWeCanGetMoreBlueHp(ammount)) return;
+        if (_collectableType == CollectableType.BlueHeart && !_playerManager.CheckIfWeCanGetMoreBlueHp(amount)) return;
         
         if (_playerManager.currentCoins >= shopPrice)
         {
