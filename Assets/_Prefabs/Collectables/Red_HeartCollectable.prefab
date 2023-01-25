@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2189556713739167365
+--- !u!1001 &8710675246140481790
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -65,23 +65,12 @@ PrefabInstance:
     - target: {fileID: 187507378053862348, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
         type: 3}
       propertyPath: m_Name
-      value: Half_Heart_Collectable
+      value: Red_HeartCollectable
       objectReference: {fileID: 0}
-    - target: {fileID: 187507378053862349, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -906556157, guid: 7faab5db45e189a409dd287746ce41bf,
-        type: 3}
     - target: {fileID: 5966786227125576984, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
         type: 3}
       propertyPath: amount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966786227125576984, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
-        type: 3}
-      propertyPath: ammount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcf45b67b360e4f4aa9e936cfadbeab1, type: 3}

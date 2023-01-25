@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Worm : Enemy
     {
-        bool shooting, moving, movingHorizontal = true, callingMove, changingDirectionCollision;
+        bool shooting, moving, movingHorizontal = true, callingMove;
         [SerializeField] float minFireRate, maxFireRate, shootSpeed;
 
         [SerializeField] GameObject rightShootingStart, leftShootingStart, bulletPrefab;
@@ -75,11 +75,9 @@ public class Worm : Enemy
         }
         IEnumerator ChangeDirectionCollision(Vector2 collisionDirection)
         {
-            changingDirectionCollision = true;
             moveDirection = -collisionDirection;
             FlipSprite();
             yield return new WaitForSeconds(0.2f);
-            changingDirectionCollision = false;
         }
         IEnumerator CallShoot()
         {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6012449018591159106}
   - component: {fileID: -1368908932586218071}
   - component: {fileID: 2948383701961064136}
-  - component: {fileID: 6039161181411094907}
+  - component: {fileID: -1412080314635528681}
   m_Layer: 6
   m_Name: Rock
   m_TagString: Wall
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.83, y: 0.8}
   m_EdgeRadius: 0
---- !u!114 &6039161181411094907
+--- !u!114 &-1412080314635528681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 9134488188819726856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69fbc34c8c4afaf409a8631c33e913a5, type: 3}
+  m_Script: {fileID: 11500000, guid: df1161ae67f1c054188d8d9a8a190ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionParticles: {fileID: 5908196596071231519, guid: 631a9762a443a45438935cd278cbc891,
+  onExplodeParticleGO: {fileID: 5908196596071231519, guid: 631a9762a443a45438935cd278cbc891,
     type: 3}

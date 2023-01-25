@@ -60,7 +60,6 @@ using UnityEngine;
             }
             //Gets the input in the shotDirection vector2.
             shootInput = playerController.controls.Player.Fire.ReadValue<Vector2>();
-
             isShootInput = shootInput.magnitude > sensibility;
 
             if (isShootInput)

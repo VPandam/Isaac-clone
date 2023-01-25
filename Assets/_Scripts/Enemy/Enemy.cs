@@ -14,7 +14,7 @@ using UnityEngine;
 
     {
         [HideInInspector] public GameObject player;
-        [HideInInspector]public bool isKnockback;
+        [HideInInspector]public bool isKnockback, stopped;
         //Componetns
         public EnemyState _currentState;
         protected SpriteRenderer _spriteRenderer;

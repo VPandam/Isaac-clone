@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Poop : MonoBehaviour
+public class Poop : Obstacle
 {
     [SerializeField] private ParticleSystem _particleSystem;
     bool shaking;

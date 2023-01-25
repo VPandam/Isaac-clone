@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5966786227125576984}
   - component: {fileID: 5724270212408546512}
   m_Layer: 0
-  m_Name: Red_Heart_Collectable
+  m_Name: Collectable_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -460,8 +460,8 @@ using Pathfinding.Util;
         /// </summary>
         protected virtual void Update()
         {
-            if (_enemy.isKnockback) return;
-                if (shouldRecalculatePath) SearchPath();
+            if (_enemy.isKnockback || _enemy.stopped) return;
+            if (shouldRecalculatePath) SearchPath();
 
             // If gravity is used depends on a lot of things.
             // For example when a non-kinematic rigidbody is used then the rigidbody will apply the gravity itself

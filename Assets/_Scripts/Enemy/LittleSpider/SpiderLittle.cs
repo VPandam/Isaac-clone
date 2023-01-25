@@ -39,7 +39,6 @@ public class SpiderLittle : Enemy
         Vector2 playerDirection = player.transform.position - transform.position;
         while (movementTime > 0)
         {
-            Debug.Log("while");
             if (attackPlayer)
             {
                 _rb.MovePosition(_rb.position + playerDirection.normalized * Time.fixedDeltaTime * speed);

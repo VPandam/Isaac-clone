@@ -52,6 +52,7 @@ using UnityEngine.UI;
 
             controls.Player.Bomb.performed += ctxt => PlaceBomb();
             controls.Player.OpenMinimap.performed += ctxt => Minimap._sharedInstance.OpenCloseMinimap();
+            controls.Player.Fire.performed += context => Debug.Log(context.control.name);
 
             controls.Player.Move.canceled += ctxt =>
             {

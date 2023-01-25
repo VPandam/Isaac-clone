@@ -51,11 +51,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isKnockback: 0
-  _currentState: 0
+  stopped: 0
+  _currentState: 2
   normalSprite: {fileID: 0}
   _hitSprite: {fileID: 21300000, guid: 1ce6d5ddfba2ecf459f3ca5abf0a85c6, type: 3}
   maxHp: 3
-  attackDamage: 2
+  attackDamage: 1
   rangeAttack: 0
   speed: 2
   roomMask:
@@ -64,6 +65,9 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
+  chaserLayer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &6514419306514597159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +182,7 @@ MonoBehaviour:
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
-    m_Bits: 832
+    m_Bits: 2880
   centerOffsetCompatibility: NaN
   repathRateCompatibility: NaN
   canSearchCompability: 0

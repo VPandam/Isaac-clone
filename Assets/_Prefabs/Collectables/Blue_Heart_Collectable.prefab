@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 187507378053862348, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
         type: 3}
       propertyPath: m_Name
-      value: BlueHeartCollectable
+      value: Blue_Heart_Collectable
       objectReference: {fileID: 0}
     - target: {fileID: 187507378053862349, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
         type: 3}
@@ -73,6 +73,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1157698445, guid: 86502eae412091e41ba7de8c22399832,
         type: 3}
+    - target: {fileID: 5966786227125576984, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
+        type: 3}
+      propertyPath: amount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5966786227125576984, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
         type: 3}
       propertyPath: _collectableType

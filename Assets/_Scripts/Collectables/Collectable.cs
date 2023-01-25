@@ -39,11 +39,15 @@ public class Collectable : MonoBehaviour, IShoppable
                 _playerManager.UpdateKeys(amount);
                 break;
             case CollectableType.Heart:
-                if (!_playerManager.CheckIfWeCanGetMoreHp(amount)) return;
+                //CHeck if we can get more hp
+                if(amount > 0)
+                    if (!_playerManager.CheckIfWeCanGetMoreHp(amount)) return;
                 _playerManager.UpdateHp(amount, HpType.Red);
                 break;
             case CollectableType.BlueHeart:
-                if (!_playerManager.CheckIfWeCanGetMoreBlueHp(amount)) return;
+                //Check if we can get more blue hp
+                if(amount > 0)
+                    if (!_playerManager.CheckIfWeCanGetMoreBlueHp(amount)) return;
                 _playerManager.UpdateHp(amount, HpType.Blue);
                 break;
         }

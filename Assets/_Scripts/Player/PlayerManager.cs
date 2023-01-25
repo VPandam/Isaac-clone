@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         
     [HideInInspector] public AudioSource playerAudioSource;
 
-    [HideInInspector] public int currentHealth, currentHealthContainers, currentBlueHealth;
+    public int currentHealth, currentHealthContainers, currentBlueHealth;
     [HideInInspector] public GameObject currentTear;
 
     //Collectables
@@ -132,12 +132,18 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     {
         if (hpType == HpType.Red)
         {
+            int hpAfterUpdate = currentHealth + hpUpdate;
+            //Check if hpUpdate is negative and if we will be having negative hp after update.
             if (hpUpdate < 0 && currentHealth + hpUpdate < 0) currentHealth = 0;
+            //We can't have more red health than the current health containers, if the hp after update is bigger than the max hp, set it to max. 
+            else if (hpUpdate > 0 && hpAfterUpdate > currentHealthContainers * 2)
+                currentHealth = currentHealthContainers * 2;
             else currentHealth += hpUpdate;
         }
 
         else if (hpType == HpType.Blue)
         {
+            //Check if blueHpUpdate is negative and if we will be having negative blue hp after update.
             if (hpUpdate < 0 && currentBlueHealth + hpUpdate < 0) currentBlueHealth = 0;
             else currentBlueHealth += hpUpdate;
         }
@@ -208,20 +214,21 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 
     public bool CheckIfWeCanGetMoreHp(int hpUpdate)
     {
-        int totalPlayerHp = currentHealth + currentBlueHealth;
-        Debug.Log(currentHealth / 2);
-        //We cant have more health than the maximum health or more red health than the current health containers 
-        if ((hpUpdate > 0) && ((totalPlayerHp >= maxHealth) || (currentHealth / 2 >= currentHealthContainers)))
-        {
-            return false;
-        }
-        else return true;
+    int totalPlayerHp = currentHealth + currentBlueHealth;
+
+    //We cant have more health than the maximum health
+    if (totalPlayerHp >= maxHealth)
+    {
+        return false;
+    }
+    return true;
+        
     }
     public bool CheckIfWeCanGetMoreBlueHp(int hpUpdate)
     {
         int totalPlayerHp = currentHealth + currentBlueHealth;
-        //We cant have more health than the maximum health or more red health than the current health containers 
-        if ((hpUpdate > 0) && (totalPlayerHp >= maxHealth))
+        //We cant have more health than the maximum health
+        if (totalPlayerHp >= maxHealth)
         {
             return false;
         }
