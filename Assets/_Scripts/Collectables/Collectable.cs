@@ -15,7 +15,7 @@ public class Collectable : MonoBehaviour, IShoppable
     public GameObject _shopSlot;
     private PlayerManager _playerManager;
     private AudioSource playerAudioSource;
-    [SerializeField]private AudioClip coinClip;
+    [SerializeField]private AudioClip collectableClip;
 
     private void Start()
     {
@@ -32,8 +32,7 @@ public class Collectable : MonoBehaviour, IShoppable
                 break;
             case CollectableType.Coin:
                 _playerManager.UpdateCoins(amount);
-                if(playerAudioSource != null && coinClip != null) playerAudioSource.PlayOneShot(coinClip, 0.2f);
-                Debug.Log(playerAudioSource != null && coinClip != null);
+                
                 break;
             case CollectableType.Key:
                 _playerManager.UpdateKeys(amount);
@@ -41,13 +40,13 @@ public class Collectable : MonoBehaviour, IShoppable
             case CollectableType.Heart:
                 //CHeck if we can get more hp
                 if(amount > 0)
-                    if (!_playerManager.CheckIfWeCanGetMoreHp(amount)) return;
+                    if (!_playerManager.CheckIfWeCanGetMoreHp()) return;
                 _playerManager.UpdateHp(amount, HpType.Red);
                 break;
             case CollectableType.BlueHeart:
                 //Check if we can get more blue hp
                 if(amount > 0)
-                    if (!_playerManager.CheckIfWeCanGetMoreBlueHp(amount)) return;
+                    if (!_playerManager.CheckIfWeCanGetMoreBlueHp()) return;
                 _playerManager.UpdateHp(amount, HpType.Blue);
                 break;
         }
@@ -55,6 +54,7 @@ public class Collectable : MonoBehaviour, IShoppable
         {
             _playerManager.onUIChangeCallback.Invoke();
         }
+        if(playerAudioSource != null && collectableClip != null) playerAudioSource.PlayOneShot(collectableClip, 0.2f);
         Destroy(gameObject);
     }
     
@@ -70,9 +70,9 @@ public class Collectable : MonoBehaviour, IShoppable
 
     public void BuyItem()
     {
-        if (_collectableType == CollectableType.Heart && !_playerManager.CheckIfWeCanGetMoreHp(amount)) return;
+        if (_collectableType == CollectableType.Heart && !_playerManager.CheckIfWeCanGetMoreHp()) return;
         
-        if (_collectableType == CollectableType.BlueHeart && !_playerManager.CheckIfWeCanGetMoreBlueHp(amount)) return;
+        if (_collectableType == CollectableType.BlueHeart && !_playerManager.CheckIfWeCanGetMoreBlueHp()) return;
         
         if (_playerManager.currentCoins >= shopPrice)
         {

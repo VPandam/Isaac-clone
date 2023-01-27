@@ -53,6 +53,12 @@ using UnityEngine;
 
         private bool roomLooted;
         [SerializeField] private GameObject roomLootGO;
+
+        private Resources resources;
+        //Audio
+        private AudioSource roomAudioSource;
+        [SerializeField] AudioSource enemiesAudioSource;
+        [SerializeField] private AudioClip roomOpenClip, roomCloseClip;
         private void Awake()
         {
             // pathfinder.GetComponent<AstarPath>();
@@ -67,6 +73,8 @@ using UnityEngine;
                 Invoke("SetExitZonesActive", 1f);
             }
 
+            roomAudioSource = GetComponent<AudioSource>();
+            resources = Resources.sharedInstance;
         }
         public void FindDoors()
         {
@@ -88,6 +96,9 @@ using UnityEngine;
         void CloseRoom()
         {
             roomOpen = false;
+            resources.StartCoroutine(resources.PlayAudioClipDelayed(
+                roomAudioSource, roomCloseClip, .5f, .4f));
+            
             foreach (Door door in doors)
             {
                 door.SetOpen(false);
@@ -100,6 +111,9 @@ using UnityEngine;
         public void OpenRoom()
         {
             roomOpen = true;
+            resources.StartCoroutine(resources.PlayAudioClipDelayed(
+                roomAudioSource, roomOpenClip, .5f, .4f));
+
             foreach (Door door in doors)
             {
                 door.SetOpen(true);

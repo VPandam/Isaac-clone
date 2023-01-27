@@ -124,7 +124,7 @@ MonoBehaviour:
   _speed: 0
   _shotDirection: {x: 0, y: 0}
   playerAudioSource: {fileID: 0}
-  tearCollidesSound: {fileID: 8300000, guid: 54240eadd82f9c846b85aac7624ca49b, type: 3}
+  tearCollidesSound: {fileID: 8300000, guid: ac132b348c84c644fbf43b004dbc3171, type: 3}
   tearCollidesEnemySound: {fileID: 8300000, guid: 1b3c5a06ecd25664bbb5d768c713f965,
     type: 3}
   tearSounds:

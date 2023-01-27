@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 
 public enum HpType
@@ -13,8 +14,11 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 {
     public static PlayerManager sharedInstance;
 
-    [SerializeField] private GameObject headGO;
+    [SerializeField] private GameObject headGO, bodyGO;
+    private Animator playerGeneralAnimator;
     private SpriteRenderer headSR;
+
+    [SerializeField]private AudioClip[] onHitAudioClips;
         
     [HideInInspector] public AudioSource playerAudioSource;
 
@@ -35,7 +39,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     public int attackDamage;
 
 
-    [HideInInspector] public bool isInvincible;
+    [HideInInspector] public bool isInvincible, dead;
 
     [Space(10)]
 
@@ -67,8 +71,10 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 
     private void Start()
     {
+        dead = false;
         headSR = headGO.GetComponent<SpriteRenderer>();
         playerAudioSource = GetComponent<AudioSource>();
+        playerGeneralAnimator = GetComponent<Animator>();
 
         if (currentTear == null)
             currentTear = baseTear;
@@ -98,6 +104,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     {
         if (!isInvincible)
         {
+            playerAudioSource.PlayOneShot(onHitAudioClips[Random.Range(0, onHitAudioClips.Length)], .5f);
             StartCoroutine(InvincibilityOnHit(0.7f));
             StartCoroutine(FlashOnInvincibility());
             if (currentBlueHealth > 0)
@@ -105,7 +112,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
                 int surplusDamage = damage - currentBlueHealth;
                 UpdateHp(-damage, HpType.Blue);
 
-                if (surplusDamage > 0)
+                if (surplusDamage > 0){}
                     UpdateHp(-surplusDamage, HpType.Red);
             }
             else
@@ -123,7 +130,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
 
     public IEnumerator StopMovingAfterDamage()
     {
-        GameManager._instance.Pause();
+        GameManager._instance.PauseMenu();
         yield return new WaitForSeconds(0.2f);
         GameManager._instance.Resume();
     }
@@ -134,7 +141,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         {
             int hpAfterUpdate = currentHealth + hpUpdate;
             //Check if hpUpdate is negative and if we will be having negative hp after update.
-            if (hpUpdate < 0 && currentHealth + hpUpdate < 0) currentHealth = 0;
+            if (hpUpdate < 0 &&  hpAfterUpdate <= 0)  Die();
             //We can't have more red health than the current health containers, if the hp after update is bigger than the max hp, set it to max. 
             else if (hpUpdate > 0 && hpAfterUpdate > currentHealthContainers * 2)
                 currentHealth = currentHealthContainers * 2;
@@ -152,6 +159,23 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         {
             onUIChangeCallback.Invoke();
         }
+    }
+
+    void Die()
+    {
+        dead = true;
+        DisableHeadAndBodyRenderers();
+        GetComponent<Collider2D>().enabled = false;
+        playerGeneralAnimator.SetBool("Dead", true);
+        GameManager._instance.Invoke(nameof(Die), 2);
+    }
+
+    //Head and body have different animations.
+    //There are some animations that are full body, we need to disable head and body SR to run those.
+    void DisableHeadAndBodyRenderers()
+    {
+        headGO.GetComponent<SpriteRenderer>().enabled = false;
+        bodyGO.GetComponent<SpriteRenderer>().enabled = false;
     }
     public void UpdateCoins(int coinsUpdate)
     {
@@ -203,28 +227,30 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
     }
     public IEnumerator FlashOnInvincibility()
     {
-        while (isInvincible)
+
+        while (isInvincible && !dead)
         {
             headSR.enabled = false;
             yield return new WaitForSeconds(0.05f);
-            headSR.enabled = true;
+            if(!dead) headSR.enabled = true;
             yield return new WaitForSeconds(0.05f);
         }
     }
+    
 
-    public bool CheckIfWeCanGetMoreHp(int hpUpdate)
+    public bool CheckIfWeCanGetMoreHp()
     {
     int totalPlayerHp = currentHealth + currentBlueHealth;
 
     //We cant have more health than the maximum health
-    if (totalPlayerHp >= maxHealth)
+    if (totalPlayerHp >= maxHealth || currentHealth >= currentHealthContainers*2)
     {
         return false;
     }
     return true;
         
     }
-    public bool CheckIfWeCanGetMoreBlueHp(int hpUpdate)
+    public bool CheckIfWeCanGetMoreBlueHp()
     {
         int totalPlayerHp = currentHealth + currentBlueHealth;
         //We cant have more health than the maximum health

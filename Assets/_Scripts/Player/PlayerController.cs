@@ -52,7 +52,6 @@ using UnityEngine.UI;
 
             controls.Player.Bomb.performed += ctxt => PlaceBomb();
             controls.Player.OpenMinimap.performed += ctxt => Minimap._sharedInstance.OpenCloseMinimap();
-            controls.Player.Fire.performed += context => Debug.Log(context.control.name);
 
             controls.Player.Move.canceled += ctxt =>
             {
@@ -60,7 +59,7 @@ using UnityEngine.UI;
             };
             controls.Player.Pause.performed += ctxt =>
             {
-                if (!gameManager.pause) gameManager.Pause();
+                if (!gameManager.pause) gameManager.PauseMenu();
                 else gameManager.Resume();
             };
 
@@ -77,7 +76,7 @@ using UnityEngine.UI;
 
         void Update()
         {
-            if (GameManager._instance.pause || isKnockback)
+            if (GameManager._instance.pause || isKnockback || PlayerManager.sharedInstance.dead)
             {
                 bodyAnimator.SetBool(MOVING, false);
                 return;

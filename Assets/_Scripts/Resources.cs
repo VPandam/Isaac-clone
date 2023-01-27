@@ -83,4 +83,10 @@ public class Resources : MonoBehaviour
                 return cardinalDirections.FirstOrDefault(x => x.Value == Vector2.down).Key;
         }
     }
+
+    public IEnumerator PlayAudioClipDelayed(AudioSource audioSource, AudioClip clip, float volume, float time)
+    {
+        yield return new WaitForSeconds(time);
+        audioSource.PlayOneShot(clip, volume);
+    }
 }

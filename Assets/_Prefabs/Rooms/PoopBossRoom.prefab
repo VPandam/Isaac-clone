@@ -5,7 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 617846958980915238}
+    m_TransformParent: {fileID: 9185256815639898426}
     m_Modifications:
     - target: {fileID: 1076033074425326277, guid: bfd708112f1f7754fbb52171bc8d57ce,
         type: 3}
@@ -20,7 +20,12 @@ PrefabInstance:
     - target: {fileID: 8636619162430678776, guid: bfd708112f1f7754fbb52171bc8d57ce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636619162430678776, guid: bfd708112f1f7754fbb52171bc8d57ce,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8636619162430678776, guid: bfd708112f1f7754fbb52171bc8d57ce,
         type: 3}
@@ -193,6 +198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484354077232382566, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56, type: 3}
@@ -382,6 +392,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5a71983a67a7e4d820caf961d5bc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &9185256815639898426 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6484354077232382566, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 2775796019944319836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7168722289253375611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,7 +418,7 @@ PrefabInstance:
     - target: {fileID: 3898783019412150115, guid: 4ed78b9cb5d024349afc3e99d8db0876,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3898783019412150115, guid: 4ed78b9cb5d024349afc3e99d8db0876,
         type: 3}

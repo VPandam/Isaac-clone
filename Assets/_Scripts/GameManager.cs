@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,13 +71,17 @@ public class GameManager : MonoBehaviour
     }
     
 
-    public void Pause()
+    public void PauseMenu()
     {
-        Debug.Log("pause");
         pause = true;
         pausePanel.SetActive(true);
         EventSystem eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(firstSelectedButton);
+        Time.timeScale = 0;
+    } 
+    public void PauseTime()
+    {
+        pause = true;
         Time.timeScale = 0;
     }
 
@@ -85,6 +90,12 @@ public class GameManager : MonoBehaviour
         pause = false;
         Time.timeScale = 1;
         pausePanel.SetActive(false);
+    }
+
+    public void Die()
+    {
+        SceneManagerScript sceneManager = GetComponent<SceneManagerScript>();
+        sceneManager.LoadMainMenuScene();
     }
 
     public void ExitGame()

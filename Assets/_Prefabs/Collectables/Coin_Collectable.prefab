@@ -110,6 +110,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: fb73901a77257234e9aaf062ad329bb8, type: 3}
     - target: {fileID: 5966786227125576984, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
         type: 3}
+      propertyPath: collectableClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9480e726e9b07e840998d87e768ddc6a, type: 3}
+    - target: {fileID: 5966786227125576984, guid: fcf45b67b360e4f4aa9e936cfadbeab1,
+        type: 3}
       propertyPath: _collectableType
       value: 2
       objectReference: {fileID: 0}
