@@ -132,3 +132,4 @@ MonoBehaviour:
   _shopSlot: {fileID: 0}
   tearPrefab: {fileID: 1571294123668591775, guid: 951b75c309374574a8fbd42a9963a494,
     type: 3}
+  attackIncrease: 1

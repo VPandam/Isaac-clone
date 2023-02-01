@@ -6,7 +6,7 @@ public class Chaser : Enemy
 {
     AIDestinationSetter _destinationSetter;
     [SerializeField]private LayerMask chaserLayer;
-    private bool waiting;
+    private bool waiting, reducingSpeed;
     float separateRadius = .5f;
     protected override void Start()
     {
@@ -40,12 +40,12 @@ public class Chaser : Enemy
                 Chaser chaserOverlapped = chaser.GetComponent<Chaser>();
                 //Make sure it is a fellow enemy
                 //Check if the other enemies are stopped or waiting, when there is a chaser close to us we only want one to stop moving.
-                if (chaserOverlapped != null && chaser.transform != transform && !chaserOverlapped.stopped && !chaserOverlapped.waiting)
+                if (chaserOverlapped != null && chaser.transform != transform && !chaserOverlapped.reducingSpeed && !chaserOverlapped.waiting)
                 {
                     Debug.Log("stopped");
                     stopped = true;
-                    //Stops for .1 seconds and keeps moving if there are no other enemies close.
-                    StartCoroutine(WaitForSeconds(.1f));
+                    //Reduce the speed for a short time so the enemies dont get too close of eachother.
+                    if(!reducingSpeed) StartCoroutine(ReduceSpeed());
                 }
                 else if(!waiting)
                 {
@@ -59,6 +59,14 @@ public class Chaser : Enemy
         waiting = true;
         yield return new WaitForSeconds(seconds);
         waiting = false;
+    }IEnumerator ReduceSpeed()
+    {
+        AIBase2 ai = GetComponent<AIBase2>();
+        reducingSpeed = true;
+        ai.SetSpeed(speed/2);
+        yield return new WaitForSeconds(.5f);
+        ai.SetSpeed(speed);
+        reducingSpeed = false;
     }
     
 }

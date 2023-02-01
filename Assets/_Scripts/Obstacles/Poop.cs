@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Poop : Obstacle
 {
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private List<GameObject> poopLootList;
     bool shaking;
 
     //Shaking
@@ -28,10 +30,18 @@ public class Poop : Obstacle
             hitsForDestroy--;
             if(hitsForDestroy <= 0)
             {
+                //There is 1 chance between 20 to get loot of destroying a poo.
+                if (Random.Range(19,20) == 19) InstantiateLoot() ;
                 Destroy(col.gameObject);
                 Destroy(gameObject);
             }
         }
+    }
+
+    void InstantiateLoot()
+    {
+        Instantiate(poopLootList[Random.Range(0, poopLootList.Count)], transform.position, 
+            Quaternion.identity, Resources.sharedInstance.lootGO.transform);
     }
 
     IEnumerator ShakeOnHit()

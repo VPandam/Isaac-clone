@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -9,12 +10,16 @@ using UnityEngine;
         follow
     }
 
-
+    public enum EnemyType
+    {
+        littleFly, chaser, worm, littleSpider
+    }
     public class Enemy : MonoBehaviour, IDamageable, IExplodable
 
     {
         [HideInInspector] public GameObject player;
         [HideInInspector]public bool isKnockback, stopped;
+        
         //Componetns
         public EnemyState _currentState;
         protected SpriteRenderer _spriteRenderer;
@@ -23,12 +28,14 @@ using UnityEngine;
         public Sprite _hitSprite;
         protected AudioSource _audioSource;
         protected Animator _animator;
+        private Room currentRoom;
 
         //Stats
         public int maxHp = 3, attackDamage = 1;
         public float rangeAttack = 1, speed = 1;
         [HideInInspector] protected int currentHp = 3;
         [SerializeField] protected LayerMask roomMask, playerMask;
+        public EnemyType enemyType;
 
         //Movement
         protected float raycastRange = 1.5f;
@@ -42,6 +49,9 @@ using UnityEngine;
         protected PlayerManager playerManager;
 
         protected Resources resources;
+
+        //Clip played once independently of how many enemies there are.
+        [SerializeField] private AudioClip sharedAudioClip;
 
         private void Awake()
         {
@@ -63,9 +73,23 @@ using UnityEngine;
             moveDirection = -transform.right;
             _audioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
+            currentRoom = GetComponentInParent<Room>();
+
+            SetAndPlaySharedAudioClip();
         }
-
-
+        
+        void SetAndPlaySharedAudioClip()
+        {
+            foreach (var audioSourceEnemyType in currentRoom.audioSourceEnemyTypes)
+            {
+                if (audioSourceEnemyType.audioSource.clip == null && sharedAudioClip != null &&
+                    audioSourceEnemyType.enemyType == enemyType)
+                {
+                    audioSourceEnemyType.audioSource.clip = sharedAudioClip;
+                    audioSourceEnemyType.audioSource.Play(); 
+                }
+            }
+        }
         public void TakeDamage(int damage)
         {
             Debug.Log("TakeDamage");
@@ -83,16 +107,53 @@ using UnityEngine;
         }
         void Die()
         {
-            Room currentRoom = GetComponentInParent<Room>();
             var enemies = currentRoom.enemies;
-
             enemies.Remove(this);
             _currentState = EnemyState.dead;
+
+            //There are enemies that make a shared sound independently of how many there are.
+            StopAudioSourceIfThereAreNotMoreEnemiesOfOurTypeAlive(enemies);
+
             if (enemies.Count == 0)
             {
                 currentRoom.FinishRoom();
             }
             Destroy(gameObject);
+        }
+
+        /// <summary>
+        /// Stops the audioSource of our enemy type if there are not more enemies of our type alive.
+        /// </summary>
+        /// <param name="currentRoom"></param>
+        /// <param name="enemies"></param>
+        void StopAudioSourceIfThereAreNotMoreEnemiesOfOurTypeAlive(List<Enemy> enemies)
+        {
+            var audioSourceEnemyTypes = currentRoom.audioSourceEnemyTypes;
+
+            if (!CheckIfThereAreEnemiesOfThisTypeAlive(enemies))
+            {
+                //Look for the audioSource of our enemy type.
+                foreach (var audioSourceEnemyType in audioSourceEnemyTypes)
+                {
+                    if (audioSourceEnemyType.enemyType == enemyType)
+                    {
+                        audioSourceEnemyType.audioSource.Stop();
+                    }
+                }
+            }
+        }
+        
+        //Check if there are enemies of the same type of this class alive.
+        //This is used to able or unable a shared sound.
+        bool CheckIfThereAreEnemiesOfThisTypeAlive(List<Enemy> enemies)
+        {
+            bool ThereAreEnemiesOfThisTypeAlive = false;
+            foreach (var enemy in enemies)
+            {
+                if (enemy.enemyType == enemyType) ThereAreEnemiesOfThisTypeAlive = true;
+            }
+
+            return ThereAreEnemiesOfThisTypeAlive;
         }
 
         protected virtual IEnumerator BlinkColorDamage()

@@ -5000,7 +5000,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1d95fdfe8730849bacca41680a0cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onExplodeParticleGO: {fileID: 0}
   _particleSystem: {fileID: 6178788416300456989}
+  poopLootList:
+  - {fileID: 7099108863408330354, guid: a5c861fdaa19b164d99761511b660116, type: 3}
+  - {fileID: 2679481697313875764, guid: 402b916c4962d384fa6833afdbba3812, type: 3}
+  - {fileID: 2087689789700896073, guid: 7a444dd69e795704c99c50f499e5bdab, type: 3}
+  - {fileID: 8824979441929663282, guid: 25a6070a4ef63c64198a2909887df7f9, type: 3}
+  - {fileID: 7011714326714800511, guid: 13bc2a6655bfba14bac3f07516025c24, type: 3}
   hitsForDestroy: 3
 --- !u!61 &6134145859604345681
 BoxCollider2D:

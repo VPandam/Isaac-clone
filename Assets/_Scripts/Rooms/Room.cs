@@ -1,10 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-
+    [Serializable]
+    public struct AudioSourceEnemyType
+    {
+        public AudioSource audioSource;
+        public EnemyType enemyType;
+    }
     public class Room : MonoBehaviour
     {
         public List<Enemy> enemies = new List<Enemy>();
+        
+        //Stores each audioSource of each enemy type.
+        //This audioSources play a clip while there are enemies of their type alive.
+        public List<AudioSourceEnemyType> audioSourceEnemyTypes = new List<AudioSourceEnemyType>();
         [HideInInspector]public List<Door> doors = new List<Door>();
 
         //Sets the door state
@@ -57,7 +68,6 @@ using UnityEngine;
         private Resources resources;
         //Audio
         private AudioSource roomAudioSource;
-        [SerializeField] AudioSource enemiesAudioSource;
         [SerializeField] private AudioClip roomOpenClip, roomCloseClip;
         private void Awake()
         {
@@ -75,6 +85,7 @@ using UnityEngine;
 
             roomAudioSource = GetComponent<AudioSource>();
             resources = Resources.sharedInstance;
+            
         }
         public void FindDoors()
         {
@@ -151,8 +162,8 @@ using UnityEngine;
                 roomLooted = true;
                 var roomLootList = ItemManager.instance.roomLoot;
                 int randomIndex = Random.Range(0, roomLootList.Count);
-                GameObject rewardGO = Instantiate(roomLootList[randomIndex], roomLootGO.transform.position, Quaternion.identity);
-                rewardGO.transform.SetParent(roomLootGO.transform);
+                Instantiate(roomLootList[randomIndex], roomLootGO.transform.position, 
+                    Quaternion.identity, Resources.sharedInstance.lootGO.transform);
             }
         }
 

@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isKnockback: 0
+  stopped: 0
   _currentState: 0
   normalSprite: {fileID: 0}
   _hitSprite: {fileID: 0}
@@ -172,5 +173,6 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
+  enemyType: 3
   minMovementTime: 0.2
   maxMovementTime: 0.8

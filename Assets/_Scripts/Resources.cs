@@ -11,6 +11,9 @@ public enum CardinalDirection
 }
 public class Resources : MonoBehaviour
 {
+    //Father of all the loot we instantiate.
+    public GameObject lootGO;
+    
     public static Resources sharedInstance;
     public Dictionary<CardinalDirection, Vector2> cardinalDirections;
 

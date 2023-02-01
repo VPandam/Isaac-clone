@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        Time.timeScale = 1;
         Application.targetFrameRate = 120;
         RoomsController._instance.CreateRooms();
     }

@@ -65,6 +65,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
+  enemyType: 1
   chaserLayer:
     serializedVersion: 2
     m_Bits: 2048

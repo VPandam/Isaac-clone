@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isKnockback: 0
+  stopped: 0
   _currentState: 0
   normalSprite: {fileID: 0}
   _hitSprite: {fileID: 0}
@@ -222,6 +223,8 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
+  enemyType: 0
+  sharedAudioClip: {fileID: 8300000, guid: 7a6a20eb195875e46b019c5288cdb521, type: 3}
 --- !u!1 &7889820851793162785
 GameObject:
   m_ObjectHideFlags: 0

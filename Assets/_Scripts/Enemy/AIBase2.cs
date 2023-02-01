@@ -413,6 +413,10 @@ using Pathfinding.Util;
             maxSpeed = _enemy.speed;
         }
 
+        public void SetSpeed(float speed)
+        {
+            maxSpeed = speed;
+        }
         void Init()
         {
             if (startHasRun)
