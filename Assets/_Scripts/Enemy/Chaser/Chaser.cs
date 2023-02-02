@@ -42,7 +42,6 @@ public class Chaser : Enemy
                 //Check if the other enemies are stopped or waiting, when there is a chaser close to us we only want one to stop moving.
                 if (chaserOverlapped != null && chaser.transform != transform && !chaserOverlapped.reducingSpeed && !chaserOverlapped.waiting)
                 {
-                    Debug.Log("stopped");
                     stopped = true;
                     //Reduce the speed for a short time so the enemies dont get too close of eachother.
                     if(!reducingSpeed) StartCoroutine(ReduceSpeed());

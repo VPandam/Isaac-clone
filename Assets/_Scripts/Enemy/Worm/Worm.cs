@@ -129,7 +129,6 @@ public class Worm : Enemy
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-                Debug.Log(collision.gameObject);
             if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Room"))
             {
                 Vector2 directionToCollider = collision.GetContact(0).point - (Vector2)transform.position;

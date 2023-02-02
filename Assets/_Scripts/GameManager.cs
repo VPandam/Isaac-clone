@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     public void PauseMenu()
     {
         pause = true;
+        AudioListener.pause = true;
         pausePanel.SetActive(true);
         EventSystem eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(firstSelectedButton);
@@ -90,6 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
+        AudioListener.pause = false;
         pause = false;
         Time.timeScale = 1;
         pausePanel.SetActive(false);

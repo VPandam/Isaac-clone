@@ -53,7 +53,6 @@ public class Chest : MonoBehaviour
           float animationTime = .8f;
           var lootCollider = loot.GetComponent<Collider2D>();
           lootCollider.enabled = false;
-          Debug.Log("Transform position : " + transform.position + " RandomPosition = " + end);
 
           while (Vector3.Distance(loot.transform.position, end) >= .1f)// object has reached goal } )
           { 
@@ -67,7 +66,6 @@ public class Chest : MonoBehaviour
    
     private void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("ChestCollision");
         if(col.gameObject.CompareTag("Player") && !isOpened) OpenChest();
     }
 }

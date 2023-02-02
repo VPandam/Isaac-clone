@@ -100,7 +100,6 @@ public enum NewRoomDirection
             }
             if (!currentLevel.isGoldRoomLoaded)
             {
-                Debug.Log("NewRoomGold");
                 NewRoom(RoomType.Gold);
             }
             if (!currentLevel.isShopRoomLoaded)

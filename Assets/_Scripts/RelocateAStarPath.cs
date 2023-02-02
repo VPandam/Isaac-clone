@@ -35,7 +35,6 @@ public class RelocateAStarPath : MonoBehaviour
         {
             scanning = true;
             yield return new WaitForEndOfFrame();
-            Debug.Log("Scan");
             data.gridGraph.Scan();
             scanning = false;
         }

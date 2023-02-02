@@ -54,7 +54,6 @@ public class Bomb : MonoBehaviour
             if (explodable != null)
             {
                 explodable.Explode(bombDamage);
-                Debug.Log(collider.gameObject.name);
             }
         }
 

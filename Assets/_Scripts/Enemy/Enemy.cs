@@ -93,7 +93,6 @@ using UnityEngine;
         }
         public void TakeDamage(int damage)
         {
-            Debug.Log("TakeDamage");
             currentHp -= damage;
             StartCoroutine(BlinkColorDamage());
             if (currentHp <= 0)
@@ -167,7 +166,6 @@ using UnityEngine;
         {
             if (collision.gameObject.tag == "Player" && !playerManager.isInvincible)
             {
-                Debug.Log("PlayerCollision");
                 // Rigidbody2D playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
                 // playerRB.AddForce((collision.transform.position - transform.position).normalized,
                 // ForceMode2D.Impulse);
