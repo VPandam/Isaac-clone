@@ -7,6 +7,17 @@ public class LittleFly : FlyingEnemy
    
    //Animator params
    const string HIT = "Hit";
+
+   protected override void Start()
+   {
+      base.Start();
+      if (sharedAudioSource)
+      {
+         sharedAudioSource.loop = true;
+         sharedAudioSource.Play();
+      }
+   }
+
    protected override void FixedUpdate()
    {
       base.FixedUpdate();

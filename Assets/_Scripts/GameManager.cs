@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     private GameObject playerInstance;
 
+    [SerializeField] Transform lootGO;
+
     CanvasGroup blackScreenCG;
     [SerializeField] private GameObject blackScreenGO, pausePanel, firstSelectedButton;
 
@@ -106,9 +108,18 @@ public class GameManager : MonoBehaviour
 
     public void LoadNewLevel()
     {
+        ClearLoot();
         StartCoroutine(nameof(FadeIn), 2f );
         RoomsController._instance.LoadNewLevel();
         Invoke(nameof(ChangeRoom), 1);
+    }
+
+    void ClearLoot()
+    {
+        foreach (Transform trans in lootGO)
+        {
+            Destroy(trans.gameObject);
+        }
     }
 
     void ChangeRoom()

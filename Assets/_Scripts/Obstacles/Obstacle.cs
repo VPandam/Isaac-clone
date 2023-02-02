@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour, IExplodable
 {
     [SerializeField]private GameObject onExplodeParticleGO;
 
-    public void Explode(int damage)
+    public virtual void Explode(int damage)
     {
         if(onExplodeParticleGO) onExplodeParticleGO = Instantiate(onExplodeParticleGO, transform.position, Quaternion.identity);
         Destroy(gameObject);

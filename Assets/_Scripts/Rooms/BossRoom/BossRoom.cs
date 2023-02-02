@@ -5,11 +5,7 @@ using UnityEngine;
 public class BossRoom : Room
 {
     [SerializeField] GameObject stairsGO;
-    protected override void Start()
-    {
-        base.Start();
-        Debug.Log("BossRoomActivated");
-    }
+
 
     public override void FinishRoom()
     {

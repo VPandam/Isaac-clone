@@ -30,8 +30,7 @@ public class Poop : Obstacle
             hitsForDestroy--;
             if(hitsForDestroy <= 0)
             {
-                //There is 1 chance between 20 to get loot of destroying a poo.
-                if (Random.Range(19,20) == 19) InstantiateLoot() ;
+                InstantiateLoot() ;
                 Destroy(col.gameObject);
                 Destroy(gameObject);
             }
@@ -40,8 +39,12 @@ public class Poop : Obstacle
 
     void InstantiateLoot()
     {
-        Instantiate(poopLootList[Random.Range(0, poopLootList.Count)], transform.position, 
-            Quaternion.identity, Resources.sharedInstance.lootGO.transform);
+        //There is 1 chance between 20 to get loot of destroying a poo.
+        if (Random.Range(0,20) == 19)
+        {
+            Instantiate(poopLootList[Random.Range(0, poopLootList.Count)], transform.position,
+                Quaternion.identity, Resources.sharedInstance.lootGO.transform);
+        }
     }
 
     IEnumerator ShakeOnHit()
@@ -68,5 +71,11 @@ public class Poop : Obstacle
 
             shaking = false;
         }
-    } 
+    }
+
+    public override void Explode(int damage)
+    {
+        InstantiateLoot();
+        base.Explode(damage);
+    }
 }

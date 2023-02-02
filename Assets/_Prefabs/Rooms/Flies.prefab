@@ -468,6 +468,11 @@ PrefabInstance:
       objectReference: {fileID: 1879511994270443320}
     - target: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}
+      propertyPath: audioSourceEnemyTypes.Array.data[1].audioSource
+      value: 
+      objectReference: {fileID: 1879511994270443320}
+    - target: {fileID: 3321003733519010680, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
+        type: 3}
       propertyPath: enemiesWithSound.Array.data[0].enemiesWithSound.Array.size
       value: 8
       objectReference: {fileID: 0}

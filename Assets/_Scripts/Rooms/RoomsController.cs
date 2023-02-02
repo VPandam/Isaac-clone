@@ -65,7 +65,6 @@ public enum NewRoomDirection
         {
             cam = Camera.main.GetComponent<CameraController>();
             currentLevel = LevelManager._instance.GetLevel1();
-            Debug.Log((currentLevel) + " LevelManagerInstance");
         }
 
         public void CreateRooms()
@@ -87,7 +86,7 @@ public enum NewRoomDirection
                 roomID++;
                 InstantiateDoors(room);
             }
-            ConenctDoors();
+            ConnectDoors();
         }
 
         void InstantiateAllRooms()
@@ -101,6 +100,7 @@ public enum NewRoomDirection
             }
             if (!currentLevel.isGoldRoomLoaded)
             {
+                Debug.Log("NewRoomGold");
                 NewRoom(RoomType.Gold);
             }
             if (!currentLevel.isShopRoomLoaded)
@@ -118,7 +118,7 @@ public enum NewRoomDirection
         /// <summary>
         /// //Instantiate a room with a random prefab next to one of the loaded rooms. 
         /// </summary>
-        /// <param name="isGoldRoom">If true the room will be gold</param>
+        /// <param name="roomType">Type of the room</param>
         public void NewRoom(RoomType roomType)
         {
             bool isRoomCreated = false;
@@ -182,9 +182,11 @@ public enum NewRoomDirection
                 {
                     newRoom.transform.position = correction;
                     currentRoom = newRoom;
-
                     roomsLoaded.Add(currentRoom);
                     isRoomInPosition = true;
+                    if (newRoom.roomType == RoomType.Gold) currentLevel.isGoldRoomLoaded = true;
+                    else if (newRoom.roomType == RoomType.Shop) currentLevel.isShopRoomLoaded = true;
+                    else if (newRoom.roomType == RoomType.Boss) currentLevel.isBossRoomLoaded = true;
                 }
             }
         }
@@ -214,7 +216,6 @@ public enum NewRoomDirection
                         if (!currentLevel.isGoldRoomLoaded)
                         {
                             roomToInstantiate = goldRoomPrefab;
-                            currentLevel.isGoldRoomLoaded = true;
                             return roomToInstantiate;
                         }else roomType = RoomType.DefaultRoom;
                         break;
@@ -226,7 +227,6 @@ public enum NewRoomDirection
                         if (!currentLevel.isShopRoomLoaded)
                         {
                             roomToInstantiate = shopRoomPrefab;
-                            currentLevel.isShopRoomLoaded = true;
                             return roomToInstantiate;
                         } else roomType = RoomType.DefaultRoom;
                         break;
@@ -359,7 +359,6 @@ public enum NewRoomDirection
         /// </summary>
 
         /// <param name="baseRoom"> The base room </param>
-        /// <param name="isGoldRoom"> If true, the room will be gold. </param>
         /// <returns>True if the room is created or false if the coordinate is not free</returns>
         bool InstantiateRoomLeft(Room baseRoom)
         {
@@ -416,7 +415,6 @@ public enum NewRoomDirection
                     }
                 }
             }
-            Debug.Log("coordinateTaken " + coordinateTaken + " Coordinate " + newRoomX + " " + newRoomY);
             bool[] values = { coordinateTaken, isGold };
             return values;
         }
@@ -558,7 +556,7 @@ public enum NewRoomDirection
         /// <summary>
         /// Once all doors are instantiated, set connections between them.
         /// </summary>
-        void ConenctDoors()
+        void ConnectDoors()
         {
             foreach (var room in roomsLoaded)
             {

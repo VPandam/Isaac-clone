@@ -127,6 +127,7 @@ MonoBehaviour:
   effectDescription: +3 Blue hearts!
   _name: Shield
   _sprite: {fileID: 2012161087, guid: c429f5375d54cc74982e4e3b3cecf74f, type: 3}
+  _clipOnPowerUp: {fileID: 8300000, guid: 7c313360ed0e17e44b996b4cab253cab, type: 3}
   id: 0
   shopPrice: 15
   _shopSlot: {fileID: 0}

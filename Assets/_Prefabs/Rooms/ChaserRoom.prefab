@@ -637,6 +637,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chaser
       objectReference: {fileID: 0}
+    - target: {fileID: 1076033074425326277, guid: 1da76769dac009c4db7075216dc1b24f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2731585788839473109, guid: 1da76769dac009c4db7075216dc1b24f,
         type: 3}
       propertyPath: roomMask.m_Bits
@@ -2197,12 +2202,12 @@ PrefabInstance:
     - target: {fileID: 3346363027978666755, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6484354077232382566, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6982793919197629465, guid: 2c1ced48f1fcfda4e8b613d6595b0a56,
         type: 3}

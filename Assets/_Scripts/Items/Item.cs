@@ -13,6 +13,7 @@ using UnityEngine.Serialization;
         public string _name;
         public Sprite _sprite;
         private SpriteRenderer _spriteRenderer;
+       [SerializeField] private AudioClip _clipOnPowerUp;
         public readonly Vector2 itemSize = new Vector2(1, 1);
         [HideInInspector] public int id;
         public int shopPrice;
@@ -57,8 +58,9 @@ using UnityEngine.Serialization;
                 if (_shopSlot != null) BuyItem();
                 else
                 {  
-                Debug.Log(_name + " picked up");
-                DoEffect();
+                    Debug.Log(_name + " picked up");
+                    if(_clipOnPowerUp)AudioSource.PlayClipAtPoint(_clipOnPowerUp, transform.position);
+                    DoEffect();
                     Destroy(this.gameObject);
                 }
             }

@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour, IDamageable, IExplodable
         
     [HideInInspector] public AudioSource playerAudioSource;
 
-    public int currentHealth, currentHealthContainers, currentBlueHealth;
+    [HideInInspector]public int currentHealth, currentHealthContainers, currentBlueHealth;
     [HideInInspector] public GameObject currentTear;
 
     //Collectables

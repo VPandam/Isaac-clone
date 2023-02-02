@@ -26,7 +26,8 @@ using UnityEngine;
         protected Rigidbody2D _rb;
         [SerializeField]protected Sprite normalSprite;
         public Sprite _hitSprite;
-        protected AudioSource _audioSource;
+        //Shared audio source plays the same sound for all the enemies of the same type while there is at least one alive.
+        protected AudioSource _audioSource, sharedAudioSource;
         protected Animator _animator;
         private Room currentRoom;
 
@@ -75,18 +76,18 @@ using UnityEngine;
             _animator = GetComponent<Animator>();
             currentRoom = GetComponentInParent<Room>();
 
-            SetAndPlaySharedAudioClip();
+            SetSharedAudioClip();
         }
         
-        void SetAndPlaySharedAudioClip()
+        void SetSharedAudioClip()
         {
             foreach (var audioSourceEnemyType in currentRoom.audioSourceEnemyTypes)
             {
                 if (audioSourceEnemyType.audioSource.clip == null && sharedAudioClip != null &&
                     audioSourceEnemyType.enemyType == enemyType)
                 {
-                    audioSourceEnemyType.audioSource.clip = sharedAudioClip;
-                    audioSourceEnemyType.audioSource.Play(); 
+                    sharedAudioSource = audioSourceEnemyType.audioSource;
+                    sharedAudioSource.clip = sharedAudioClip;
                 }
             }
         }
